@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -22,6 +23,10 @@
             font-family: Arial, sans-serif;
             background: #f4efe7;
             color: #2b2722;
+        }
+
+        body.modal-open {
+            overflow: hidden;
         }
 
         nav {
@@ -250,6 +255,35 @@
             padding: 35px;
             min-height: 220px;
             border: 1px solid #e5ddd2;
+            cursor: pointer;
+            transition: 0.35s;
+            position: relative;
+        }
+
+        .service:hover {
+            transform: translateY(-6px);
+            border-color: #9a7650;
+            box-shadow: 0 15px 35px rgba(43, 39, 34, 0.08);
+        }
+
+        .service::after {
+            content: "→";
+            position: absolute;
+            right: 30px;
+            bottom: 25px;
+            color: #9a7650;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .service:hover::after {
+            transform: translateX(6px);
+        }
+
+        html[dir="rtl"] .service::after {
+            right: auto;
+            left: 30px;
+            content: "←";
         }
 
         .service-number {
@@ -345,6 +379,190 @@
             font-size: 13px;
         }
 
+        /* =========================
+           SERVICE MODAL
+        ========================= */
+
+        .service-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(20, 17, 14, 0.72);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .service-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-box {
+            width: 100%;
+            max-width: 850px;
+            max-height: 92vh;
+            overflow-y: auto;
+            background: #fff;
+            position: relative;
+            padding: 50px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            width: 38px;
+            height: 38px;
+            border: 1px solid #ddd3c5;
+            background: white;
+            color: #2b2722;
+            font-size: 23px;
+            cursor: pointer;
+            line-height: 34px;
+        }
+
+        .modal-close:hover {
+            background: #2b2722;
+            color: white;
+        }
+
+        html[dir="rtl"] .modal-close {
+            right: auto;
+            left: 25px;
+        }
+
+        .modal-label {
+            color: #9a7650;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        html[dir="rtl"] .modal-label {
+            letter-spacing: 0;
+        }
+
+        .modal-box h2 {
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            color: #756b61;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .modal-divider {
+            height: 1px;
+            background: #e5ddd2;
+            margin: 30px 0;
+        }
+
+        .form-title {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2b2722;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #ddd3c5;
+            background: #faf8f5;
+            padding: 13px 14px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #2b2722;
+            outline: none;
+            transition: 0.25s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #9a7650;
+            background: white;
+        }
+
+        .form-group textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .file-input {
+            background: #faf8f5 !important;
+            cursor: pointer;
+        }
+
+        .file-note {
+            font-size: 11px;
+            color: #8a8075;
+            margin-top: 3px;
+        }
+
+        .modal-submit {
+            margin-top: 25px;
+            width: 100%;
+            border: none;
+            background: #2b2722;
+            color: white;
+            padding: 17px 25px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .modal-submit:hover {
+            background: #9a7650;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
         @media (max-width: 900px) {
 
             nav {
@@ -435,9 +653,36 @@
             .section-title h2 {
                 font-size: 38px;
             }
+
+            .modal-box {
+                padding: 35px 22px;
+            }
+
+            .modal-box h2 {
+                font-size: 32px;
+                padding-right: 30px;
+            }
+
+            html[dir="rtl"] .modal-box h2 {
+                padding-right: 0;
+                padding-left: 30px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .service-modal {
+                padding: 15px;
+            }
         }
 
         /* Arabic */
+
         html[dir="rtl"] body {
             font-family: Arial, Tahoma, sans-serif;
         }
@@ -499,6 +744,8 @@
     </nav>
 
 
+    <!-- HERO -->
+
     <section class="hero" id="home">
 
         <div class="hero-text">
@@ -551,6 +798,8 @@
 
     </section>
 
+
+    <!-- PORTFOLIO -->
 
     <section class="projects" id="portfolio">
 
@@ -669,6 +918,8 @@
     </section>
 
 
+    <!-- SERVICES -->
+
     <section class="services" id="services">
 
         <div class="section-title">
@@ -691,7 +942,9 @@
         <div class="service-grid">
 
 
-            <div class="service">
+            <!-- SERVICE 01 -->
+
+            <div class="service" onclick="openKitchenModal()">
 
                 <div class="service-number">01</div>
 
@@ -709,6 +962,8 @@
 
             </div>
 
+
+            <!-- SERVICE 02 -->
 
             <div class="service">
 
@@ -729,6 +984,8 @@
             </div>
 
 
+            <!-- SERVICE 03 -->
+
             <div class="service">
 
                 <div class="service-number">03</div>
@@ -747,6 +1004,8 @@
 
             </div>
 
+
+            <!-- SERVICE 04 -->
 
             <div class="service">
 
@@ -767,6 +1026,8 @@
             </div>
 
 
+            <!-- SERVICE 05 -->
+
             <div class="service">
 
                 <div class="service-number">05</div>
@@ -785,6 +1046,8 @@
 
             </div>
 
+
+            <!-- SERVICE 06 -->
 
             <div class="service">
 
@@ -808,6 +1071,8 @@
 
     </section>
 
+
+    <!-- ABOUT -->
 
     <section class="about" id="about">
 
@@ -835,6 +1100,8 @@
 
     </section>
 
+
+    <!-- CONTACT -->
 
     <section class="contact" id="contact">
 
@@ -884,6 +1151,8 @@
     </section>
 
 
+    <!-- FOOTER -->
+
     <footer
         data-en="© 2026 Mohamed Abdelhady. All Rights Reserved."
         data-ar="© 2026 محمد عبد الهادي. جميع الحقوق محفوظة.">
@@ -891,7 +1160,316 @@
     </footer>
 
 
+    <!-- =========================
+         KITCHEN DESIGN MODAL
+    ========================= -->
+
+    <div class="service-modal" id="kitchenModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" onclick="closeKitchenModal()">×</button>
+
+            <div class="modal-label"
+                data-en="01 · KITCHEN DESIGN"
+                data-ar="01 · تصميم المطابخ">
+                01 · KITCHEN DESIGN
+            </div>
+
+            <h2
+                data-en="Let's Design Your Dream Kitchen."
+                data-ar="لنصمم مطبخ أحلامك.">
+                Let's Design Your Dream Kitchen.
+            </h2>
+
+            <p class="modal-description"
+                data-en="A complete kitchen design tailored to your space, lifestyle and requirements — including layout, materials, colors, technical points and high-quality 3D visualization."
+                data-ar="تصميم متكامل لمطبخك بما يتناسب مع المساحة واحتياجاتك وأسلوب استخدامك، ويشمل توزيع الوحدات والخامات والألوان والنقاط الفنية والتصور ثلاثي الأبعاد عالي الجودة.">
+                A complete kitchen design tailored to your space, lifestyle and requirements — including layout, materials, colors, technical points and high-quality 3D visualization.
+            </p>
+
+            <div class="modal-divider"></div>
+
+            <h3 class="form-title"
+                data-en="Project Details"
+                data-ar="بيانات المشروع">
+                Project Details
+            </h3>
+
+
+            <form id="kitchenForm">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label
+                            data-en="Full Name *"
+                            data-ar="الاسم بالكامل *">
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clientName"
+                            required
+                            data-placeholder-en="Your name"
+                            data-placeholder-ar="اكتب اسمك"
+                            placeholder="Your name">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            data-en="WhatsApp / Phone *"
+                            data-ar="رقم الواتساب / الهاتف *">
+                            WhatsApp / Phone *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="clientPhone"
+                            required
+                            data-placeholder-en="Your phone number"
+                            data-placeholder-ar="رقم الهاتف أو الواتساب"
+                            placeholder="Your phone number">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            data-en="Email"
+                            data-ar="البريد الإلكتروني">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="clientEmail"
+                            data-placeholder-en="Your email"
+                            data-placeholder-ar="البريد الإلكتروني"
+                            placeholder="Your email">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            data-en="Project Location *"
+                            data-ar="موقع المشروع *">
+                            Project Location *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="projectLocation"
+                            required
+                            data-placeholder-en="City / District"
+                            data-placeholder-ar="المدينة / الحي"
+                            placeholder="City / District">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            data-en="Kitchen Type"
+                            data-ar="نوع المطبخ">
+                            Kitchen Type
+                        </label>
+
+                        <select id="kitchenType">
+
+                            <option value=""
+                                data-en="Select kitchen type"
+                                data-ar="اختر نوع المطبخ">
+                                Select kitchen type
+                            </option>
+
+                            <option value="Straight"
+                                data-en="Straight Kitchen"
+                                data-ar="مطبخ خط مستقيم">
+                                Straight Kitchen
+                            </option>
+
+                            <option value="L-Shape"
+                                data-en="L-Shape Kitchen"
+                                data-ar="مطبخ حرف L">
+                                L-Shape Kitchen
+                            </option>
+
+                            <option value="U-Shape"
+                                data-en="U-Shape Kitchen"
+                                data-ar="مطبخ حرف U">
+                                U-Shape Kitchen
+                            </option>
+
+                            <option value="Island"
+                                data-en="Kitchen with Island"
+                                data-ar="مطبخ بجزيرة">
+                                Kitchen with Island
+                            </option>
+
+                            <option value="Open Kitchen"
+                                data-en="Open Kitchen"
+                                data-ar="مطبخ مفتوح">
+                                Open Kitchen
+                            </option>
+
+                            <option value="Other"
+                                data-en="Other"
+                                data-ar="أخرى">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            data-en="Approximate Kitchen Size"
+                            data-ar="المساحة التقريبية للمطبخ">
+                            Approximate Kitchen Size
+                        </label>
+
+                        <input
+                            type="text"
+                            id="kitchenSize"
+                            data-placeholder-en="Example: 4 × 3 m"
+                            data-placeholder-ar="مثال: 4 × 3 متر"
+                            placeholder="Example: 4 × 3 m">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            data-en="Preferred Style"
+                            data-ar="الستايل المفضل">
+                            Preferred Style
+                        </label>
+
+                        <select id="preferredStyle">
+
+                            <option value=""
+                                data-en="Select preferred style"
+                                data-ar="اختر الستايل">
+                                Select preferred style
+                            </option>
+
+                            <option value="Modern"
+                                data-en="Modern"
+                                data-ar="مودرن">
+                                Modern
+                            </option>
+
+                            <option value="Classic"
+                                data-en="Classic"
+                                data-ar="كلاسيك">
+                                Classic
+                            </option>
+
+                            <option value="Luxury Modern"
+                                data-en="Luxury Modern"
+                                data-ar="مودرن فاخر">
+                                Luxury Modern
+                            </option>
+
+                            <option value="Minimal"
+                                data-en="Minimal"
+                                data-ar="مينيمال">
+                                Minimal
+                            </option>
+
+                            <option value="Contemporary"
+                                data-en="Contemporary"
+                                data-ar="كونتمبوراري">
+                                Contemporary
+                            </option>
+
+                            <option value="Not Sure"
+                                data-en="Not Sure Yet"
+                                data-ar="لم أحدد بعد">
+                                Not Sure Yet
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label
+                            data-en="Upload Floor Plan"
+                            data-ar="رفع مخطط المشروع">
+                            Upload Floor Plan
+                        </label>
+
+                        <input
+                            type="file"
+                            id="floorPlan"
+                            class="file-input"
+                            accept=".jpg,.jpeg,.png,.pdf">
+
+                        <div class="file-note"
+                            data-en="JPG, PNG or PDF"
+                            data-ar="JPG أو PNG أو PDF">
+                            JPG, PNG or PDF
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label
+                            data-en="Additional Notes"
+                            data-ar="ملاحظات إضافية">
+                            Additional Notes
+                        </label>
+
+                        <textarea
+                            id="additionalNotes"
+                            data-placeholder-en="Tell me anything important about your kitchen..."
+                            data-placeholder-ar="اكتب أي تفاصيل أو متطلبات مهمة خاصة بالمطبخ..."
+                            placeholder="Tell me anything important about your kitchen..."></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit"
+                        class="modal-submit"
+                        data-en="Send Request via WhatsApp"
+                        data-ar="إرسال الطلب عبر واتساب">
+                    Send Request via WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
     <script>
+
+        /* =========================
+           LANGUAGE SYSTEM
+        ========================= */
 
         function setLanguage(language) {
 
@@ -907,21 +1485,162 @@
 
             });
 
+
+            const placeholders = document.querySelectorAll("[data-placeholder-en]");
+
+            placeholders.forEach(function(element) {
+
+                if (language === "ar") {
+                    element.placeholder = element.getAttribute("data-placeholder-ar");
+                } else {
+                    element.placeholder = element.getAttribute("data-placeholder-en");
+                }
+
+            });
+
+
             document.documentElement.lang = language;
 
+
             if (language === "ar") {
+
                 document.documentElement.dir = "rtl";
+
                 document.getElementById("arBtn").classList.add("active");
                 document.getElementById("enBtn").classList.remove("active");
+
             } else {
+
                 document.documentElement.dir = "ltr";
+
                 document.getElementById("enBtn").classList.add("active");
                 document.getElementById("arBtn").classList.remove("active");
+
             }
+
 
             localStorage.setItem("siteLanguage", language);
         }
 
+
+        /* =========================
+           KITCHEN MODAL
+        ========================= */
+
+        function openKitchenModal() {
+
+            document.getElementById("kitchenModal").classList.add("active");
+
+            document.body.classList.add("modal-open");
+
+        }
+
+
+        function closeKitchenModal() {
+
+            document.getElementById("kitchenModal").classList.remove("active");
+
+            document.body.classList.remove("modal-open");
+
+        }
+
+
+        /* Close when clicking outside */
+
+        document.getElementById("kitchenModal").addEventListener("click", function(event) {
+
+            if (event.target === this) {
+                closeKitchenModal();
+            }
+
+        });
+
+
+        /* Close with Escape */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                closeKitchenModal();
+            }
+
+        });
+
+
+        /* =========================
+           WHATSAPP FORM
+        ========================= */
+
+        document.getElementById("kitchenForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const language = document.documentElement.lang;
+
+
+            const name = document.getElementById("clientName").value.trim();
+            const phone = document.getElementById("clientPhone").value.trim();
+            const email = document.getElementById("clientEmail").value.trim();
+            const location = document.getElementById("projectLocation").value.trim();
+            const kitchenType = document.getElementById("kitchenType").value;
+            const kitchenSize = document.getElementById("kitchenSize").value.trim();
+            const style = document.getElementById("preferredStyle").value;
+            const notes = document.getElementById("additionalNotes").value.trim();
+
+            const file = document.getElementById("floorPlan").files[0];
+
+
+            let message;
+
+
+            if (language === "ar") {
+
+                message =
+                    "مرحباً مهندس محمد،%0A%0A" +
+                    "أرغب في طلب خدمة تصميم مطبخ.%0A%0A" +
+                    "الاسم: " + name + "%0A" +
+                    "رقم الواتساب / الهاتف: " + phone + "%0A" +
+                    "البريد الإلكتروني: " + (email || "غير مذكور") + "%0A" +
+                    "موقع المشروع: " + location + "%0A" +
+                    "نوع المطبخ: " + (kitchenType || "غير محدد") + "%0A" +
+                    "المساحة التقريبية: " + (kitchenSize || "غير محددة") + "%0A" +
+                    "الستايل المفضل: " + (style || "غير محدد") + "%0A" +
+                    "المخطط: " + (file ? file.name : "لم يتم رفع ملف") + "%0A" +
+                    "ملاحظات إضافية: " + (notes || "لا توجد") + "%0A%0A" +
+                    "أرغب في مناقشة تفاصيل المشروع والبدء في التصميم.";
+
+            } else {
+
+                message =
+                    "Hello Eng. Mohamed,%0A%0A" +
+                    "I would like to request a Kitchen Design service.%0A%0A" +
+                    "Name: " + name + "%0A" +
+                    "WhatsApp / Phone: " + phone + "%0A" +
+                    "Email: " + (email || "Not provided") + "%0A" +
+                    "Project Location: " + location + "%0A" +
+                    "Kitchen Type: " + (kitchenType || "Not specified") + "%0A" +
+                    "Approximate Size: " + (kitchenSize || "Not specified") + "%0A" +
+                    "Preferred Style: " + (style || "Not specified") + "%0A" +
+                    "Floor Plan: " + (file ? file.name : "No file uploaded") + "%0A" +
+                    "Additional Notes: " + (notes || "None") + "%0A%0A" +
+                    "I would like to discuss the project details and start the design process.";
+
+            }
+
+
+            const whatsappURL =
+                "https://wa.me/966552113516?text=" + message;
+
+
+            window.open(whatsappURL, "_blank");
+
+        });
+
+
+        /* =========================
+           LOAD SAVED LANGUAGE
+        ========================= */
 
         const savedLanguage = localStorage.getItem("siteLanguage") || "en";
 
@@ -930,4 +1649,6 @@
     </script>
 
 </body>
+
 </html>
+```
