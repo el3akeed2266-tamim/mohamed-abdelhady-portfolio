@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -95,6 +94,8 @@
             font-weight: 700;
         }
 
+        /* HERO */
+
         .hero {
             min-height: calc(100vh - 80px);
             display: grid;
@@ -179,6 +180,8 @@
             object-fit: cover;
         }
 
+        /* PORTFOLIO */
+
         .projects {
             padding: 100px 7%;
             background: #fff;
@@ -238,6 +241,8 @@
             color: #756b61;
             font-size: 14px;
         }
+
+        /* SERVICES */
 
         .services {
             padding: 100px 7%;
@@ -303,6 +308,8 @@
             font-size: 14px;
         }
 
+        /* ABOUT */
+
         .about {
             padding: 100px 7%;
             background: #2b2722;
@@ -332,6 +339,8 @@
             color: #ddd3c5;
         }
 
+        /* CONTACT */
+
         .contact {
             padding: 100px 7%;
             background: #fff;
@@ -340,7 +349,7 @@
         .contact-box {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
@@ -358,18 +367,83 @@
         .contact-links {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 18px;
         }
 
-        .contact-links a {
+        .contact-country {
+            border: 1px solid #e5ddd2;
+            padding: 22px;
+            background: #faf8f5;
+        }
+
+        .country-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .country-flag {
+            font-size: 27px;
+        }
+
+        .country-title h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .country-number {
+            color: #756b61;
+            font-size: 15px;
+            margin-bottom: 15px;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            text-decoration: none;
+            padding: 10px 16px;
+            border: 1px solid #2b2722;
+            color: #2b2722;
+            font-size: 13px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
+            background: #2b2722;
+            color: white;
+        }
+
+        .contact-btn.whatsapp {
+            background: #2b2722;
+            color: white;
+        }
+
+        .contact-btn.whatsapp:hover {
+            background: #9a7650;
+            border-color: #9a7650;
+        }
+
+        .email-link {
+            display: block;
             color: #2b2722;
             text-decoration: none;
-            font-size: 17px;
+            font-size: 16px;
+            margin-top: 8px;
         }
 
-        .contact-links a:hover {
+        .email-link:hover {
             color: #9a7650;
         }
+
+        /* FOOTER */
 
         footer {
             background: #2b2722;
@@ -380,7 +454,7 @@
         }
 
         /* =========================
-           SERVICE MODAL
+           SERVICE MODALS
         ========================= */
 
         .service-modal {
@@ -679,6 +753,14 @@
             .service-modal {
                 padding: 15px;
             }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                text-align: center;
+            }
         }
 
         /* Arabic */
@@ -700,10 +782,16 @@
         html[dir="rtl"] .project-info p {
             line-height: 1.9;
         }
+
+        html[dir="rtl"] .country-number {
+            text-align: right;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- NAVIGATION -->
 
     <nav>
 
@@ -712,6 +800,7 @@
         <div class="nav-right">
 
             <ul>
+
                 <li>
                     <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
                 </li>
@@ -731,12 +820,21 @@
                 <li>
                     <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
                 </li>
+
             </ul>
 
             <div class="language-switch">
-                <button id="enBtn" onclick="setLanguage('en')">EN</button>
+
+                <button id="enBtn" onclick="setLanguage('en')">
+                    EN
+                </button>
+
                 <span>|</span>
-                <button id="arBtn" onclick="setLanguage('ar')">العربية</button>
+
+                <button id="arBtn" onclick="setLanguage('ar')">
+                    العربية
+                </button>
+
             </div>
 
         </div>
@@ -775,16 +873,16 @@
             <div class="buttons">
 
                 <a href="#portfolio"
-                   class="btn btn-primary"
-                   data-en="View My Work"
-                   data-ar="شاهد أعمالي">
+                    class="btn btn-primary"
+                    data-en="View My Work"
+                    data-ar="شاهد أعمالي">
                     View My Work
                 </a>
 
                 <a href="#contact"
-                   class="btn btn-outline"
-                   data-en="Request a Design"
-                   data-ar="اطلب تصميمًا">
+                    class="btn btn-outline"
+                    data-en="Request a Design"
+                    data-ar="اطلب تصميمًا">
                     Request a Design
                 </a>
 
@@ -793,7 +891,9 @@
         </div>
 
         <div class="hero-image">
+
             <img src="images/profile.jpg" alt="Mohamed Abdelhady">
+
         </div>
 
     </section>
@@ -944,7 +1044,7 @@
 
             <!-- SERVICE 01 -->
 
-            <div class="service" onclick="openKitchenModal()">
+            <div class="service" onclick="openModal('kitchenModal')">
 
                 <div class="service-number">01</div>
 
@@ -965,7 +1065,7 @@
 
             <!-- SERVICE 02 -->
 
-            <div class="service">
+            <div class="service" onclick="openModal('shopDrawingsModal')">
 
                 <div class="service-number">02</div>
 
@@ -986,7 +1086,7 @@
 
             <!-- SERVICE 03 -->
 
-            <div class="service">
+            <div class="service" onclick="openModal('electricalModal')">
 
                 <div class="service-number">03</div>
 
@@ -1007,7 +1107,7 @@
 
             <!-- SERVICE 04 -->
 
-            <div class="service">
+            <div class="service" onclick="openModal('bedroomModal')">
 
                 <div class="service-number">04</div>
 
@@ -1028,7 +1128,7 @@
 
             <!-- SERVICE 05 -->
 
-            <div class="service">
+            <div class="service" onclick="openModal('furnitureModal')">
 
                 <div class="service-number">05</div>
 
@@ -1049,7 +1149,7 @@
 
             <!-- SERVICE 06 -->
 
-            <div class="service">
+            <div class="service" onclick="openModal('visualizationModal')">
 
                 <div class="service-number">06</div>
 
@@ -1131,18 +1231,102 @@
                     Have a project in mind? Contact me and let's discuss your design requirements.
                 </p>
 
+                <a class="email-link" href="mailto:el3akeed2266@gmail.com">
+                    ✉ el3akeed2266@gmail.com
+                </a>
+
             </div>
 
 
             <div class="contact-links">
 
-                <a href="https://wa.me/966552113516" target="_blank">
-                    WhatsApp
-                </a>
 
-                <a href="mailto:el3akeed2266@gmail.com">
-                    el3akeed2266@gmail.com
-                </a>
+                <!-- SAUDI ARABIA -->
+
+                <div class="contact-country">
+
+                    <div class="country-title">
+
+                        <span class="country-flag">🇸🇦</span>
+
+                        <h3
+                            data-en="Saudi Arabia"
+                            data-ar="السعودية">
+                            Saudi Arabia
+                        </h3>
+
+                    </div>
+
+                    <div class="country-number">
+                        +966 55 211 3516
+                    </div>
+
+                    <div class="contact-buttons">
+
+                        <a
+                            class="contact-btn"
+                            href="tel:+966552113516"
+                            data-en="📞 Call"
+                            data-ar="📞 اتصال">
+                            📞 Call
+                        </a>
+
+                        <a
+                            class="contact-btn whatsapp"
+                            href="https://wa.me/966552113516"
+                            target="_blank"
+                            data-en="💬 WhatsApp"
+                            data-ar="💬 واتساب">
+                            💬 WhatsApp
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EGYPT -->
+
+                <div class="contact-country">
+
+                    <div class="country-title">
+
+                        <span class="country-flag">🇪🇬</span>
+
+                        <h3
+                            data-en="Egypt"
+                            data-ar="مصر">
+                            Egypt
+                        </h3>
+
+                    </div>
+
+                    <div class="country-number">
+                        +20 10 9689 1552
+                    </div>
+
+                    <div class="contact-buttons">
+
+                        <a
+                            class="contact-btn"
+                            href="tel:+201096891552"
+                            data-en="📞 Call"
+                            data-ar="📞 اتصال">
+                            📞 Call
+                        </a>
+
+                        <a
+                            class="contact-btn whatsapp"
+                            href="https://wa.me/201096891552"
+                            target="_blank"
+                            data-en="💬 WhatsApp"
+                            data-ar="💬 واتساب">
+                            💬 WhatsApp
+                        </a>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -1160,15 +1344,17 @@
     </footer>
 
 
-    <!-- =========================
-         KITCHEN DESIGN MODAL
-    ========================= -->
+    <!-- =========================================================
+         MODAL 01 — KITCHEN DESIGN
+    ========================================================= -->
 
     <div class="service-modal" id="kitchenModal">
 
         <div class="modal-box">
 
-            <button class="modal-close" onclick="closeKitchenModal()">×</button>
+            <button class="modal-close" onclick="closeModal('kitchenModal')">
+                ×
+            </button>
 
             <div class="modal-label"
                 data-en="01 · KITCHEN DESIGN"
@@ -1196,96 +1382,64 @@
                 Project Details
             </h3>
 
-
-            <form id="kitchenForm">
+            <form class="service-form" data-service="Kitchen Design">
 
                 <div class="form-grid">
 
-
                     <div class="form-group">
-
-                        <label
-                            data-en="Full Name *"
-                            data-ar="الاسم بالكامل *">
+                        <label data-en="Full Name *" data-ar="الاسم بالكامل *">
                             Full Name *
                         </label>
 
-                        <input
-                            type="text"
-                            id="clientName"
-                            required
+                        <input type="text" name="name" required
                             data-placeholder-en="Your name"
                             data-placeholder-ar="اكتب اسمك"
                             placeholder="Your name">
-
                     </div>
 
 
                     <div class="form-group">
-
-                        <label
-                            data-en="WhatsApp / Phone *"
-                            data-ar="رقم الواتساب / الهاتف *">
+                        <label data-en="WhatsApp / Phone *" data-ar="رقم الواتساب / الهاتف *">
                             WhatsApp / Phone *
                         </label>
 
-                        <input
-                            type="tel"
-                            id="clientPhone"
-                            required
+                        <input type="tel" name="phone" required
                             data-placeholder-en="Your phone number"
                             data-placeholder-ar="رقم الهاتف أو الواتساب"
                             placeholder="Your phone number">
-
                     </div>
 
 
                     <div class="form-group">
-
-                        <label
-                            data-en="Email"
-                            data-ar="البريد الإلكتروني">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">
                             Email
                         </label>
 
-                        <input
-                            type="email"
-                            id="clientEmail"
+                        <input type="email" name="email"
                             data-placeholder-en="Your email"
                             data-placeholder-ar="البريد الإلكتروني"
                             placeholder="Your email">
-
                     </div>
 
 
                     <div class="form-group">
-
-                        <label
-                            data-en="Project Location *"
-                            data-ar="موقع المشروع *">
+                        <label data-en="Project Location *" data-ar="موقع المشروع *">
                             Project Location *
                         </label>
 
-                        <input
-                            type="text"
-                            id="projectLocation"
-                            required
+                        <input type="text" name="location" required
                             data-placeholder-en="City / District"
                             data-placeholder-ar="المدينة / الحي"
                             placeholder="City / District">
-
                     </div>
 
 
                     <div class="form-group">
-
-                        <label
-                            data-en="Kitchen Type"
-                            data-ar="نوع المطبخ">
+                        <label data-en="Kitchen Type" data-ar="نوع المطبخ">
                             Kitchen Type
                         </label>
 
-                        <select id="kitchenType">
+                        <select name="kitchenType">
 
                             <option value=""
                                 data-en="Select kitchen type"
@@ -1330,37 +1484,27 @@
                             </option>
 
                         </select>
-
                     </div>
 
 
                     <div class="form-group">
-
-                        <label
-                            data-en="Approximate Kitchen Size"
-                            data-ar="المساحة التقريبية للمطبخ">
+                        <label data-en="Approximate Kitchen Size" data-ar="المساحة التقريبية للمطبخ">
                             Approximate Kitchen Size
                         </label>
 
-                        <input
-                            type="text"
-                            id="kitchenSize"
+                        <input type="text" name="size"
                             data-placeholder-en="Example: 4 × 3 m"
                             data-placeholder-ar="مثال: 4 × 3 متر"
                             placeholder="Example: 4 × 3 m">
-
                     </div>
 
 
                     <div class="form-group">
-
-                        <label
-                            data-en="Preferred Style"
-                            data-ar="الستايل المفضل">
+                        <label data-en="Preferred Style" data-ar="الستايل المفضل">
                             Preferred Style
                         </label>
 
-                        <select id="preferredStyle">
+                        <select name="style">
 
                             <option value=""
                                 data-en="Select preferred style"
@@ -1405,21 +1549,452 @@
                             </option>
 
                         </select>
-
                     </div>
 
 
                     <div class="form-group">
-
-                        <label
-                            data-en="Upload Floor Plan"
-                            data-ar="رفع مخطط المشروع">
+                        <label data-en="Upload Floor Plan" data-ar="رفع مخطط المشروع">
                             Upload Floor Plan
                         </label>
 
-                        <input
-                            type="file"
-                            id="floorPlan"
+                        <input type="file" name="file"
+                            class="file-input"
+                            accept=".jpg,.jpeg,.png,.pdf">
+
+                        <div class="file-note"
+                            data-en="JPG, PNG or PDF"
+                            data-ar="JPG أو PNG أو PDF">
+                            JPG, PNG or PDF
+                        </div>
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label data-en="Additional Notes" data-ar="ملاحظات إضافية">
+                            Additional Notes
+                        </label>
+
+                        <textarea name="notes"
+                            data-placeholder-en="Tell me anything important about your kitchen..."
+                            data-placeholder-ar="اكتب أي تفاصيل أو متطلبات مهمة خاصة بالمطبخ..."
+                            placeholder="Tell me anything important about your kitchen..."></textarea>
+
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                    class="modal-submit"
+                    data-en="Send Request via WhatsApp"
+                    data-ar="إرسال الطلب عبر واتساب">
+                    Send Request via WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         MODAL 02 — SHOP DRAWINGS
+    ========================================================= -->
+
+    <div class="service-modal" id="shopDrawingsModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" onclick="closeModal('shopDrawingsModal')">
+                ×
+            </button>
+
+            <div class="modal-label"
+                data-en="02 · SHOP DRAWINGS"
+                data-ar="02 · المخططات التنفيذية">
+                02 · SHOP DRAWINGS
+            </div>
+
+            <h2
+                data-en="Precise Drawings. Ready to Execute."
+                data-ar="مخططات دقيقة. جاهزة للتنفيذ.">
+                Precise Drawings. Ready to Execute.
+            </h2>
+
+            <p class="modal-description"
+                data-en="Detailed shop drawings prepared with the dimensions, details and information required for manufacturing, installation and execution."
+                data-ar="مخططات تنفيذية تفصيلية تحتوي على الأبعاد والتفاصيل والمعلومات المطلوبة للتصنيع والتركيب والتنفيذ.">
+                Detailed shop drawings prepared with the dimensions, details and information required for manufacturing, installation and execution.
+            </p>
+
+            <div class="modal-divider"></div>
+
+            <h3 class="form-title"
+                data-en="Project Details"
+                data-ar="بيانات المشروع">
+                Project Details
+            </h3>
+
+            <form class="service-form" data-service="Shop Drawings">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label data-en="Full Name *" data-ar="الاسم بالكامل *">
+                            Full Name *
+                        </label>
+
+                        <input type="text" name="name" required
+                            placeholder="Your name"
+                            data-placeholder-en="Your name"
+                            data-placeholder-ar="اكتب اسمك">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="WhatsApp / Phone *" data-ar="رقم الواتساب / الهاتف *">
+                            WhatsApp / Phone *
+                        </label>
+
+                        <input type="tel" name="phone" required
+                            placeholder="Your phone number"
+                            data-placeholder-en="Your phone number"
+                            data-placeholder-ar="رقم الهاتف أو الواتساب">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">
+                            Email
+                        </label>
+
+                        <input type="email" name="email"
+                            placeholder="Your email"
+                            data-placeholder-en="Your email"
+                            data-placeholder-ar="البريد الإلكتروني">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Project Location" data-ar="موقع المشروع">
+                            Project Location
+                        </label>
+
+                        <input type="text" name="location"
+                            placeholder="City / District"
+                            data-placeholder-en="City / District"
+                            data-placeholder-ar="المدينة / الحي">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Drawing Type" data-ar="نوع المخططات">
+                            Drawing Type
+                        </label>
+
+                        <select name="drawingType">
+
+                            <option value=""
+                                data-en="Select drawing type"
+                                data-ar="اختر نوع المخططات">
+                                Select drawing type
+                            </option>
+
+                            <option value="Kitchen Shop Drawings"
+                                data-en="Kitchen Shop Drawings"
+                                data-ar="مخططات تنفيذية للمطبخ">
+                                Kitchen Shop Drawings
+                            </option>
+
+                            <option value="Wardrobe Drawings"
+                                data-en="Wardrobe Drawings"
+                                data-ar="مخططات خزائن">
+                                Wardrobe Drawings
+                            </option>
+
+                            <option value="Furniture Drawings"
+                                data-en="Furniture Drawings"
+                                data-ar="مخططات أثاث">
+                                Furniture Drawings
+                            </option>
+
+                            <option value="Full Set"
+                                data-en="Full Set"
+                                data-ar="مجموعة مخططات كاملة">
+                                Full Set
+                            </option>
+
+                            <option value="Other"
+                                data-en="Other"
+                                data-ar="أخرى">
+                                Other
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Existing CAD / SketchUp Available?" data-ar="هل يوجد ملف CAD / SketchUp؟">
+                            Existing CAD / SketchUp Available?
+                        </label>
+
+                        <select name="existingFile">
+
+                            <option value=""
+                                data-en="Select"
+                                data-ar="اختر">
+                                Select
+                            </option>
+
+                            <option value="Yes"
+                                data-en="Yes"
+                                data-ar="نعم">
+                                Yes
+                            </option>
+
+                            <option value="No"
+                                data-en="No"
+                                data-ar="لا">
+                                No
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Dimensions / Project Size" data-ar="الأبعاد / مساحة المشروع">
+                            Dimensions / Project Size
+                        </label>
+
+                        <input type="text" name="size"
+                            placeholder="Example: 4 × 3 m"
+                            data-placeholder-en="Example: 4 × 3 m"
+                            data-placeholder-ar="مثال: 4 × 3 متر">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Upload Drawing / Reference" data-ar="رفع المخطط / المرجع">
+                            Upload Drawing / Reference
+                        </label>
+
+                        <input type="file" name="file"
+                            class="file-input"
+                            accept=".jpg,.jpeg,.png,.pdf,.dwg,.skp">
+
+                        <div class="file-note"
+                            data-en="JPG, PNG, PDF, DWG or SKP"
+                            data-ar="JPG أو PNG أو PDF أو DWG أو SKP">
+                            JPG, PNG, PDF, DWG or SKP
+                        </div>
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label data-en="Additional Notes" data-ar="ملاحظات إضافية">
+                            Additional Notes
+                        </label>
+
+                        <textarea name="notes"
+                            placeholder="Tell me about the drawings you need..."
+                            data-placeholder-en="Tell me about the drawings you need..."
+                            data-placeholder-ar="اكتب تفاصيل المخططات المطلوبة..."></textarea>
+
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                    class="modal-submit"
+                    data-en="Request Shop Drawings via WhatsApp"
+                    data-ar="طلب المخططات التنفيذية عبر واتساب">
+                    Request Shop Drawings via WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         MODAL 03 — ELECTRICAL & PLUMBING
+    ========================================================= -->
+
+    <div class="service-modal" id="electricalModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" onclick="closeModal('electricalModal')">
+                ×
+            </button>
+
+            <div class="modal-label"
+                data-en="03 · ELECTRICAL & PLUMBING"
+                data-ar="03 · الكهرباء والسباكة">
+                03 · ELECTRICAL & PLUMBING
+            </div>
+
+            <h2
+                data-en="Plan Every Technical Point."
+                data-ar="خطط لكل نقطة فنية بدقة.">
+                Plan Every Technical Point.
+            </h2>
+
+            <p class="modal-description"
+                data-en="Accurate electrical and plumbing locations coordinated with the interior design to make installation easier and avoid costly mistakes."
+                data-ar="تحديد دقيق لأماكن الكهرباء والسباكة بما يتوافق مع التصميم الداخلي لتسهيل التنفيذ وتجنب الأخطاء والتعديلات المكلفة.">
+                Accurate electrical and plumbing locations coordinated with the interior design to make installation easier and avoid costly mistakes.
+            </p>
+
+            <div class="modal-divider"></div>
+
+            <h3 class="form-title"
+                data-en="Project Details"
+                data-ar="بيانات المشروع">
+                Project Details
+            </h3>
+
+            <form class="service-form" data-service="Electrical & Plumbing">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label data-en="Full Name *" data-ar="الاسم بالكامل *">
+                            Full Name *
+                        </label>
+
+                        <input type="text" name="name" required
+                            placeholder="Your name"
+                            data-placeholder-en="Your name"
+                            data-placeholder-ar="اكتب اسمك">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="WhatsApp / Phone *" data-ar="رقم الواتساب / الهاتف *">
+                            WhatsApp / Phone *
+                        </label>
+
+                        <input type="tel" name="phone" required
+                            placeholder="Your phone number"
+                            data-placeholder-en="Your phone number"
+                            data-placeholder-ar="رقم الهاتف أو الواتساب">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">
+                            Email
+                        </label>
+
+                        <input type="email" name="email"
+                            placeholder="Your email"
+                            data-placeholder-en="Your email"
+                            data-placeholder-ar="البريد الإلكتروني">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Project Location" data-ar="موقع المشروع">
+                            Project Location
+                        </label>
+
+                        <input type="text" name="location"
+                            placeholder="City / District"
+                            data-placeholder-en="City / District"
+                            data-placeholder-ar="المدينة / الحي">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Space Type" data-ar="نوع المساحة">
+                            Space Type
+                        </label>
+
+                        <select name="spaceType">
+
+                            <option value=""
+                                data-en="Select space type"
+                                data-ar="اختر نوع المساحة">
+                                Select space type
+                            </option>
+
+                            <option value="Kitchen"
+                                data-en="Kitchen"
+                                data-ar="مطبخ">
+                                Kitchen
+                            </option>
+
+                            <option value="Bedroom"
+                                data-en="Bedroom"
+                                data-ar="غرفة نوم">
+                                Bedroom
+                            </option>
+
+                            <option value="Full Interior"
+                                data-en="Full Interior"
+                                data-ar="تصميم داخلي كامل">
+                                Full Interior
+                            </option>
+
+                            <option value="Other"
+                                data-en="Other"
+                                data-ar="أخرى">
+                                Other
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Project Status" data-ar="حالة المشروع">
+                            Project Status
+                        </label>
+
+                        <select name="status">
+
+                            <option value=""
+                                data-en="Select status"
+                                data-ar="اختر الحالة">
+                                Select status
+                            </option>
+
+                            <option value="New Project"
+                                data-en="New Project"
+                                data-ar="مشروع جديد">
+                                New Project
+                            </option>
+
+                            <option value="Existing Project"
+                                data-en="Existing Project"
+                                data-ar="مشروع قائم">
+                                Existing Project
+                            </option>
+
+                            <option value="Renovation"
+                                data-en="Renovation"
+                                data-ar="تجديد">
+                                Renovation
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label data-en="Upload Floor Plan" data-ar="رفع مخطط المشروع">
+                            Upload Floor Plan
+                        </label>
+
+                        <input type="file" name="file"
                             class="file-input"
                             accept=".jpg,.jpeg,.png,.pdf">
 
@@ -1434,28 +2009,24 @@
 
                     <div class="form-group full">
 
-                        <label
-                            data-en="Additional Notes"
-                            data-ar="ملاحظات إضافية">
+                        <label data-en="Additional Notes" data-ar="ملاحظات إضافية">
                             Additional Notes
                         </label>
 
-                        <textarea
-                            id="additionalNotes"
-                            data-placeholder-en="Tell me anything important about your kitchen..."
-                            data-placeholder-ar="اكتب أي تفاصيل أو متطلبات مهمة خاصة بالمطبخ..."
-                            placeholder="Tell me anything important about your kitchen..."></textarea>
+                        <textarea name="notes"
+                            placeholder="Tell me about the technical requirements..."
+                            data-placeholder-en="Tell me about the technical requirements..."
+                            data-placeholder-ar="اكتب المتطلبات الفنية للمشروع..."></textarea>
 
                     </div>
 
                 </div>
 
-
                 <button type="submit"
-                        class="modal-submit"
-                        data-en="Send Request via WhatsApp"
-                        data-ar="إرسال الطلب عبر واتساب">
-                    Send Request via WhatsApp
+                    class="modal-submit"
+                    data-en="Request Service via WhatsApp"
+                    data-ar="طلب الخدمة عبر واتساب">
+                    Request Service via WhatsApp
                 </button>
 
             </form>
@@ -1464,6 +2035,726 @@
 
     </div>
 
+
+    <!-- =========================================================
+         MODAL 04 — BEDROOM DESIGN
+    ========================================================= -->
+
+    <div class="service-modal" id="bedroomModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" onclick="closeModal('bedroomModal')">
+                ×
+            </button>
+
+            <div class="modal-label"
+                data-en="04 · BEDROOM DESIGN"
+                data-ar="04 · تصميم غرف النوم">
+                04 · BEDROOM DESIGN
+            </div>
+
+            <h2
+                data-en="A Bedroom Designed Around You."
+                data-ar="غرفة نوم مصممة حول احتياجاتك.">
+                A Bedroom Designed Around You.
+            </h2>
+
+            <p class="modal-description"
+                data-en="Functional and elegant bedroom design including furniture layout, wardrobes, materials, colors and complete 3D visualization."
+                data-ar="تصميم عملي وأنيق لغرفة النوم يشمل توزيع الأثاث والخزائن والخامات والألوان والتصور ثلاثي الأبعاد الكامل.">
+                Functional and elegant bedroom design including furniture layout, wardrobes, materials, colors and complete 3D visualization.
+            </p>
+
+            <div class="modal-divider"></div>
+
+            <h3 class="form-title"
+                data-en="Project Details"
+                data-ar="بيانات المشروع">
+                Project Details
+            </h3>
+
+            <form class="service-form" data-service="Bedroom Design">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label data-en="Full Name *" data-ar="الاسم بالكامل *">
+                            Full Name *
+                        </label>
+
+                        <input type="text" name="name" required
+                            placeholder="Your name"
+                            data-placeholder-en="Your name"
+                            data-placeholder-ar="اكتب اسمك">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="WhatsApp / Phone *" data-ar="رقم الواتساب / الهاتف *">
+                            WhatsApp / Phone *
+                        </label>
+
+                        <input type="tel" name="phone" required
+                            placeholder="Your phone number"
+                            data-placeholder-en="Your phone number"
+                            data-placeholder-ar="رقم الهاتف أو الواتساب">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">
+                            Email
+                        </label>
+
+                        <input type="email" name="email"
+                            placeholder="Your email"
+                            data-placeholder-en="Your email"
+                            data-placeholder-ar="البريد الإلكتروني">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Project Location" data-ar="موقع المشروع">
+                            Project Location
+                        </label>
+
+                        <input type="text" name="location"
+                            placeholder="City / District"
+                            data-placeholder-en="City / District"
+                            data-placeholder-ar="المدينة / الحي">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Room Size" data-ar="مساحة الغرفة">
+                            Room Size
+                        </label>
+
+                        <input type="text" name="size"
+                            placeholder="Example: 5 × 4 m"
+                            data-placeholder-en="Example: 5 × 4 m"
+                            data-placeholder-ar="مثال: 5 × 4 متر">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Bedroom Type" data-ar="نوع غرفة النوم">
+                            Bedroom Type
+                        </label>
+
+                        <select name="bedroomType">
+
+                            <option value=""
+                                data-en="Select bedroom type"
+                                data-ar="اختر نوع الغرفة">
+                                Select bedroom type
+                            </option>
+
+                            <option value="Master Bedroom"
+                                data-en="Master Bedroom"
+                                data-ar="غرفة نوم رئيسية">
+                                Master Bedroom
+                            </option>
+
+                            <option value="Kids Bedroom"
+                                data-en="Kids Bedroom"
+                                data-ar="غرفة أطفال">
+                                Kids Bedroom
+                            </option>
+
+                            <option value="Guest Bedroom"
+                                data-en="Guest Bedroom"
+                                data-ar="غرفة ضيوف">
+                                Guest Bedroom
+                            </option>
+
+                            <option value="Other"
+                                data-en="Other"
+                                data-ar="أخرى">
+                                Other
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Preferred Style" data-ar="الستايل المفضل">
+                            Preferred Style
+                        </label>
+
+                        <select name="style">
+
+                            <option value=""
+                                data-en="Select preferred style"
+                                data-ar="اختر الستايل">
+                                Select preferred style
+                            </option>
+
+                            <option value="Modern"
+                                data-en="Modern"
+                                data-ar="مودرن">
+                                Modern
+                            </option>
+
+                            <option value="Luxury Modern"
+                                data-en="Luxury Modern"
+                                data-ar="مودرن فاخر">
+                                Luxury Modern
+                            </option>
+
+                            <option value="Classic"
+                                data-en="Classic"
+                                data-ar="كلاسيك">
+                                Classic
+                            </option>
+
+                            <option value="Minimal"
+                                data-en="Minimal"
+                                data-ar="مينيمال">
+                                Minimal
+                            </option>
+
+                            <option value="Not Sure"
+                                data-en="Not Sure Yet"
+                                data-ar="لم أحدد بعد">
+                                Not Sure Yet
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Need Wardrobe?" data-ar="هل تحتاج إلى خزانة؟">
+                            Need Wardrobe?
+                        </label>
+
+                        <select name="wardrobe">
+
+                            <option value=""
+                                data-en="Select"
+                                data-ar="اختر">
+                                Select
+                            </option>
+
+                            <option value="Yes"
+                                data-en="Yes"
+                                data-ar="نعم">
+                                Yes
+                            </option>
+
+                            <option value="No"
+                                data-en="No"
+                                data-ar="لا">
+                                No
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label data-en="Upload Floor Plan" data-ar="رفع مخطط المشروع">
+                            Upload Floor Plan
+                        </label>
+
+                        <input type="file" name="file"
+                            class="file-input"
+                            accept=".jpg,.jpeg,.png,.pdf">
+
+                        <div class="file-note"
+                            data-en="JPG, PNG or PDF"
+                            data-ar="JPG أو PNG أو PDF">
+                            JPG, PNG or PDF
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label data-en="Additional Notes" data-ar="ملاحظات إضافية">
+                            Additional Notes
+                        </label>
+
+                        <textarea name="notes"
+                            placeholder="Tell me about your bedroom..."
+                            data-placeholder-en="Tell me about your bedroom..."
+                            data-placeholder-ar="اكتب تفاصيل ومتطلبات غرفة النوم..."></textarea>
+
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                    class="modal-submit"
+                    data-en="Request Bedroom Design via WhatsApp"
+                    data-ar="طلب تصميم غرفة النوم عبر واتساب">
+                    Request Bedroom Design via WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         MODAL 05 — FURNITURE DESIGN
+    ========================================================= -->
+
+    <div class="service-modal" id="furnitureModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" onclick="closeModal('furnitureModal')">
+                ×
+            </button>
+
+            <div class="modal-label"
+                data-en="05 · FURNITURE DESIGN"
+                data-ar="05 · تصميم الأثاث">
+                05 · FURNITURE DESIGN
+            </div>
+
+            <h2
+                data-en="Furniture Made for Your Space."
+                data-ar="أثاث مصمم خصيصًا لمساحتك.">
+                Furniture Made for Your Space.
+            </h2>
+
+            <p class="modal-description"
+                data-en="Custom furniture design developed around your space, dimensions, style and functional requirements."
+                data-ar="تصميم أثاث مخصص وفقًا للمساحة والأبعاد والستايل ومتطلبات الاستخدام الخاصة بك.">
+                Custom furniture design developed around your space, dimensions, style and functional requirements.
+            </p>
+
+            <div class="modal-divider"></div>
+
+            <h3 class="form-title"
+                data-en="Project Details"
+                data-ar="بيانات المشروع">
+                Project Details
+            </h3>
+
+            <form class="service-form" data-service="Furniture Design">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label data-en="Full Name *" data-ar="الاسم بالكامل *">
+                            Full Name *
+                        </label>
+
+                        <input type="text" name="name" required
+                            placeholder="Your name"
+                            data-placeholder-en="Your name"
+                            data-placeholder-ar="اكتب اسمك">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="WhatsApp / Phone *" data-ar="رقم الواتساب / الهاتف *">
+                            WhatsApp / Phone *
+                        </label>
+
+                        <input type="tel" name="phone" required
+                            placeholder="Your phone number"
+                            data-placeholder-en="Your phone number"
+                            data-placeholder-ar="رقم الهاتف أو الواتساب">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">
+                            Email
+                        </label>
+
+                        <input type="email" name="email"
+                            placeholder="Your email"
+                            data-placeholder-en="Your email"
+                            data-placeholder-ar="البريد الإلكتروني">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Project Location" data-ar="موقع المشروع">
+                            Project Location
+                        </label>
+
+                        <input type="text" name="location"
+                            placeholder="City / District"
+                            data-placeholder-en="City / District"
+                            data-placeholder-ar="المدينة / الحي">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Furniture Type" data-ar="نوع الأثاث">
+                            Furniture Type
+                        </label>
+
+                        <select name="furnitureType">
+
+                            <option value=""
+                                data-en="Select furniture type"
+                                data-ar="اختر نوع الأثاث">
+                                Select furniture type
+                            </option>
+
+                            <option value="TV Unit"
+                                data-en="TV Unit"
+                                data-ar="وحدة تلفزيون">
+                                TV Unit
+                            </option>
+
+                            <option value="Wardrobe"
+                                data-en="Wardrobe"
+                                data-ar="خزانة">
+                                Wardrobe
+                            </option>
+
+                            <option value="Bed"
+                                data-en="Bed"
+                                data-ar="سرير">
+                                Bed
+                            </option>
+
+                            <option value="Console"
+                                data-en="Console"
+                                data-ar="كونسول">
+                                Console
+                            </option>
+
+                            <option value="Custom Furniture"
+                                data-en="Custom Furniture"
+                                data-ar="أثاث مخصص">
+                                Custom Furniture
+                            </option>
+
+                            <option value="Other"
+                                data-en="Other"
+                                data-ar="أخرى">
+                                Other
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Approximate Dimensions" data-ar="الأبعاد التقريبية">
+                            Approximate Dimensions
+                        </label>
+
+                        <input type="text" name="size"
+                            placeholder="Example: 240 × 45 × 220 cm"
+                            data-placeholder-en="Example: 240 × 45 × 220 cm"
+                            data-placeholder-ar="مثال: 240 × 45 × 220 سم">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Preferred Style / Material" data-ar="الستايل / الخامة المفضلة">
+                            Preferred Style / Material
+                        </label>
+
+                        <input type="text" name="style"
+                            placeholder="Example: Modern / Wood / MDF"
+                            data-placeholder-en="Example: Modern / Wood / MDF"
+                            data-placeholder-ar="مثال: مودرن / خشب / MDF">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Upload Reference" data-ar="رفع صورة مرجعية">
+                            Upload Reference
+                        </label>
+
+                        <input type="file" name="file"
+                            class="file-input"
+                            accept=".jpg,.jpeg,.png,.pdf">
+
+                        <div class="file-note"
+                            data-en="JPG, PNG or PDF"
+                            data-ar="JPG أو PNG أو PDF">
+                            JPG, PNG or PDF
+                        </div>
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label data-en="Additional Notes" data-ar="ملاحظات إضافية">
+                            Additional Notes
+                        </label>
+
+                        <textarea name="notes"
+                            placeholder="Tell me about the furniture you need..."
+                            data-placeholder-en="Tell me about the furniture you need..."
+                            data-placeholder-ar="اكتب تفاصيل الأثاث المطلوب..."></textarea>
+
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                    class="modal-submit"
+                    data-en="Request Furniture Design via WhatsApp"
+                    data-ar="طلب تصميم الأثاث عبر واتساب">
+                    Request Furniture Design via WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         MODAL 06 — 3D VISUALIZATION
+    ========================================================= -->
+
+    <div class="service-modal" id="visualizationModal">
+
+        <div class="modal-box">
+
+            <button class="modal-close" onclick="closeModal('visualizationModal')">
+                ×
+            </button>
+
+            <div class="modal-label"
+                data-en="06 · 3D VISUALIZATION"
+                data-ar="06 · التصميم ثلاثي الأبعاد">
+                06 · 3D VISUALIZATION
+            </div>
+
+            <h2
+                data-en="See Your Space Before It Becomes Real."
+                data-ar="شاهد مساحتك قبل أن تصبح حقيقة.">
+                See Your Space Before It Becomes Real.
+            </h2>
+
+            <p class="modal-description"
+                data-en="High-quality 3D visualization and realistic renders that help you understand the design, materials, lighting and atmosphere before execution."
+                data-ar="تصورات ثلاثية الأبعاد ورندرات واقعية عالية الجودة تساعدك على رؤية التصميم والخامات والإضاءة والأجواء قبل التنفيذ.">
+                High-quality 3D visualization and realistic renders that help you understand the design, materials, lighting and atmosphere before execution.
+            </p>
+
+            <div class="modal-divider"></div>
+
+            <h3 class="form-title"
+                data-en="Project Details"
+                data-ar="بيانات المشروع">
+                Project Details
+            </h3>
+
+            <form class="service-form" data-service="3D Visualization">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label data-en="Full Name *" data-ar="الاسم بالكامل *">
+                            Full Name *
+                        </label>
+
+                        <input type="text" name="name" required
+                            placeholder="Your name"
+                            data-placeholder-en="Your name"
+                            data-placeholder-ar="اكتب اسمك">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="WhatsApp / Phone *" data-ar="رقم الواتساب / الهاتف *">
+                            WhatsApp / Phone *
+                        </label>
+
+                        <input type="tel" name="phone" required
+                            placeholder="Your phone number"
+                            data-placeholder-en="Your phone number"
+                            data-placeholder-ar="رقم الهاتف أو الواتساب">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">
+                            Email
+                        </label>
+
+                        <input type="email" name="email"
+                            placeholder="Your email"
+                            data-placeholder-en="Your email"
+                            data-placeholder-ar="البريد الإلكتروني">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Project Location" data-ar="موقع المشروع">
+                            Project Location
+                        </label>
+
+                        <input type="text" name="location"
+                            placeholder="City / District"
+                            data-placeholder-en="City / District"
+                            data-placeholder-ar="المدينة / الحي">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Space Type" data-ar="نوع المساحة">
+                            Space Type
+                        </label>
+
+                        <select name="spaceType">
+
+                            <option value=""
+                                data-en="Select space type"
+                                data-ar="اختر نوع المساحة">
+                                Select space type
+                            </option>
+
+                            <option value="Kitchen"
+                                data-en="Kitchen"
+                                data-ar="مطبخ">
+                                Kitchen
+                            </option>
+
+                            <option value="Bedroom"
+                                data-en="Bedroom"
+                                data-ar="غرفة نوم">
+                                Bedroom
+                            </option>
+
+                            <option value="Living Room"
+                                data-en="Living Room"
+                                data-ar="غرفة معيشة">
+                                Living Room
+                            </option>
+
+                            <option value="Full Interior"
+                                data-en="Full Interior"
+                                data-ar="تصميم داخلي كامل">
+                                Full Interior
+                            </option>
+
+                            <option value="Other"
+                                data-en="Other"
+                                data-ar="أخرى">
+                                Other
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Number of Views" data-ar="عدد المناظير المطلوبة">
+                            Number of Views
+                        </label>
+
+                        <select name="views">
+
+                            <option value=""
+                                data-en="Select number"
+                                data-ar="اختر العدد">
+                                Select number
+                            </option>
+
+                            <option value="1 View"
+                                data-en="1 View"
+                                data-ar="منظور واحد">
+                                1 View
+                            </option>
+
+                            <option value="2 Views"
+                                data-en="2 Views"
+                                data-ar="منظوران">
+                                2 Views
+                            </option>
+
+                            <option value="3 Views"
+                                data-en="3 Views"
+                                data-ar="3 مناظير">
+                                3 Views
+                            </option>
+
+                            <option value="4+ Views"
+                                data-en="4+ Views"
+                                data-ar="4 مناظير أو أكثر">
+                                4+ Views
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Preferred Style" data-ar="الستايل المفضل">
+                            Preferred Style
+                        </label>
+
+                        <input type="text" name="style"
+                            placeholder="Example: Luxury Modern"
+                            data-placeholder-en="Example: Luxury Modern"
+                            data-placeholder-ar="مثال: مودرن فاخر">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label data-en="Upload Plan / Model / Reference" data-ar="رفع المخطط / الموديل / المرجع">
+                            Upload Plan / Model / Reference
+                        </label>
+
+                        <input type="file" name="file"
+                            class="file-input"
+                            accept=".jpg,.jpeg,.png,.pdf,.skp,.dwg">
+
+                        <div class="file-note"
+                            data-en="JPG, PNG, PDF, SKP or DWG"
+                            data-ar="JPG أو PNG أو PDF أو SKP أو DWG">
+                            JPG, PNG, PDF, SKP or DWG
+                        </div>
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label data-en="Additional Notes" data-ar="ملاحظات إضافية">
+                            Additional Notes
+                        </label>
+
+                        <textarea name="notes"
+                            placeholder="Tell me about the visualization you need..."
+                            data-placeholder-en="Tell me about the visualization you need..."
+                            data-placeholder-ar="اكتب تفاصيل التصور أو الرندر المطلوب..."></textarea>
+
+                    </div>
+
+                </div>
+
+                <button type="submit"
+                    class="modal-submit"
+                    data-en="Request 3D Visualization via WhatsApp"
+                    data-ar="طلب التصميم ثلاثي الأبعاد عبر واتساب">
+                    Request 3D Visualization via WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
 
     <script>
 
@@ -1520,129 +2811,301 @@
 
 
             localStorage.setItem("siteLanguage", language);
+
         }
 
 
         /* =========================
-           KITCHEN MODAL
+           OPEN MODAL
         ========================= */
 
-        function openKitchenModal() {
+        function openModal(modalId) {
 
-            document.getElementById("kitchenModal").classList.add("active");
+            document.getElementById(modalId).classList.add("active");
 
             document.body.classList.add("modal-open");
 
         }
 
 
-        function closeKitchenModal() {
+        /* =========================
+           CLOSE MODAL
+        ========================= */
 
-            document.getElementById("kitchenModal").classList.remove("active");
+        function closeModal(modalId) {
+
+            document.getElementById(modalId).classList.remove("active");
 
             document.body.classList.remove("modal-open");
 
         }
 
 
-        /* Close when clicking outside */
+        /* =========================
+           CLOSE MODAL WHEN CLICKING
+           OUTSIDE THE BOX
+        ========================= */
 
-        document.getElementById("kitchenModal").addEventListener("click", function(event) {
+        document.querySelectorAll(".service-modal").forEach(function(modal) {
 
-            if (event.target === this) {
-                closeKitchenModal();
-            }
+            modal.addEventListener("click", function(event) {
+
+                if (event.target === modal) {
+
+                    closeModal(modal.id);
+
+                }
+
+            });
 
         });
 
 
-        /* Close with Escape */
+        /* =========================
+           ESCAPE KEY
+        ========================= */
 
         document.addEventListener("keydown", function(event) {
 
             if (event.key === "Escape") {
-                closeKitchenModal();
+
+                document.querySelectorAll(".service-modal.active").forEach(function(modal) {
+
+                    closeModal(modal.id);
+
+                });
+
             }
 
         });
 
 
         /* =========================
-           WHATSAPP FORM
+           WHATSAPP FORM SYSTEM
         ========================= */
 
-        document.getElementById("kitchenForm").addEventListener("submit", function(event) {
+        document.querySelectorAll(".service-form").forEach(function(form) {
 
-            event.preventDefault();
+            form.addEventListener("submit", function(event) {
 
-
-            const language = document.documentElement.lang;
-
-
-            const name = document.getElementById("clientName").value.trim();
-            const phone = document.getElementById("clientPhone").value.trim();
-            const email = document.getElementById("clientEmail").value.trim();
-            const location = document.getElementById("projectLocation").value.trim();
-            const kitchenType = document.getElementById("kitchenType").value;
-            const kitchenSize = document.getElementById("kitchenSize").value.trim();
-            const style = document.getElementById("preferredStyle").value;
-            const notes = document.getElementById("additionalNotes").value.trim();
-
-            const file = document.getElementById("floorPlan").files[0];
+                event.preventDefault();
 
 
-            let message;
+                const language = document.documentElement.lang;
+
+                const service = form.getAttribute("data-service");
+
+                const formData = new FormData(form);
+
+                const fileInput = form.querySelector('input[type="file"]');
+
+                const file = fileInput && fileInput.files.length
+                    ? fileInput.files[0].name
+                    : (language === "ar" ? "لم يتم رفع ملف" : "No file uploaded");
 
 
-            if (language === "ar") {
-
-                message =
-                    "مرحباً مهندس محمد،%0A%0A" +
-                    "أرغب في طلب خدمة تصميم مطبخ.%0A%0A" +
-                    "الاسم: " + name + "%0A" +
-                    "رقم الواتساب / الهاتف: " + phone + "%0A" +
-                    "البريد الإلكتروني: " + (email || "غير مذكور") + "%0A" +
-                    "موقع المشروع: " + location + "%0A" +
-                    "نوع المطبخ: " + (kitchenType || "غير محدد") + "%0A" +
-                    "المساحة التقريبية: " + (kitchenSize || "غير محددة") + "%0A" +
-                    "الستايل المفضل: " + (style || "غير محدد") + "%0A" +
-                    "المخطط: " + (file ? file.name : "لم يتم رفع ملف") + "%0A" +
-                    "ملاحظات إضافية: " + (notes || "لا توجد") + "%0A%0A" +
-                    "أرغب في مناقشة تفاصيل المشروع والبدء في التصميم.";
-
-            } else {
-
-                message =
-                    "Hello Eng. Mohamed,%0A%0A" +
-                    "I would like to request a Kitchen Design service.%0A%0A" +
-                    "Name: " + name + "%0A" +
-                    "WhatsApp / Phone: " + phone + "%0A" +
-                    "Email: " + (email || "Not provided") + "%0A" +
-                    "Project Location: " + location + "%0A" +
-                    "Kitchen Type: " + (kitchenType || "Not specified") + "%0A" +
-                    "Approximate Size: " + (kitchenSize || "Not specified") + "%0A" +
-                    "Preferred Style: " + (style || "Not specified") + "%0A" +
-                    "Floor Plan: " + (file ? file.name : "No file uploaded") + "%0A" +
-                    "Additional Notes: " + (notes || "None") + "%0A%0A" +
-                    "I would like to discuss the project details and start the design process.";
-
-            }
+                let message;
 
 
-            const whatsappURL =
-                "https://wa.me/966552113516?text=" + message;
+                if (language === "ar") {
+
+                    message =
+                        "مرحباً مهندس محمد،\n\n" +
+                        "أرغب في طلب خدمة: " + service + "\n\n";
 
 
-            window.open(whatsappURL, "_blank");
+                    formData.forEach(function(value, key) {
+
+                        if (key === "name") {
+                            message += "الاسم: " + value + "\n";
+                        }
+
+                        else if (key === "phone") {
+                            message += "رقم الواتساب / الهاتف: " + value + "\n";
+                        }
+
+                        else if (key === "email") {
+                            message += "البريد الإلكتروني: " + (value || "غير مذكور") + "\n";
+                        }
+
+                        else if (key === "location") {
+                            message += "موقع المشروع: " + (value || "غير محدد") + "\n";
+                        }
+
+                        else if (key !== "file" && key !== "notes") {
+
+                            message +=
+                                formatFieldName(key, "ar") +
+                                ": " +
+                                (value || "غير محدد") +
+                                "\n";
+
+                        }
+
+                        else if (key === "notes") {
+
+                            message +=
+                                "ملاحظات إضافية: " +
+                                (value || "لا توجد") +
+                                "\n";
+
+                        }
+
+                    });
+
+
+                    message +=
+                        "الملف المرفوع: " +
+                        file +
+                        "\n\n" +
+                        "أرغب في مناقشة تفاصيل المشروع والبدء في العمل.";
+
+
+                } else {
+
+                    message =
+                        "Hello Eng. Mohamed,\n\n" +
+                        "I would like to request: " +
+                        service +
+                        "\n\n";
+
+
+                    formData.forEach(function(value, key) {
+
+                        if (key === "name") {
+                            message += "Name: " + value + "\n";
+                        }
+
+                        else if (key === "phone") {
+                            message += "WhatsApp / Phone: " + value + "\n";
+                        }
+
+                        else if (key === "email") {
+                            message += "Email: " + (value || "Not provided") + "\n";
+                        }
+
+                        else if (key === "location") {
+                            message += "Project Location: " + (value || "Not specified") + "\n";
+                        }
+
+                        else if (key !== "file" && key !== "notes") {
+
+                            message +=
+                                formatFieldName(key, "en") +
+                                ": " +
+                                (value || "Not specified") +
+                                "\n";
+
+                        }
+
+                        else if (key === "notes") {
+
+                            message +=
+                                "Additional Notes: " +
+                                (value || "None") +
+                                "\n";
+
+                        }
+
+                    });
+
+
+                    message +=
+                        "Uploaded File: " +
+                        file +
+                        "\n\n" +
+                        "I would like to discuss the project details and start the work.";
+
+                }
+
+
+                const whatsappURL =
+                    "https://wa.me/966552113516?text=" +
+                    encodeURIComponent(message);
+
+
+                window.open(whatsappURL, "_blank");
+
+            });
 
         });
+
+
+        /* =========================
+           FORM FIELD NAMES
+        ========================= */
+
+        function formatFieldName(key, language) {
+
+            const names = {
+
+                en: {
+
+                    kitchenType: "Kitchen Type",
+
+                    size: "Approximate Size",
+
+                    style: "Preferred Style",
+
+                    drawingType: "Drawing Type",
+
+                    existingFile: "Existing CAD / SketchUp",
+
+                    spaceType: "Space Type",
+
+                    status: "Project Status",
+
+                    bedroomType: "Bedroom Type",
+
+                    wardrobe: "Wardrobe Required",
+
+                    furnitureType: "Furniture Type",
+
+                    views: "Number of Views"
+
+                },
+
+
+                ar: {
+
+                    kitchenType: "نوع المطبخ",
+
+                    size: "المساحة التقريبية",
+
+                    style: "الستايل المفضل",
+
+                    drawingType: "نوع المخططات",
+
+                    existingFile: "ملف CAD / SketchUp موجود",
+
+                    spaceType: "نوع المساحة",
+
+                    status: "حالة المشروع",
+
+                    bedroomType: "نوع غرفة النوم",
+
+                    wardrobe: "هل تحتاج خزانة",
+
+                    furnitureType: "نوع الأثاث",
+
+                    views: "عدد المناظير"
+
+                }
+
+            };
+
+
+            return names[language][key] || key;
+
+        }
 
 
         /* =========================
            LOAD SAVED LANGUAGE
         ========================= */
 
-        const savedLanguage = localStorage.getItem("siteLanguage") || "en";
+        const savedLanguage =
+            localStorage.getItem("siteLanguage") || "en";
 
         setLanguage(savedLanguage);
 
@@ -1651,4 +3114,3 @@
 </body>
 
 </html>
-```
