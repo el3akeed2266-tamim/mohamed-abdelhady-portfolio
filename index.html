@@ -1,581 +1,933 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
-<div class="logo">MOHAMED ABDELHADY</div>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    html {
-        scroll-behavior: smooth;
-    }
+    <title>Mohamed Abdelhady | Interior & Kitchen Designer</title>
 
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4efe7;
-        color: #2b2722;
-    }
-
-    nav {
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 7%;
-        background: rgba(244, 239, 231, 0.95);
-        border-bottom: 1px solid #ddd3c5;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-
-    .logo {
-        font-size: 22px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-
-    nav ul {
-        list-style: none;
-        display: flex;
-        gap: 30px;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: #2b2722;
-        font-size: 14px;
-    }
-
-    nav a:hover {
-        color: #9a7650;
-    }
-
-    .hero {
-        min-height: calc(100vh - 80px);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: 60px;
-        padding: 70px 7%;
-    }
-
-    .hero-text span {
-        color: #9a7650;
-        font-size: 14px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
-
-    .hero-text h1 {
-        font-size: clamp(48px, 6vw, 82px);
-        line-height: 0.95;
-        margin: 20px 0;
-        font-weight: 600;
-    }
-
-    .hero-text h2 {
-        font-size: 22px;
-        font-weight: 400;
-        margin-bottom: 25px;
-        color: #665c52;
-    }
-
-    .hero-text p {
-        max-width: 550px;
-        line-height: 1.8;
-        color: #756b61;
-        margin-bottom: 35px;
-    }
-
-    .buttons {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .btn {
-        padding: 15px 25px;
-        text-decoration: none;
-        border-radius: 2px;
-        font-size: 14px;
-        transition: 0.3s;
-        display: inline-block;
-    }
-
-    .btn-primary {
-        background: #2b2722;
-        color: white;
-    }
-
-    .btn-primary:hover {
-        background: #9a7650;
-    }
-
-    .btn-outline {
-        border: 1px solid #2b2722;
-        color: #2b2722;
-    }
-
-    .btn-outline:hover {
-        background: #2b2722;
-        color: white;
-    }
-
-    .hero-image {
-        height: 650px;
-        overflow: hidden;
-        position: relative;
-        background: #d8c9b7;
-    }
-
-    .hero-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .projects {
-        padding: 100px 7%;
-        background: #fff;
-    }
-
-    .section-title {
-        margin-bottom: 50px;
-    }
-
-    .section-title span {
-        color: #9a7650;
-        font-size: 13px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
-
-    .section-title h2 {
-        font-size: 48px;
-        margin-top: 12px;
-        font-weight: 600;
-    }
-
-    .project-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-
-    .project {
-        position: relative;
-        overflow: hidden;
-        background: #eee;
-    }
-
-    .project img {
-        width: 100%;
-        height: 420px;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.5s;
-    }
-
-    .project:hover img {
-        transform: scale(1.04);
-    }
-
-    .project-info {
-        padding: 20px 0 30px;
-    }
-
-    .project-info h3 {
-        font-size: 22px;
-        margin-bottom: 8px;
-    }
-
-    .project-info p {
-        color: #756b61;
-        font-size: 14px;
-    }
-
-    .services {
-        padding: 100px 7%;
-        background: #f4efe7;
-    }
-
-    .service-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    .service {
-        background: #fff;
-        padding: 35px;
-        min-height: 220px;
-        border: 1px solid #e5ddd2;
-    }
-
-    .service-number {
-        color: #9a7650;
-        font-size: 14px;
-        margin-bottom: 25px;
-    }
-
-    .service h3 {
-        font-size: 21px;
-        margin-bottom: 15px;
-    }
-
-    .service p {
-        color: #756b61;
-        line-height: 1.7;
-        font-size: 14px;
-    }
-
-    .about {
-        padding: 100px 7%;
-        background: #2b2722;
-        color: white;
-    }
-
-    .about-content {
-        max-width: 900px;
-    }
-
-    .about span {
-        color: #c5a27b;
-        font-size: 13px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
-
-    .about h2 {
-        font-size: 52px;
-        margin: 20px 0 30px;
-        font-weight: 500;
-    }
-
-    .about p {
-        font-size: 18px;
-        line-height: 1.9;
-        color: #ddd3c5;
-    }
-
-    .contact {
-        padding: 100px 7%;
-        background: #fff;
-    }
-
-    .contact-box {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: center;
-    }
-
-    .contact h2 {
-        font-size: 52px;
-        margin-bottom: 20px;
-    }
-
-    .contact p {
-        color: #756b61;
-        line-height: 1.8;
-        margin-bottom: 30px;
-    }
-
-    .contact-links {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .contact-links a {
-        color: #2b2722;
-        text-decoration: none;
-        font-size: 17px;
-    }
-
-    .contact-links a:hover {
-        color: #9a7650;
-    }
-
-    footer {
-        background: #2b2722;
-        color: #ddd3c5;
-        text-align: center;
-        padding: 25px;
-        font-size: 13px;
-    }
-
-    @media (max-width: 900px) {
-        .hero {
-            grid-template-columns: 1fr;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .hero-image {
-            height: 500px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .service-grid {
-            grid-template-columns: 1fr 1fr;
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4efe7;
+            color: #2b2722;
         }
 
-        .contact-box {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    @media (max-width: 600px) {
         nav {
-            padding: 0 5%;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: rgba(244, 239, 231, 0.95);
+            border-bottom: 1px solid #ddd3c5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         nav ul {
-            gap: 12px;
+            list-style: none;
+            display: flex;
+            gap: 30px;
         }
 
         nav a {
+            text-decoration: none;
+            color: #2b2722;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #9a7650;
+        }
+
+        .language-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .language-switch button {
+            background: none;
+            border: none;
+            color: #2b2722;
             font-size: 12px;
+            cursor: pointer;
+            padding: 4px;
         }
 
-        .hero,
-        .projects,
-        .services,
-        .about,
-        .contact {
-            padding-left: 5%;
-            padding-right: 5%;
+        .language-switch button:hover {
+            color: #9a7650;
         }
 
-        .project-grid,
-        .service-grid {
-            grid-template-columns: 1fr;
+        .language-switch .active {
+            color: #9a7650;
+            font-weight: 700;
+        }
+
+        .hero {
+            min-height: calc(100vh - 80px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            padding: 70px 7%;
+        }
+
+        .hero-text span {
+            color: #9a7650;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .hero-text h1 {
-            font-size: 50px;
+            font-size: clamp(48px, 6vw, 82px);
+            line-height: 0.95;
+            margin: 20px 0;
+            font-weight: 600;
         }
 
-        .about h2,
-        .contact h2,
+        .hero-text h2 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #665c52;
+        }
+
+        .hero-text p {
+            max-width: 550px;
+            line-height: 1.8;
+            color: #756b61;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 14px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #2b2722;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #9a7650;
+        }
+
+        .btn-outline {
+            border: 1px solid #2b2722;
+            color: #2b2722;
+        }
+
+        .btn-outline:hover {
+            background: #2b2722;
+            color: white;
+        }
+
+        .hero-image {
+            height: 650px;
+            overflow: hidden;
+            position: relative;
+            background: #d8c9b7;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .projects {
+            padding: 100px 7%;
+            background: #fff;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #9a7650;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
         .section-title h2 {
-            font-size: 38px;
+            font-size: 48px;
+            margin-top: 12px;
+            font-weight: 600;
         }
-    }
-</style>
 
-</head><body><nav>
-    <div class="logo">MOHAMED ABDELHADY</div>
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
 
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+        .project {
+            position: relative;
+            overflow: hidden;
+            background: #eee;
+        }
 
-<section class="hero" id="home">
+        .project img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
 
-    <div class="hero-text">
+        .project:hover img {
+            transform: scale(1.04);
+        }
 
-<span>INTERIOR & KITCHEN DESIGNER · 6 YEARS EXPERIENCE</span>
-        <h1>Mohamed<br>Abdelhady</h1>
+        .project-info {
+            padding: 20px 0 30px;
+        }
 
-<h2>Where Engineering Meets Design.</h2>
-        <p>
-            I create modern, functional interiors where every detail has a purpose — from kitchen layouts and custom furniture to technical drawings and high-quality 3D visualization.
-        </p>
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
 
-        <div class="buttons">
-            <a href="#portfolio" class="btn btn-primary">
-                View My Work
-            </a>
+        .project-info p {
+            color: #756b61;
+            font-size: 14px;
+        }
 
-            <a href="#contact" class="btn btn-outline">
-                Request a Design
-            </a>
-        </div>
+        .services {
+            padding: 100px 7%;
+            background: #f4efe7;
+        }
 
-    </div>
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
 
-    <div class="hero-image">
-        <img src="images/profile.jpg" alt="Mohamed Abdelhady">
-    </div>
+        .service {
+            background: #fff;
+            padding: 35px;
+            min-height: 220px;
+            border: 1px solid #e5ddd2;
+        }
 
-</section>
+        .service-number {
+            color: #9a7650;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
 
-<section class="projects" id="portfolio">
+        .service h3 {
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
 
-    <div class="section-title">
-        <span>Selected Work</span>
-        <h2>Portfolio</h2>
-    </div>
+        .service p {
+            color: #756b61;
+            line-height: 1.7;
+            font-size: 14px;
+        }
 
-    <div class="project-grid">
+        .about {
+            padding: 100px 7%;
+            background: #2b2722;
+            color: white;
+        }
 
-        <div class="project">
-            <img src="images/project-01.jpg" alt="Modern Kitchen">
-            <div class="project-info">
-                <h3>Modern Kitchen</h3>
-                <p>Kitchen Design & 3D Visualization</p>
+        .about-content {
+            max-width: 900px;
+        }
+
+        .about span {
+            color: #c5a27b;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .about h2 {
+            font-size: 52px;
+            margin: 20px 0 30px;
+            font-weight: 500;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: #ddd3c5;
+        }
+
+        .contact {
+            padding: 100px 7%;
+            background: #fff;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .contact h2 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #756b61;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-links a {
+            color: #2b2722;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .contact-links a:hover {
+            color: #9a7650;
+        }
+
+        footer {
+            background: #2b2722;
+            color: #ddd3c5;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 15px 5%;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-right {
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 500px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                justify-content: center;
+                padding: 15px 5%;
+            }
+
+            .logo {
+                width: 100%;
+                text-align: center;
+                font-size: 19px;
+            }
+
+            .nav-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 11px;
+            }
+
+            .language-switch button {
+                font-size: 11px;
+            }
+
+            .hero,
+            .projects,
+            .services,
+            .about,
+            .contact {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .project-grid,
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 50px;
+            }
+
+            .hero-text span {
+                letter-spacing: 1.5px;
+            }
+
+            .about h2,
+            .contact h2,
+            .section-title h2 {
+                font-size: 38px;
+            }
+        }
+
+        /* Arabic */
+        html[dir="rtl"] body {
+            font-family: Arial, Tahoma, sans-serif;
+        }
+
+        html[dir="rtl"] .hero-text span,
+        html[dir="rtl"] .section-title span,
+        html[dir="rtl"] .about span {
+            letter-spacing: 0;
+        }
+
+        html[dir="rtl"] .hero-text p,
+        html[dir="rtl"] .about p,
+        html[dir="rtl"] .contact p,
+        html[dir="rtl"] .service p,
+        html[dir="rtl"] .project-info p {
+            line-height: 1.9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">MOHAMED ABDELHADY</div>
+
+        <div class="nav-right">
+
+            <ul>
+                <li>
+                    <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+                </li>
+
+                <li>
+                    <a href="#portfolio" data-en="Portfolio" data-ar="أعمالي">Portfolio</a>
+                </li>
+
+                <li>
+                    <a href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+                </li>
+
+                <li>
+                    <a href="#about" data-en="About" data-ar="نبذة عني">About</a>
+                </li>
+
+                <li>
+                    <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
+                </li>
+            </ul>
+
+            <div class="language-switch">
+                <button id="enBtn" onclick="setLanguage('en')">EN</button>
+                <span>|</span>
+                <button id="arBtn" onclick="setLanguage('ar')">العربية</button>
             </div>
+
         </div>
 
-        <div class="project">
-            <img src="images/project-02.jpg" alt="Luxury Bedroom">
-            <div class="project-info">
-                <h3>Luxury Bedroom</h3>
-                <p>Interior Design & Furniture</p>
-            </div>
-        </div>
+    </nav>
 
-        <div class="project">
-            <img src="images/project-03.jpg" alt="Walk-in Dressing">
-            <div class="project-info">
-                <h3>Walk-in Dressing</h3>
-                <p>Wardrobe & Storage Design</p>
-            </div>
-        </div>
 
-        <div class="project">
-            <img src="images/project-04.jpg" alt="Modern Living Room">
-            <div class="project-info">
-                <h3>Modern Living Room</h3>
-                <p>Interior Design & Visualization</p>
-            </div>
-        </div>
+    <section class="hero" id="home">
 
-    </div>
+        <div class="hero-text">
 
-</section>
+            <span
+                data-en="INTERIOR & KITCHEN DESIGNER · 6 YEARS EXPERIENCE"
+                data-ar="مصمم داخلي ومطابخ · خبرة 6 سنوات">
+                INTERIOR & KITCHEN DESIGNER · 6 YEARS EXPERIENCE
+            </span>
 
-<section class="services" id="services">
+            <h1>
+                Mohamed<br>Abdelhady
+            </h1>
 
-    <div class="section-title">
-        <span>What I Do</span>
-        <h2>Services</h2>
-    </div>
+            <h2
+                data-en="Where Engineering Meets Design."
+                data-ar="حيث تلتقي الهندسة بالتصميم.">
+                Where Engineering Meets Design.
+            </h2>
 
-    <div class="service-grid">
-
-        <div class="service">
-            <div class="service-number">01</div>
-            <h3>Kitchen Design</h3>
-            <p>
-                Complete kitchen design including layout,
-                materials, colors and detailed visualization.
+            <p
+                data-en="I create modern, functional interiors where every detail has a purpose — from kitchen layouts and custom furniture to technical drawings and high-quality 3D visualization."
+                data-ar="أصمم مساحات داخلية عصرية وعملية، لكل تفصيلة فيها هدف واضح — بدايةً من تخطيط المطابخ والأثاث المخصص، وصولًا إلى المخططات التنفيذية والتصورات ثلاثية الأبعاد عالية الجودة.">
+                I create modern, functional interiors where every detail has a purpose — from kitchen layouts and custom furniture to technical drawings and high-quality 3D visualization.
             </p>
-        </div>
 
-        <div class="service">
-            <div class="service-number">02</div>
-            <h3>Shop Drawings</h3>
-            <p>
-                Detailed technical drawings prepared for
-                manufacturing and installation.
-            </p>
-        </div>
+            <div class="buttons">
 
-        <div class="service">
-            <div class="service-number">03</div>
-            <h3>Electrical & Plumbing</h3>
-            <p>
-                Accurate locations for electrical points,
-                plumbing connections and kitchen services.
-            </p>
-        </div>
+                <a href="#portfolio"
+                   class="btn btn-primary"
+                   data-en="View My Work"
+                   data-ar="شاهد أعمالي">
+                    View My Work
+                </a>
 
-        <div class="service">
-            <div class="service-number">04</div>
-            <h3>Bedroom Design</h3>
-            <p>
-                Functional bedroom layouts with wardrobes,
-                furniture and complete interior details.
-            </p>
-        </div>
+                <a href="#contact"
+                   class="btn btn-outline"
+                   data-en="Request a Design"
+                   data-ar="اطلب تصميمًا">
+                    Request a Design
+                </a>
 
-        <div class="service">
-            <div class="service-number">05</div>
-            <h3>Furniture Design</h3>
-            <p>
-                Custom furniture concepts designed according
-                to the space and client's requirements.
-            </p>
-        </div>
-
-        <div class="service">
-            <div class="service-number">06</div>
-            <h3>3D Visualization</h3>
-            <p>
-                High-quality 3D renders using SketchUp,
-                D5 Render and V-Ray.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="about" id="about">
-
-    <div class="about-content">
-
-        <span>About Me</span>
-
-        <h2>Designing with purpose.</h2>
-
-        <p>
-            I am Mohamed Abdelhady, an Interior & Kitchen Designer
-            with 6 years of experience in interior design, kitchen
-            design, furniture and technical drawings.
-            I hold a Bachelor's degree in Civil Engineering and work
-            with SketchUp, D5 Render, AutoCAD and V-Ray to transform
-            ideas into functional and detailed spaces.
-        </p>
-
-    </div>
-
-</section>
-
-<section class="contact" id="contact">
-
-    <div class="contact-box">
-
-        <div>
-            <div class="section-title">
-                <span>Let's Work Together</span>
-                <h2>Contact Me</h2>
             </div>
 
-            <p>
-                Have a project in mind? Contact me and let's
-                discuss your design requirements.
+        </div>
+
+        <div class="hero-image">
+            <img src="images/profile.jpg" alt="Mohamed Abdelhady">
+        </div>
+
+    </section>
+
+
+    <section class="projects" id="portfolio">
+
+        <div class="section-title">
+
+            <span
+                data-en="Selected Work"
+                data-ar="أعمال مختارة">
+                Selected Work
+            </span>
+
+            <h2
+                data-en="Portfolio"
+                data-ar="أعمالي">
+                Portfolio
+            </h2>
+
+        </div>
+
+
+        <div class="project-grid">
+
+            <div class="project">
+
+                <img src="images/project-01.jpg" alt="Modern Kitchen">
+
+                <div class="project-info">
+
+                    <h3
+                        data-en="Modern Kitchen"
+                        data-ar="مطبخ مودرن">
+                        Modern Kitchen
+                    </h3>
+
+                    <p
+                        data-en="Kitchen Design & 3D Visualization"
+                        data-ar="تصميم مطبخ وتصميم ثلاثي الأبعاد">
+                        Kitchen Design & 3D Visualization
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img src="images/project-02.jpg" alt="Luxury Bedroom">
+
+                <div class="project-info">
+
+                    <h3
+                        data-en="Luxury Bedroom"
+                        data-ar="غرفة نوم فاخرة">
+                        Luxury Bedroom
+                    </h3>
+
+                    <p
+                        data-en="Interior Design & Furniture"
+                        data-ar="تصميم داخلي وأثاث">
+                        Interior Design & Furniture
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img src="images/project-03.jpg" alt="Walk-in Dressing">
+
+                <div class="project-info">
+
+                    <h3
+                        data-en="Walk-in Dressing"
+                        data-ar="غرفة ملابس">
+                        Walk-in Dressing
+                    </h3>
+
+                    <p
+                        data-en="Wardrobe & Storage Design"
+                        data-ar="تصميم خزائن ومساحات تخزين">
+                        Wardrobe & Storage Design
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img src="images/project-04.jpg" alt="Modern Living Room">
+
+                <div class="project-info">
+
+                    <h3
+                        data-en="Modern Living Room"
+                        data-ar="غرفة معيشة مودرن">
+                        Modern Living Room
+                    </h3>
+
+                    <p
+                        data-en="Interior Design & Visualization"
+                        data-ar="تصميم داخلي وتصوّر ثلاثي الأبعاد">
+                        Interior Design & Visualization
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="services" id="services">
+
+        <div class="section-title">
+
+            <span
+                data-en="What I Do"
+                data-ar="خدماتي">
+                What I Do
+            </span>
+
+            <h2
+                data-en="Services"
+                data-ar="الخدمات">
+                Services
+            </h2>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <div class="service">
+
+                <div class="service-number">01</div>
+
+                <h3
+                    data-en="Kitchen Design"
+                    data-ar="تصميم المطابخ">
+                    Kitchen Design
+                </h3>
+
+                <p
+                    data-en="Complete kitchen design including layout, materials, colors and detailed visualization."
+                    data-ar="تصميم متكامل للمطبخ يشمل توزيع الوحدات، الخامات، الألوان والتصور ثلاثي الأبعاد.">
+                    Complete kitchen design including layout, materials, colors and detailed visualization.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">02</div>
+
+                <h3
+                    data-en="Shop Drawings"
+                    data-ar="المخططات التنفيذية">
+                    Shop Drawings
+                </h3>
+
+                <p
+                    data-en="Detailed technical drawings prepared for manufacturing and installation."
+                    data-ar="مخططات تنفيذية تفصيلية مجهزة للتصنيع والتركيب والتنفيذ.">
+                    Detailed technical drawings prepared for manufacturing and installation.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">03</div>
+
+                <h3
+                    data-en="Electrical & Plumbing"
+                    data-ar="الكهرباء والسباكة">
+                    Electrical & Plumbing
+                </h3>
+
+                <p
+                    data-en="Accurate locations for electrical points, plumbing connections and kitchen services."
+                    data-ar="تحديد دقيق لأماكن الأفياش، نقاط الكهرباء، توصيلات السباكة والخدمات الخاصة بالمطبخ.">
+                    Accurate locations for electrical points, plumbing connections and kitchen services.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">04</div>
+
+                <h3
+                    data-en="Bedroom Design"
+                    data-ar="تصميم غرف النوم">
+                    Bedroom Design
+                </h3>
+
+                <p
+                    data-en="Functional bedroom layouts with wardrobes, furniture and complete interior details."
+                    data-ar="تصميم عملي لغرف النوم يشمل توزيع الأثاث، الخزائن وجميع التفاصيل الداخلية.">
+                    Functional bedroom layouts with wardrobes, furniture and complete interior details.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">05</div>
+
+                <h3
+                    data-en="Furniture Design"
+                    data-ar="تصميم الأثاث">
+                    Furniture Design
+                </h3>
+
+                <p
+                    data-en="Custom furniture concepts designed according to the space and client's requirements."
+                    data-ar="تصميم أثاث مخصص حسب المساحة واحتياجات العميل ومتطلبات الاستخدام.">
+                    Custom furniture concepts designed according to the space and client's requirements.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-number">06</div>
+
+                <h3
+                    data-en="3D Visualization"
+                    data-ar="التصميم ثلاثي الأبعاد">
+                    3D Visualization
+                </h3>
+
+                <p
+                    data-en="High-quality 3D renders using SketchUp, D5 Render and V-Ray."
+                    data-ar="تصورات ورندرات ثلاثية الأبعاد عالية الجودة باستخدام SketchUp وD5 Render وV-Ray.">
+                    High-quality 3D renders using SketchUp, D5 Render and V-Ray.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <span
+                data-en="About Me"
+                data-ar="نبذة عني">
+                About Me
+            </span>
+
+            <h2
+                data-en="Designing with purpose."
+                data-ar="أصمم بهدف.">
+                Designing with purpose.
+            </h2>
+
+            <p
+                data-en="I am Mohamed Abdelhady, an Interior & Kitchen Designer with 6 years of experience in interior design, kitchen design, furniture and technical drawings. I hold a Bachelor's degree in Civil Engineering and work with SketchUp, D5 Render, AutoCAD and V-Ray to transform ideas into functional and detailed spaces."
+                data-ar="أنا محمد عبد الهادي، مصمم داخلي ومطابخ بخبرة 6 سنوات في التصميم الداخلي، تصميم المطابخ، الأثاث والمخططات التنفيذية. حاصل على درجة البكالوريوس في الهندسة المدنية، وأستخدم SketchUp وD5 Render وAutoCAD وV-Ray لتحويل الأفكار إلى مساحات عملية ومفصلة.">
+                I am Mohamed Abdelhady, an Interior & Kitchen Designer with 6 years of experience in interior design, kitchen design, furniture and technical drawings. I hold a Bachelor's degree in Civil Engineering and work with SketchUp, D5 Render, AutoCAD and V-Ray to transform ideas into functional and detailed spaces.
             </p>
-        </div>
-
-        <div class="contact-links">
-
-            <a href="https://wa.me/966552113516" target="_blank">
-                WhatsApp
-            </a>
-
-            <a href="mailto:el3akeed2266@gmail.com">
-                el3akeed2266@gmail.com
-            </a>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
 
-<footer>
-    © 2026 Mohamed Abdelhady. All Rights Reserved.
-</footer>
+    <section class="contact" id="contact">
+
+        <div class="contact-box">
+
+            <div>
+
+                <div class="section-title">
+
+                    <span
+                        data-en="Let's Work Together"
+                        data-ar="لنعمل معًا">
+                        Let's Work Together
+                    </span>
+
+                    <h2
+                        data-en="Contact Me"
+                        data-ar="تواصل معي">
+                        Contact Me
+                    </h2>
+
+                </div>
+
+                <p
+                    data-en="Have a project in mind? Contact me and let's discuss your design requirements."
+                    data-ar="لديك مشروع في ذهنك؟ تواصل معي لنتحدث عن متطلبات التصميم الخاصة بمشروعك.">
+                    Have a project in mind? Contact me and let's discuss your design requirements.
+                </p>
+
+            </div>
+
+
+            <div class="contact-links">
+
+                <a href="https://wa.me/966552113516" target="_blank">
+                    WhatsApp
+                </a>
+
+                <a href="mailto:el3akeed2266@gmail.com">
+                    el3akeed2266@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer
+        data-en="© 2026 Mohamed Abdelhady. All Rights Reserved."
+        data-ar="© 2026 محمد عبد الهادي. جميع الحقوق محفوظة.">
+        © 2026 Mohamed Abdelhady. All Rights Reserved.
+    </footer>
+
+
+    <script>
+
+        function setLanguage(language) {
+
+            const elements = document.querySelectorAll("[data-en]");
+
+            elements.forEach(function(element) {
+
+                if (language === "ar") {
+                    element.textContent = element.getAttribute("data-ar");
+                } else {
+                    element.textContent = element.getAttribute("data-en");
+                }
+
+            });
+
+            document.documentElement.lang = language;
+
+            if (language === "ar") {
+                document.documentElement.dir = "rtl";
+                document.getElementById("arBtn").classList.add("active");
+                document.getElementById("enBtn").classList.remove("active");
+            } else {
+                document.documentElement.dir = "ltr";
+                document.getElementById("enBtn").classList.add("active");
+                document.getElementById("arBtn").classList.remove("active");
+            }
+
+            localStorage.setItem("siteLanguage", language);
+        }
+
+
+        const savedLanguage = localStorage.getItem("siteLanguage") || "en";
+
+        setLanguage(savedLanguage);
+
+    </script>
 
 </body>
 </html>
