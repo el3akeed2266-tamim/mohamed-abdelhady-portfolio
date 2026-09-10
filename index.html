@@ -44,6 +44,18 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            animation: navFadeDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes navFadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .logo {
@@ -69,6 +81,7 @@
             text-decoration: none;
             color: #2b2722;
             font-size: 14px;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
@@ -88,10 +101,12 @@
             font-size: 12px;
             cursor: pointer;
             padding: 4px;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .language-switch button:hover {
             color: #9a7650;
+            transform: scale(1.05);
         }
 
         .language-switch .active {
@@ -110,6 +125,21 @@
             align-items: center;
             gap: 60px;
             padding: 70px 7%;
+        }
+
+        .hero-text {
+            animation: heroTextFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes heroTextFade {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-text span {
@@ -151,8 +181,13 @@
             text-decoration: none;
             border-radius: 2px;
             font-size: 14px;
-            transition: 0.3s;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(43, 39, 34, 0.12);
         }
 
         .btn-primary {
@@ -179,12 +214,29 @@
             overflow: hidden;
             position: relative;
             background: #d8c9b7;
+            animation: heroImageZoom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes heroImageZoom {
+            from {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.03);
         }
 
         /* =========================
@@ -223,6 +275,12 @@
             position: relative;
             overflow: hidden;
             background: #eee;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(43, 39, 34, 0.12);
         }
 
         .project-clickable {
@@ -234,11 +292,11 @@
             height: 420px;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .project:hover img {
-            transform: scale(1.04);
+            transform: scale(1.06);
         }
 
         .project-info {
@@ -266,8 +324,8 @@
             font-size: 10px;
             letter-spacing: 1.5px;
             opacity: 0;
-            transform: translateY(-8px);
-            transition: 0.3s;
+            transform: translateY(-10px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .project-clickable:hover::after {
@@ -296,7 +354,7 @@
             min-height: 220px;
             border: 1px solid #e5ddd2;
             cursor: pointer;
-            transition: 0.35s;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
         }
 
@@ -313,7 +371,7 @@
             bottom: 25px;
             color: #9a7650;
             font-size: 22px;
-            transition: 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .service:hover::after {
@@ -324,6 +382,13 @@
             right: auto;
             left: 30px;
             content: "←";
+        }
+
+        .service:hover::after {
+            transform: translateX(-6px);
+        }
+        html[dir="rtl"] .service:hover::after {
+            transform: translateX(-6px);
         }
 
         .service-number {
@@ -413,6 +478,12 @@
             border: 1px solid #e5ddd2;
             padding: 22px;
             background: #faf8f5;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .contact-country:hover {
+            border-color: #9a7650;
+            transform: translateY(-3px);
         }
 
         .country-title {
@@ -451,13 +522,14 @@
             border: 1px solid #2b2722;
             color: #2b2722;
             font-size: 13px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             display: inline-block;
         }
 
         .contact-btn:hover {
             background: #2b2722;
             color: white;
+            transform: translateY(-2px);
         }
 
         .contact-btn.whatsapp {
@@ -476,6 +548,7 @@
             text-decoration: none;
             font-size: 16px;
             margin-top: 8px;
+            transition: color 0.3s ease;
         }
 
         .email-link:hover {
@@ -507,12 +580,15 @@
             z-index: 1000;
             padding: 30px;
             overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .service-modal.active {
             display: flex;
             align-items: center;
             justify-content: center;
+            opacity: 1;
         }
 
         .modal-box {
@@ -524,21 +600,18 @@
             position: relative;
             padding: 50px;
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
-            animation: modalIn 0.3s ease;
+            animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes modalIn {
-
             from {
                 opacity: 0;
-                transform: translateY(20px) scale(0.98);
+                transform: translateY(20px) scale(0.96);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
-
         }
 
         .modal-close {
@@ -554,6 +627,7 @@
             cursor: pointer;
             line-height: 34px;
             z-index: 5;
+            transition: all 0.3s ease;
         }
 
         .modal-close:hover {
@@ -635,7 +709,7 @@
             font-size: 14px;
             color: #2b2722;
             outline: none;
-            transition: 0.25s;
+            transition: all 0.25s ease;
         }
 
         .form-group input:focus,
@@ -643,6 +717,7 @@
         .form-group textarea:focus {
             border-color: #9a7650;
             background: white;
+            box-shadow: 0 0 0 3px rgba(154, 118, 80, 0.1);
         }
 
         .form-group textarea {
@@ -670,11 +745,13 @@
             padding: 17px 25px;
             font-size: 14px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .modal-submit:hover {
             background: #9a7650;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(43, 39, 34, 0.15);
         }
 
         /* =========================
@@ -684,11 +761,17 @@
         .case-study-hero {
             width: 100%;
             margin: 25px 0 35px;
+            overflow: hidden;
         }
 
         .case-study-hero img {
             width: 100%;
             display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .case-study-hero:hover img {
+            transform: scale(1.02);
         }
 
         .project-meta {
@@ -748,11 +831,23 @@
         .technical-drawing {
             border: 1px solid #e5ddd2;
             background: #faf8f5;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .technical-drawing:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(43, 39, 34, 0.08);
         }
 
         .technical-drawing img {
             width: 100%;
             display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .technical-drawing:hover img {
+            transform: scale(1.03);
         }
 
         .technical-caption {
@@ -772,6 +867,12 @@
             padding: 20px;
             background: #faf8f5;
             border: 1px solid #e5ddd2;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .design-detail:hover {
+            border-color: #9a7650;
+            transform: translateY(-2px);
         }
 
         .design-detail strong {
@@ -790,6 +891,22 @@
             margin-top: 40px;
             padding-top: 30px;
             border-top: 1px solid #e5ddd2;
+        }
+
+        /* =========================
+           SCROLL REVEAL (FADE-IN ANIMATIONS)
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* =========================
@@ -953,6 +1070,20 @@
                 grid-template-columns: 1fr;
             }
 
+        }
+
+        /* =========================
+           MOBILE OPTIMIZATIONS (PERFORMANCE & SPEED)
+        ========================= */
+        @media (max-width: 768px) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .project:hover, .service:hover, .contact-country:hover, .btn:hover {
+                transform: none !important;
+            }
         }
 
         /* =========================
@@ -1141,7 +1272,7 @@
          PORTFOLIO
     ========================= -->
 
-    <section class="projects" id="portfolio">
+    <section class="projects reveal" id="portfolio">
 
         <div class="section-title">
 
@@ -1276,7 +1407,7 @@
          SERVICES
     ========================= -->
 
-    <section class="services" id="services">
+    <section class="services reveal" id="services">
 
         <div class="section-title">
 
@@ -1438,7 +1569,7 @@
          ABOUT
     ========================= -->
 
-    <section class="about" id="about">
+    <section class="about reveal" id="about">
 
         <div class="about-content">
 
@@ -1469,7 +1600,7 @@
          CONTACT
     ========================= -->
 
-    <section class="contact" id="contact">
+    <section class="contact reveal" id="contact">
 
         <div class="contact-box">
 
@@ -3540,6 +3671,29 @@
     ========================================================= -->
 
     <script>
+
+        /* =========================
+           SCROLL REVEAL OBSERVER
+        ========================= */
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(section => {
+            observer.observe(section);
+        });
 
         /* =========================
            LANGUAGE SYSTEM
