@@ -1122,6 +1122,70 @@
             border-left: none;
         }
 
+
+
+        /* =========================
+           PORTFOLIO / NEW SECTIONS
+        ========================= */
+
+        .portfolio-intro { max-width:720px; margin-top:18px; color:#756b61; line-height:1.8; }
+        .portfolio-filters { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 40px; }
+        .portfolio-filter { border:1px solid #ddd3c5; background:#faf8f5; color:#2b2722; padding:11px 16px; font:inherit; font-size:12px; cursor:pointer; transition:all .25s ease; }
+        .portfolio-filter:hover, .portfolio-filter.active { background:#2b2722; color:#fff; border-color:#2b2722; }
+        .portfolio-card.hidden, .portfolio-empty.hidden { display:none; }
+        .portfolio-empty { min-height:420px; border:1px dashed #d8cbbd; background:#faf8f5; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:35px; }
+        .portfolio-empty span { color:#9a7650; font-size:12px; letter-spacing:2px; margin-bottom:18px; }
+        .portfolio-empty strong { font-size:22px; margin-bottom:12px; }
+        .portfolio-empty p { color:#756b61; font-size:14px; }
+
+        .process-section,.reviews-section,.tiktok-section,.request-section,.faq-section { padding:100px 7%; }
+        .process-section,.request-section { background:#f4efe7; }
+        .reviews-section,.faq-section { background:#fff; }
+        .tiktok-section { background:#2b2722; color:#fff; }
+        .process-grid,.review-grid,.tiktok-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+        .process-card,.review-card { background:#fff; border:1px solid #e5ddd2; padding:30px; }
+        .process-card .step-number { color:#9a7650; font-size:13px; letter-spacing:2px; margin-bottom:22px; }
+        .process-card h3,.review-card h3 { font-size:20px; margin-bottom:12px; }
+        .process-card p,.review-card p { color:#756b61; line-height:1.8; font-size:14px; }
+        .review-card { overflow:hidden; padding:0; }
+        .review-card img { width:100%; display:block; max-height:560px; object-fit:contain; background:#faf8f5; }
+        .review-caption { padding:18px 20px 22px; color:#756b61; font-size:13px; }
+        .reviews-note { margin-top:20px; color:#756b61; font-size:13px; }
+        .tiktok-grid { grid-template-columns:repeat(5,1fr); }
+        .tiktok-card { min-height:220px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.04); padding:25px; display:flex; flex-direction:column; justify-content:space-between; transition:transform .3s ease,border-color .3s ease; }
+        .tiktok-card:hover { transform:translateY(-5px); border-color:#c5a27b; }
+        .tiktok-number { color:#c5a27b; font-size:12px; letter-spacing:2px; }
+        .tiktok-card h3 { font-size:17px; margin:20px 0 10px; }
+        .tiktok-card p { color:#ddd3c5; font-size:13px; line-height:1.6; }
+        .tiktok-card a { display:inline-block; margin-top:20px; color:#fff; text-decoration:none; border-bottom:1px solid #c5a27b; padding-bottom:5px; font-size:12px; }
+        .request-box { background:#fff; border:1px solid #e5ddd2; padding:55px; display:flex; align-items:center; justify-content:space-between; gap:35px; }
+        .request-box h2 { font-size:42px; margin-bottom:15px; }
+        .request-box p { color:#756b61; line-height:1.8; max-width:680px; }
+        .faq-list { max-width:900px; }
+        .faq-item { border-top:1px solid #e5ddd2; padding:24px 0; }
+        .faq-item:last-child { border-bottom:1px solid #e5ddd2; }
+        .faq-item summary { cursor:pointer; font-size:17px; font-weight:600; list-style:none; }
+        .faq-item summary::-webkit-details-marker { display:none; }
+        .faq-item p { margin-top:14px; color:#756b61; line-height:1.8; font-size:14px; }
+        .profile-download { margin-top:18px; display:inline-block; }
+        .case-study-media-label { color:#9a7650; font-size:12px; letter-spacing:1.5px; margin:30px 0 12px; }
+        .case-study-video-link { display:inline-flex; align-items:center; gap:10px; text-decoration:none; border:1px solid #2b2722; color:#2b2722; padding:12px 18px; font-size:13px; transition:all .25s ease; }
+        .case-study-video-link:hover { background:#2b2722; color:#fff; }
+
+        @media (max-width:900px) {
+            .process-grid,.review-grid { grid-template-columns:1fr 1fr; }
+            .tiktok-grid { grid-template-columns:repeat(2,1fr); }
+            .request-box { flex-direction:column; align-items:flex-start; }
+        }
+        @media (max-width:600px) {
+            .portfolio-filters { gap:7px; }
+            .portfolio-filter { padding:9px 11px; font-size:11px; }
+            .process-grid,.review-grid,.tiktok-grid { grid-template-columns:1fr; }
+            .process-section,.reviews-section,.tiktok-section,.request-section,.faq-section { padding-left:5%; padding-right:5%; }
+            .request-box { padding:30px 24px; }
+            .request-box h2 { font-size:32px; }
+        }
+
     </style>
 
 </head>
@@ -1165,6 +1229,30 @@
                        data-en="Services"
                        data-ar="الخدمات">
                         Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#process"
+                       data-en="Process"
+                       data-ar="طريقة العمل">
+                        Process
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#reviews"
+                       data-en="Reviews"
+                       data-ar="آراء العملاء">
+                        Reviews
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#tiktok"
+                       data-en="TikTok"
+                       data-ar="تيك توك">
+                        TikTok
                     </a>
                 </li>
 
@@ -1273,133 +1361,181 @@
     ========================= -->
 
     <section class="projects reveal" id="portfolio">
-
         <div class="section-title">
-
-            <span
-                data-en="Selected Work"
-                data-ar="أعمال مختارة">
-                Selected Work
-            </span>
-
-            <h2
-                data-en="Portfolio"
-                data-ar="أعمالي">
-                Portfolio
-            </h2>
-
+            <span data-en="Selected Work" data-ar="أعمال مختارة">Selected Work</span>
+            <h2 data-en="Portfolio" data-ar="أعمالي">Portfolio</h2>
+            <p class="portfolio-intro"
+               data-en="A growing collection of real projects. New categories will be populated only with actual work as projects are added."
+               data-ar="مجموعة متجددة من المشاريع الحقيقية. سيتم إضافة المشاريع لكل تصنيف عند توفر أعمال فعلية، بدون صور وهمية.">
+                A growing collection of real projects. New categories will be populated only with actual work as projects are added.
+            </p>
         </div>
 
+        <div class="portfolio-filters" role="tablist">
+            <button class="portfolio-filter active" data-filter="all" data-en="All" data-ar="الكل">All</button>
+            <button class="portfolio-filter" data-filter="modern-kitchens" data-en="Modern Kitchens" data-ar="مطابخ مودرن">Modern Kitchens</button>
+            <button class="portfolio-filter" data-filter="classic-kitchens" data-en="Classic Kitchens" data-ar="مطابخ كلاسيك">Classic Kitchens</button>
+            <button class="portfolio-filter" data-filter="neo-classical-kitchens" data-en="Neo-Classical Kitchens" data-ar="مطابخ نيو كلاسيك">Neo-Classical Kitchens</button>
+            <button class="portfolio-filter" data-filter="laundry-rooms" data-en="Laundry Rooms" data-ar="غرف الغسيل">Laundry Rooms</button>
+            <button class="portfolio-filter" data-filter="home-offices" data-en="Home Offices" data-ar="المكاتب المنزلية">Home Offices</button>
+            <button class="portfolio-filter" data-filter="bedrooms" data-en="Bedrooms" data-ar="غرف النوم">Bedrooms</button>
+            <button class="portfolio-filter" data-filter="living-rooms" data-en="Living Rooms" data-ar="غرف المعيشة">Living Rooms</button>
+        </div>
 
-        <div class="project-grid">
-
-
-            <!-- PROJECT 01 -->
-
-            <div class="project project-clickable"
+        <div class="project-grid portfolio-grid">
+            <div class="project project-clickable portfolio-card" data-category="modern-kitchens"
                  onclick="openModal('modernKitchenModal')">
-
-                <img src="images/project-01.jpg"
-                     alt="Modern Kitchen">
-
+                <img src="images/portfolio/modern-kitchens/cover.jpg" alt="Modern Kitchen">
                 <div class="project-info">
-
-                    <h3
-                        data-en="Modern Kitchen"
-                        data-ar="مطبخ مودرن">
-                        Modern Kitchen
-                    </h3>
-
-                    <p
-                        data-en="Kitchen Design & 3D Visualization"
-                        data-ar="تصميم مطبخ وتصميم ثلاثي الأبعاد">
-                        Kitchen Design & 3D Visualization
+                    <h3 data-en="Modern Kitchen — Project 01" data-ar="مطبخ مودرن — المشروع 01">Modern Kitchen — Project 01</h3>
+                    <p data-en="Design, 3D Visualization & Technical Drawings"
+                       data-ar="تصميم، تصور ثلاثي الأبعاد ومخططات تنفيذية">
+                        Design, 3D Visualization & Technical Drawings
                     </p>
-
                 </div>
-
             </div>
 
-
-            <!-- PROJECT 02 -->
-
-            <div class="project">
-
-                <img src="images/project-02.jpg"
-                     alt="Luxury Bedroom">
-
-                <div class="project-info">
-
-                    <h3
-                        data-en="Luxury Bedroom"
-                        data-ar="غرفة نوم فاخرة">
-                        Luxury Bedroom
-                    </h3>
-
-                    <p
-                        data-en="Interior Design & Furniture"
-                        data-ar="تصميم داخلي وأثاث">
-                        Interior Design & Furniture
-                    </p>
-
-                </div>
-
+            <div class="portfolio-empty" data-category="classic-kitchens">
+                <span>01</span>
+                <strong data-en="Classic Kitchens" data-ar="مطابخ كلاسيك">Classic Kitchens</strong>
+                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
             </div>
-
-
-            <!-- PROJECT 03 -->
-
-            <div class="project">
-
-                <img src="images/project-03.jpg"
-                     alt="Walk-in Dressing">
-
-                <div class="project-info">
-
-                    <h3
-                        data-en="Walk-in Dressing"
-                        data-ar="غرفة ملابس">
-                        Walk-in Dressing
-                    </h3>
-
-                    <p
-                        data-en="Wardrobe & Storage Design"
-                        data-ar="تصميم خزائن ومساحات تخزين">
-                        Wardrobe & Storage Design
-                    </p>
-
-                </div>
-
+            <div class="portfolio-empty" data-category="neo-classical-kitchens">
+                <span>02</span>
+                <strong data-en="Neo-Classical Kitchens" data-ar="مطابخ نيو كلاسيك">Neo-Classical Kitchens</strong>
+                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
             </div>
-
-
-            <!-- PROJECT 04 -->
-
-            <div class="project">
-
-                <img src="images/project-04.jpg"
-                     alt="Modern Living Room">
-
-                <div class="project-info">
-
-                    <h3
-                        data-en="Modern Living Room"
-                        data-ar="غرفة معيشة مودرن">
-                        Modern Living Room
-                    </h3>
-
-                    <p
-                        data-en="Interior Design & Visualization"
-                        data-ar="تصميم داخلي وتصوّر ثلاثي الأبعاد">
-                        Interior Design & Visualization
-                    </p>
-
-                </div>
-
+            <div class="portfolio-empty" data-category="laundry-rooms">
+                <span>03</span>
+                <strong data-en="Laundry Rooms" data-ar="غرف الغسيل">Laundry Rooms</strong>
+                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
             </div>
-
+            <div class="portfolio-empty" data-category="home-offices">
+                <span>04</span>
+                <strong data-en="Home Offices" data-ar="المكاتب المنزلية">Home Offices</strong>
+                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            </div>
+            <div class="portfolio-empty" data-category="bedrooms">
+                <span>05</span>
+                <strong data-en="Bedrooms" data-ar="غرف النوم">Bedrooms</strong>
+                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            </div>
+            <div class="portfolio-empty" data-category="living-rooms">
+                <span>06</span>
+                <strong data-en="Living Rooms" data-ar="غرف المعيشة">Living Rooms</strong>
+                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            </div>
         </div>
+    </section>
 
+
+    <!-- =========================
+         OUR PROCESS
+    ========================= -->
+    <section class="process-section reveal" id="process">
+        <div class="section-title">
+            <span data-en="How I Work" data-ar="طريقة العمل">How I Work</span>
+            <h2 data-en="Our Process" data-ar="طريقة العمل">Our Process</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-card"><div class="step-number">01</div><h3 data-en="Understand" data-ar="فهم المشروع">Understand</h3><p data-en="We discuss the space, requirements, lifestyle, budget direction and desired style." data-ar="نفهم المساحة والاحتياجات وطريقة الاستخدام والميزانية والستايل المطلوب.">We discuss the space, requirements, lifestyle, budget direction and desired style.</p></div>
+            <div class="process-card"><div class="step-number">02</div><h3 data-en="Design" data-ar="التصميم">Design</h3><p data-en="The layout, materials, colors and furniture are developed with attention to function and proportions." data-ar="يتم تطوير التوزيع والخامات والألوان والأثاث مع التركيز على الوظيفة والنسب.">The layout, materials, colors and furniture are developed with attention to function and proportions.</p></div>
+            <div class="process-card"><div class="step-number">03</div><h3 data-en="Visualize" data-ar="التصور ثلاثي الأبعاد">Visualize</h3><p data-en="High-quality 3D visualization helps you see the final direction before execution." data-ar="التصور ثلاثي الأبعاد عالي الجودة يساعدك على رؤية الشكل النهائي قبل التنفيذ.">High-quality 3D visualization helps you see the final direction before execution.</p></div>
+            <div class="process-card"><div class="step-number">04</div><h3 data-en="Technical" data-ar="المخططات التنفيذية">Technical</h3><p data-en="Technical drawings, dimensions and service coordination are prepared when required." data-ar="يتم إعداد المخططات التنفيذية والأبعاد وتنسيق الخدمات عند الحاجة.">Technical drawings, dimensions and service coordination are prepared when required.</p></div>
+            <div class="process-card"><div class="step-number">05</div><h3 data-en="Coordinate" data-ar="التنسيق">Coordinate</h3><p data-en="Design details are organized to support communication with fabrication and installation teams." data-ar="يتم تنظيم تفاصيل التصميم لدعم التواصل مع فرق التصنيع والتركيب.">Design details are organized to support communication with fabrication and installation teams.</p></div>
+            <div class="process-card"><div class="step-number">06</div><h3 data-en="Deliver" data-ar="التسليم">Deliver</h3><p data-en="You receive the agreed design outputs in a clear, organized and practical format." data-ar="تستلم مخرجات التصميم المتفق عليها بشكل واضح ومنظم وعملي.">You receive the agreed design outputs in a clear, organized and practical format.</p></div>
+        </div>
+    </section>
+
+    <!-- GOOGLE REVIEWS -->
+    <section class="reviews-section reveal" id="reviews">
+        <div class="section-title">
+            <span data-en="Client Feedback" data-ar="آراء العملاء">Client Feedback</span>
+            <h2 data-en="Google Reviews" data-ar="تقييمات Google">Google Reviews</h2>
+        </div>
+        <div class="review-grid">
+            <div class="review-card">
+                <img src="images/reviews/review-01.jpg" alt="Google Review 01" onerror="this.closest('.review-card').style.display='none'">
+                <div class="review-caption" data-en="Verified client review" data-ar="تقييم حقيقي من العميل">Verified client review</div>
+            </div>
+            <div class="review-card">
+                <img src="images/reviews/review-02.jpg" alt="Google Review 02" onerror="this.closest('.review-card').style.display='none'">
+                <div class="review-caption" data-en="Verified client review" data-ar="تقييم حقيقي من العميل">Verified client review</div>
+            </div>
+            <div class="review-card">
+                <img src="images/reviews/review-03.jpg" alt="Google Review 03" onerror="this.closest('.review-card').style.display='none'">
+                <div class="review-caption" data-en="Verified client review" data-ar="تقييم حقيقي من العميل">Verified client review</div>
+            </div>
+            <div class="review-card">
+                <img src="images/reviews/review-04.jpg" alt="Google Review 04" onerror="this.closest('.review-card').style.display='none'">
+                <div class="review-caption" data-en="Verified client review" data-ar="تقييم حقيقي من العميل">Verified client review</div>
+            </div>
+            <div class="review-card">
+                <img src="images/reviews/review-05.jpg" alt="Google Review 05" onerror="this.closest('.review-card').style.display='none'">
+                <div class="review-caption" data-en="Verified client review" data-ar="تقييم حقيقي من العميل">Verified client review</div>
+            </div>
+            <div class="review-card">
+                <img src="images/reviews/review-06.jpg" alt="Google Review 06" onerror="this.closest('.review-card').style.display='none'">
+                <div class="review-caption" data-en="Verified client review" data-ar="تقييم حقيقي من العميل">Verified client review</div>
+            </div>
+        </div>
+        <p class="reviews-note" data-en="Add only real Google Review screenshots to the images/reviews folder." data-ar="أضف فقط صور Screenshots حقيقية لتقييمات Google داخل مجلد images/reviews.">Add only real Google Review screenshots to the images/reviews folder.</p>
+    </section>
+
+    <!-- TIKTOK -->
+    <section class="tiktok-section reveal" id="tiktok">
+        <div class="section-title">
+            <span data-en="Design in Motion" data-ar="التصميم في فيديو">Design in Motion</span>
+            <h2 data-en="TikTok Projects" data-ar="مشاريع TikTok">TikTok Projects</h2>
+        </div>
+        <div class="tiktok-grid">
+            <div class="tiktok-card">
+                <div><div class="tiktok-number">01</div><h3 data-en="Modern Kitchen — After Execution" data-ar="مطبخ مودرن — بعد التنفيذ">Modern Kitchen — After Execution</h3><p data-en="Real project video after execution." data-ar="فيديو حقيقي للمشروع بعد التنفيذ.">Real project video after execution.</p></div>
+                <a href="https://vt.tiktok.com/ZSqPamykc/" target="_blank" rel="noopener noreferrer" data-en="Watch on TikTok →" data-ar="شاهد على TikTok ←">Watch on TikTok →</a>
+            </div>
+            <div class="tiktok-card">
+                <div><div class="tiktok-number">02</div><h3 data-en="Modern Kitchen — After Execution" data-ar="مطبخ مودرن — بعد التنفيذ">Modern Kitchen — After Execution</h3><p data-en="Real project video after execution." data-ar="فيديو حقيقي للمشروع بعد التنفيذ.">Real project video after execution.</p></div>
+                <a href="https://vt.tiktok.com/ZSqPaHojD/" target="_blank" rel="noopener noreferrer" data-en="Watch on TikTok →" data-ar="شاهد على TikTok ←">Watch on TikTok →</a>
+            </div>
+            <div class="tiktok-card">
+                <div><div class="tiktok-number">03</div><h3 data-en="Classic Kitchen — Design & Render" data-ar="مطبخ كلاسيك — تصميم ورندر">Classic Kitchen — Design & Render</h3><p data-en="Classic kitchen design and rendering." data-ar="تصميم ورندر لمطبخ كلاسيك.">Classic kitchen design and rendering.</p></div>
+                <a href="https://vt.tiktok.com/ZSqPag7Sf/" target="_blank" rel="noopener noreferrer" data-en="Watch on TikTok →" data-ar="شاهد على TikTok ←">Watch on TikTok →</a>
+            </div>
+            <div class="tiktok-card">
+                <div><div class="tiktok-number">04</div><h3 data-en="Open Modern Kitchen — Design & Execution" data-ar="مطبخ مودرن مفتوح — تصميم وتنفيذ">Open Modern Kitchen — Design & Execution</h3><p data-en="Open kitchen design and execution project." data-ar="مشروع تصميم وتنفيذ مطبخ مودرن مفتوح.">Open kitchen design and execution project.</p></div>
+                <a href="https://vt.tiktok.com/ZSqPm1xYw/" target="_blank" rel="noopener noreferrer" data-en="Watch on TikTok →" data-ar="شاهد على TikTok ←">Watch on TikTok →</a>
+            </div>
+            <div class="tiktok-card">
+                <div><div class="tiktok-number">05</div><h3 data-en="Modern Kitchen — Render" data-ar="مطبخ مودرن — رندر">Modern Kitchen — Render</h3><p data-en="3D render presentation." data-ar="عرض لتصميم ورندر ثلاثي الأبعاد.">3D render presentation.</p></div>
+                <a href="https://vt.tiktok.com/ZSqPmRJPQ/" target="_blank" rel="noopener noreferrer" data-en="Watch on TikTok →" data-ar="شاهد على TikTok ←">Watch on TikTok →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- REQUEST A PROJECT -->
+    <section class="request-section reveal" id="request">
+        <div class="request-box">
+            <div>
+                <div class="section-title">
+                    <span data-en="Start Your Project" data-ar="ابدأ مشروعك">Start Your Project</span>
+                    <h2 data-en="Request a Project" data-ar="اطلب مشروعك">Request a Project</h2>
+                </div>
+                <p data-en="Tell me about your space and requirements. Choose the service that fits your project and send the details directly through WhatsApp." data-ar="أخبرني عن مساحتك واحتياجاتك. اختر الخدمة المناسبة لمشروعك وأرسل التفاصيل مباشرة عبر واتساب.">Tell me about your space and requirements. Choose the service that fits your project and send the details directly through WhatsApp.</p>
+            </div>
+            <a href="#services" class="btn btn-primary" data-en="Choose a Service" data-ar="اختر الخدمة">Choose a Service</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section reveal" id="faq">
+        <div class="section-title"><span data-en="Questions" data-ar="أسئلة شائعة">Questions</span><h2 data-en="FAQ" data-ar="الأسئلة الشائعة">FAQ</h2></div>
+        <div class="faq-list">
+            <details class="faq-item"><summary data-en="What services do you provide?" data-ar="ما الخدمات التي تقدمها؟">What services do you provide?</summary><p data-en="Kitchen design, technical shop drawings, electrical and plumbing coordination, bedroom design, furniture design and 3D visualization." data-ar="تصميم المطابخ، المخططات التنفيذية، تنسيق الكهرباء والسباكة، تصميم غرف النوم، تصميم الأثاث والتصورات ثلاثية الأبعاد.">Kitchen design, technical shop drawings, electrical and plumbing coordination, bedroom design, furniture design and 3D visualization.</p></details>
+            <details class="faq-item"><summary data-en="Can I request a complete kitchen design?" data-ar="هل يمكنني طلب تصميم مطبخ متكامل؟">Can I request a complete kitchen design?</summary><p data-en="Yes. The kitchen service can cover layout, materials, colors, technical points and 3D visualization according to the project requirements." data-ar="نعم. يمكن أن تشمل خدمة تصميم المطبخ التوزيع والخامات والألوان والنقاط الفنية والتصور ثلاثي الأبعاد حسب متطلبات المشروع.">Yes. The kitchen service can cover layout, materials, colors, technical points and 3D visualization according to the project requirements.</p></details>
+            <details class="faq-item"><summary data-en="Do you prepare technical drawings for manufacturing?" data-ar="هل يتم إعداد مخططات تنفيذية للتصنيع؟">Do you prepare technical drawings for manufacturing?</summary><p data-en="Yes, detailed technical drawings can be prepared for manufacturing and installation." data-ar="نعم، يمكن إعداد مخططات تنفيذية تفصيلية للتصنيع والتركيب والتنفيذ.">Yes, detailed technical drawings can be prepared for manufacturing and installation.</p></details>
+            <details class="faq-item"><summary data-en="How do I start?" data-ar="كيف أبدأ؟">How do I start?</summary><p data-en="Choose the relevant service, fill in the project details and send the request through WhatsApp." data-ar="اختر الخدمة المناسبة، املأ بيانات المشروع ثم أرسل الطلب عبر واتساب.">Choose the relevant service, fill in the project details and send the request through WhatsApp.</p></details>
+        </div>
+        <a class="btn btn-outline profile-download" href="files/Mohamed-Abdelhady-Profile.pdf" download data-en="Download Profile / Portfolio" data-ar="تحميل البروفايل / الأعمال">Download Profile / Portfolio</a>
     </section>
 
 
@@ -1785,7 +1921,7 @@
 
             <div class="case-study-hero">
 
-                <img src="images/project-01.jpg"
+                <img src="images/portfolio/modern-kitchens/cover.jpg"
                      alt="Modern Kitchen 3D Visualization">
 
             </div>
@@ -1891,7 +2027,7 @@
                     <div class="technical-drawing">
 
                         <img
-                            src="images/project-01-tech-01.jpg"
+                            src="images/portfolio/modern-kitchens/technical-01.jpg"
                             alt="Modern Kitchen Technical Drawing 01">
 
                         <div class="technical-caption"
@@ -1906,7 +2042,7 @@
                     <div class="technical-drawing">
 
                         <img
-                            src="images/project-01-tech-02.jpg"
+                            src="images/portfolio/modern-kitchens/technical-02.jpg"
                             alt="Modern Kitchen Technical Drawing 02">
 
                         <div class="technical-caption"
@@ -2007,6 +2143,26 @@
 
             </div>
 
+
+            <!-- PROJECT VIDEO -->
+            <div class="case-study-media-label" data-en="Project Video" data-ar="فيديو المشروع">Project Video</div>
+            <a class="case-study-video-link" href="https://vt.tiktok.com/ZSqPamykc/" target="_blank" rel="noopener noreferrer"
+               data-en="Watch this project on TikTok →" data-ar="شاهد المشروع على TikTok ←">Watch this project on TikTok →</a>
+
+            <!-- OPTIONAL ELECTRICAL / PLUMBING -->
+            <div class="case-study-section">
+                <h3 data-en="Electrical & Plumbing" data-ar="الكهرباء والسباكة">Electrical & Plumbing</h3>
+                <div class="technical-grid">
+                    <div class="technical-drawing optional-drawing">
+                        <img src="images/portfolio/modern-kitchens/electrical.jpg" alt="Modern Kitchen Electrical Drawing" onerror="this.closest('.optional-drawing').style.display='none'">
+                        <div class="technical-caption" data-en="Electrical" data-ar="الكهرباء">Electrical</div>
+                    </div>
+                    <div class="technical-drawing optional-drawing">
+                        <img src="images/portfolio/modern-kitchens/plumbing.jpg" alt="Modern Kitchen Plumbing Drawing" onerror="this.closest('.optional-drawing').style.display='none'">
+                        <div class="technical-caption" data-en="Plumbing" data-ar="السباكة">Plumbing</div>
+                    </div>
+                </div>
+            </div>
 
             <!-- CTA -->
 
@@ -4266,6 +4422,25 @@
             );
 
         }
+
+
+        /* =========================
+           PORTFOLIO FILTERS
+        ========================= */
+
+        document.querySelectorAll(".portfolio-filter").forEach(function(button) {
+            button.addEventListener("click", function() {
+                document.querySelectorAll(".portfolio-filter").forEach(function(btn) {
+                    btn.classList.remove("active");
+                });
+                button.classList.add("active");
+                const filter = button.getAttribute("data-filter");
+                document.querySelectorAll(".portfolio-card, .portfolio-empty").forEach(function(card) {
+                    const category = card.getAttribute("data-category");
+                    card.classList.toggle("hidden", filter !== "all" && category !== filter);
+                });
+            });
+        });
 
 
         /* =========================
