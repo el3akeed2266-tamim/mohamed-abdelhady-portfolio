@@ -1072,6 +1072,173 @@
 
         }
 
+
+        /* =========================
+           MOBILE NAVIGATION — CLEAN & PROFESSIONAL
+        ========================= */
+
+        .mobile-menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid #d8cbbb;
+            background: rgba(255,255,255,.72);
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 11px 10px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+            transition: .25s ease;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 1.5px;
+            background: #2b2722;
+            transition: .25s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: #f4efe7;
+            border-color: #bda98f;
+        }
+
+        .mobile-menu-toggle.is-open span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+        }
+
+        .mobile-menu-toggle.is-open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.is-open span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                min-height: 68px;
+                padding: 0 5%;
+                justify-content: space-between;
+                position: sticky;
+            }
+
+            .logo {
+                width: auto;
+                text-align: left;
+                font-size: 16px;
+                letter-spacing: 1.4px;
+                white-space: nowrap;
+            }
+
+            .nav-right {
+                width: auto;
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                position: static;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-right ul {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 5%;
+                right: 5%;
+                width: auto;
+                margin: 0;
+                padding: 10px 0;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(255,255,255,.98);
+                border: 1px solid #ddd3c5;
+                border-top: 2px solid #9a7650;
+                box-shadow: 0 18px 40px rgba(43,39,34,.12);
+                z-index: 120;
+                text-align: left;
+            }
+
+            .nav-right.nav-open ul {
+                display: flex;
+                animation: mobileMenuDrop .22s ease-out both;
+            }
+
+            .nav-right ul li {
+                width: 100%;
+            }
+
+            .nav-right ul li a {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 14px 20px;
+                font-size: 12px;
+                letter-spacing: 1px;
+                border-bottom: 1px solid #eee7de;
+            }
+
+            .nav-right ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .nav-right ul li a:hover {
+                background: #f4efe7;
+            }
+
+            .language-switch {
+                margin-left: 10px;
+                padding-left: 10px;
+                border-left: 1px solid #ddd3c5;
+            }
+
+            .language-switch button {
+                font-size: 10px;
+            }
+
+            html[dir="rtl"] .logo {
+                text-align: right;
+            }
+
+            html[dir="rtl"] .nav-right {
+                margin-left: 0;
+                margin-right: auto;
+            }
+
+            html[dir="rtl"] .language-switch {
+                margin-left: 0;
+                margin-right: 10px;
+                padding-left: 0;
+                padding-right: 10px;
+                border-left: none;
+                border-right: 1px solid #ddd3c5;
+            }
+
+            html[dir="rtl"] .nav-right ul {
+                text-align: right;
+            }
+
+        }
+
+        @keyframes mobileMenuDrop {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* =========================
            MOBILE OPTIMIZATIONS (PERFORMANCE & SPEED)
         ========================= */
@@ -1205,6 +1372,16 @@
         </div>
 
         <div class="nav-right">
+
+            <button class="mobile-menu-toggle"
+                    id="mobileMenuToggle"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
             <ul>
 
@@ -1395,35 +1572,77 @@
                 </div>
             </div>
 
-            <div class="portfolio-empty" data-category="classic-kitchens">
-                <span>01</span>
-                <strong data-en="Classic Kitchens" data-ar="مطابخ كلاسيك">Classic Kitchens</strong>
-                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            <div class="project project-clickable portfolio-card" data-category="classic-kitchens">
+                <img src="images/portfolio/classic-kitchens/cover.jpg"
+                     alt="Classic Kitchen"
+                     onerror="this.closest('.portfolio-card').style.display='none';">
+                <div class="project-info">
+                    <h3 data-en="Classic Kitchen — Project 01" data-ar="مطابخ كلاسيك — المشروع 01">Classic Kitchen — Project 01</h3>
+                    <p data-en="Interior Design & 3D Visualization"
+                       data-ar="تصميم داخلي وتصوّر ثلاثي الأبعاد">
+                        Interior Design & 3D Visualization
+                    </p>
+                </div>
             </div>
-            <div class="portfolio-empty" data-category="neo-classical-kitchens">
-                <span>02</span>
-                <strong data-en="Neo-Classical Kitchens" data-ar="مطابخ نيو كلاسيك">Neo-Classical Kitchens</strong>
-                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            <div class="project project-clickable portfolio-card" data-category="neo-classical-kitchens">
+                <img src="images/portfolio/neo-classical-kitchens/cover.jpg"
+                     alt="Neo-Classical Kitchen"
+                     onerror="this.closest('.portfolio-card').style.display='none';">
+                <div class="project-info">
+                    <h3 data-en="Neo-Classical Kitchen — Project 01" data-ar="مطابخ نيو كلاسيك — المشروع 01">Neo-Classical Kitchen — Project 01</h3>
+                    <p data-en="Interior Design & 3D Visualization"
+                       data-ar="تصميم داخلي وتصوّر ثلاثي الأبعاد">
+                        Interior Design & 3D Visualization
+                    </p>
+                </div>
             </div>
-            <div class="portfolio-empty" data-category="laundry-rooms">
-                <span>03</span>
-                <strong data-en="Laundry Rooms" data-ar="غرف الغسيل">Laundry Rooms</strong>
-                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            <div class="project project-clickable portfolio-card" data-category="laundry-rooms">
+                <img src="images/portfolio/laundry-rooms/cover.jpg"
+                     alt="Laundry Room"
+                     onerror="this.closest('.portfolio-card').style.display='none';">
+                <div class="project-info">
+                    <h3 data-en="Laundry Room — Project 01" data-ar="غرف الغسيل — المشروع 01">Laundry Room — Project 01</h3>
+                    <p data-en="Interior Design & 3D Visualization"
+                       data-ar="تصميم داخلي وتصوّر ثلاثي الأبعاد">
+                        Interior Design & 3D Visualization
+                    </p>
+                </div>
             </div>
-            <div class="portfolio-empty" data-category="home-offices">
-                <span>04</span>
-                <strong data-en="Home Offices" data-ar="المكاتب المنزلية">Home Offices</strong>
-                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            <div class="project project-clickable portfolio-card" data-category="home-offices">
+                <img src="images/portfolio/home-offices/cover.jpg"
+                     alt="Home Office"
+                     onerror="this.closest('.portfolio-card').style.display='none';">
+                <div class="project-info">
+                    <h3 data-en="Home Office — Project 01" data-ar="المكاتب المنزلية — المشروع 01">Home Office — Project 01</h3>
+                    <p data-en="Interior Design & 3D Visualization"
+                       data-ar="تصميم داخلي وتصوّر ثلاثي الأبعاد">
+                        Interior Design & 3D Visualization
+                    </p>
+                </div>
             </div>
-            <div class="portfolio-empty" data-category="bedrooms">
-                <span>05</span>
-                <strong data-en="Bedrooms" data-ar="غرف النوم">Bedrooms</strong>
-                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            <div class="project project-clickable portfolio-card" data-category="bedrooms">
+                <img src="images/portfolio/bedrooms/cover.jpg"
+                     alt="Bedroom"
+                     onerror="this.closest('.portfolio-card').style.display='none';">
+                <div class="project-info">
+                    <h3 data-en="Bedroom — Project 01" data-ar="غرف النوم — المشروع 01">Bedroom — Project 01</h3>
+                    <p data-en="Interior Design & 3D Visualization"
+                       data-ar="تصميم داخلي وتصوّر ثلاثي الأبعاد">
+                        Interior Design & 3D Visualization
+                    </p>
+                </div>
             </div>
-            <div class="portfolio-empty" data-category="living-rooms">
-                <span>06</span>
-                <strong data-en="Living Rooms" data-ar="غرف المعيشة">Living Rooms</strong>
-                <p data-en="Real projects will be added here." data-ar="سيتم إضافة المشاريع الحقيقية هنا.">Real projects will be added here.</p>
+            <div class="project project-clickable portfolio-card" data-category="living-rooms">
+                <img src="images/portfolio/living-rooms/cover.jpg"
+                     alt="Living Room"
+                     onerror="this.closest('.portfolio-card').style.display='none';">
+                <div class="project-info">
+                    <h3 data-en="Living Room — Project 01" data-ar="غرف المعيشة — المشروع 01">Living Room — Project 01</h3>
+                    <p data-en="Interior Design & 3D Visualization"
+                       data-ar="تصميم داخلي وتصوّر ثلاثي الأبعاد">
+                        Interior Design & 3D Visualization
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -4441,6 +4660,55 @@
                 });
             });
         });
+
+
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        (function () {
+
+            const menuToggle =
+                document.getElementById("mobileMenuToggle");
+
+            const navRight =
+                document.querySelector(".nav-right");
+
+            if (!menuToggle || !navRight) return;
+
+            function closeMobileMenu() {
+                navRight.classList.remove("nav-open");
+                menuToggle.classList.remove("is-open");
+                menuToggle.setAttribute("aria-expanded", "false");
+            }
+
+            menuToggle.addEventListener("click", function () {
+                const isOpen =
+                    navRight.classList.toggle("nav-open");
+
+                menuToggle.classList.toggle(
+                    "is-open",
+                    isOpen
+                );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+            });
+
+            navRight.querySelectorAll("ul a").forEach(function (link) {
+                link.addEventListener("click", closeMobileMenu);
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 600) {
+                    closeMobileMenu();
+                }
+            });
+
+        })();
 
 
         /* =========================
