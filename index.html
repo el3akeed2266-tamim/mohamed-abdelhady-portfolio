@@ -231,6 +231,18 @@
         }
 
         .btn-outline:hover {
+                    .btn-install {
+            border: 1px solid #9a7650;
+            background: #9a7650;
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn-install:hover {
+            background: #2b2722;
+            border-color: #2b2722;
+            transform: translateY(-2px);
+        }
             background: #2b2722;
             color: white;
         }
@@ -1898,7 +1910,52 @@ if ("serviceWorker" in navigator) {
    PWA INSTALL BUTTON
    ========================================= */
 
+/* =========================================
+   PWA INSTALL BUTTON
+   ========================================= */
+
 let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", function (event) {
+
+    event.preventDefault();
+
+    deferredPrompt = event;
+
+    const installButton = document.getElementById("heroInstallButton");
+
+    if (!installButton) return;
+
+    installButton.style.display = "inline-flex";
+
+    installButton.addEventListener("click", async function () {
+
+        if (!deferredPrompt) return;
+
+        deferredPrompt.prompt();
+
+        const result = await deferredPrompt.userChoice;
+
+        if (result.outcome === "accepted") {
+            installButton.style.display = "none";
+        }
+
+        deferredPrompt = null;
+
+    });
+
+});
+
+
+window.addEventListener("appinstalled", function () {
+
+    const installButton = document.getElementById("heroInstallButton");
+
+    if (installButton) {
+        installButton.style.display = "none";
+    }
+
+});
 
 window.addEventListener("beforeinstallprompt", function (event) {
 
@@ -2100,25 +2157,33 @@ window.addEventListener("beforeinstallprompt", function (event) {
                 I create modern, functional interiors where every detail has a purpose — from kitchen layouts and custom furniture to technical drawings and high-quality 3D visualization.
             </p>
 
-            <div class="buttons">
+           <div class="buttons">
 
-                <a href="#portfolio"
-                   class="btn btn-primary"
-                   data-en="View My Work"
-                   data-ar="شاهد أعمالي">
-                    View My Work
-                </a>
+    <a href="#portfolio"
+       class="btn btn-primary"
+       data-en="View My Work"
+       data-ar="شاهد أعمالي">
+        View My Work
+    </a>
 
-                <a href="#contact"
-                   class="btn btn-outline"
-                   data-en="Request a Design"
-                   data-ar="اطلب تصميمًا">
-                    Request a Design
-                </a>
+    <a href="#contact"
+       class="btn btn-outline"
+       data-en="Request a Design"
+       data-ar="اطلب تصميمًا">
+        Request a Design
+    </a>
 
-            </div>
+    <button
+        type="button"
+        id="heroInstallButton"
+        class="btn btn-install"
+        style="display: none;"
+        data-en="⬇ Install App"
+        data-ar="⬇ تنزيل التطبيق">
+        ⬇ Install App
+    </button>
 
-        </div>
+</div>
 
 
         <div class="hero-image">
