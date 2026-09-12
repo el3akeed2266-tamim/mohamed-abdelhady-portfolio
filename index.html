@@ -1894,6 +1894,54 @@ if ("serviceWorker" in navigator) {
             });
     });
 }
+/* =========================================
+   PWA INSTALL BUTTON
+   ========================================= */
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", function (event) {
+
+    event.preventDefault();
+
+    deferredPrompt = event;
+
+    const installButton = document.createElement("button");
+
+    installButton.id = "pwaInstallButton";
+    installButton.innerHTML = "Install App";
+
+    installButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        padding: 13px 20px;
+        border: none;
+        background: #2b2722;
+        color: #fff;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+    `;
+
+    document.body.appendChild(installButton);
+
+    installButton.addEventListener("click", async function () {
+
+        deferredPrompt.prompt();
+
+        const result = await deferredPrompt.userChoice;
+
+        if (result.outcome === "accepted") {
+            installButton.remove();
+        }
+
+        deferredPrompt = null;
+    });
+
+});
 </script>
 
 </head>
