@@ -1,0 +1,10 @@
+{
+  "name": "Mohamed Abdelhady",
+  "short_name": "Mohamed Abdelhady",
+  "description": "Interior & Kitchen Designer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4efe7",
+  "theme_color": "#2b2722",
+  "orientation": "portrait"
+}
