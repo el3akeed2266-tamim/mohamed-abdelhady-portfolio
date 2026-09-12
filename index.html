@@ -1906,15 +1906,12 @@ if ("serviceWorker" in navigator) {
             });
     });
 }
-/* =========================================
-   PWA INSTALL BUTTON
-   ========================================= */
 
 /* =========================================
    PWA INSTALL BUTTON
    ========================================= */
 
-let deferredPrompt;
+let deferredPrompt = null;
 
 window.addEventListener("beforeinstallprompt", function (event) {
 
@@ -1922,50 +1919,53 @@ window.addEventListener("beforeinstallprompt", function (event) {
 
     deferredPrompt = event;
 
-    const installButton = document.getElementById("heroInstallButton");
+    const installButton =
+        document.getElementById("heroInstallButton");
 
     if (!installButton) return;
 
     installButton.style.display = "inline-flex";
 
-    installButton.addEventListener("click", async function () {
+});
 
-        if (!deferredPrompt) return;
 
-        deferredPrompt.prompt();
+document.addEventListener("click", async function (event) {
 
-        const result = await deferredPrompt.userChoice;
+    const installButton =
+        event.target.closest("#heroInstallButton");
 
-        if (result.outcome === "accepted") {
-            installButton.style.display = "none";
-        }
+    if (!installButton) return;
 
-        deferredPrompt = null;
+    if (!deferredPrompt) return;
 
-    });
+    deferredPrompt.prompt();
+
+    const result =
+        await deferredPrompt.userChoice;
+
+    if (result.outcome === "accepted") {
+
+        installButton.style.display = "none";
+
+    }
+
+    deferredPrompt = null;
 
 });
 
 
 window.addEventListener("appinstalled", function () {
 
-    const installButton = document.getElementById("heroInstallButton");
+    const installButton =
+        document.getElementById("heroInstallButton");
 
     if (installButton) {
+
         installButton.style.display = "none";
+
     }
 
 });
-
-window.addEventListener("beforeinstallprompt", function (event) {
-
-    event.preventDefault();
-
-    deferredPrompt = event;
-
-    const installButton = document.createElement("button");
-
-    installButton.id = "pwaInstallButton";
     installButton.innerHTML = "Install App";
 
     installButton.style.cssText = `
