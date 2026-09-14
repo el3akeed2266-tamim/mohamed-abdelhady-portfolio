@@ -1,0 +1,3407 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Abdelhady | Kitchen Quotation</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+    --bg:#f4efe7;
+    --card:#ffffff;
+    --soft:#faf7f2;
+    --dark:#29251f;
+    --muted:#81786e;
+    --gold:#9a7650;
+    --gold-dark:#755738;
+    --line:#e6ddd2;
+    --success:#526b57;
+    --danger:#a34f4f;
+    --shadow:0 15px 45px rgba(45,35,25,.08);
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(circle at top right,rgba(154,118,80,.10),transparent 28%),
+        var(--bg);
+    color:var(--dark);
+    font-family:"Cairo",sans-serif;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+.hero{
+    padding:55px 0 35px;
+    text-align:center;
+}
+
+.brand{
+    font-family:"Playfair Display",serif;
+    font-size:14px;
+    letter-spacing:4px;
+    color:var(--gold);
+    margin-bottom:12px;
+}
+
+.hero h1{
+    margin:0;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(32px,5vw,55px);
+    font-weight:600;
+    letter-spacing:.5px;
+}
+
+.hero p{
+    color:var(--muted);
+    margin:12px auto 0;
+    max-width:650px;
+    font-size:15px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin:0 auto 30px;
+    flex-wrap:wrap;
+}
+
+.progress span{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#d7cec3;
+    transition:.3s;
+}
+
+.progress span.active{
+    background:var(--gold);
+    transform:scale(1.25);
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+    background:rgba(255,255,255,.88);
+    border:1px solid rgba(230,221,210,.9);
+    border-radius:24px;
+    padding:28px;
+    margin-bottom:20px;
+    box-shadow:var(--shadow);
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:22px;
+}
+
+.number{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--dark);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    font-weight:700;
+}
+
+.section-title h2{
+    margin:0;
+    font-size:21px;
+}
+
+.section-title p{
+    margin:3px 0 0;
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* ================= CHOICES ================= */
+
+.choice-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+}
+
+.choice{
+    position:relative;
+}
+
+.choice input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+}
+
+.choice label{
+    display:block;
+    padding:18px 14px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:var(--soft);
+    cursor:pointer;
+    text-align:center;
+    transition:.25s;
+    min-height:80px;
+}
+
+.choice label strong{
+    display:block;
+    font-size:15px;
+}
+
+.choice label small{
+    display:block;
+    color:var(--muted);
+    margin-top:4px;
+    font-size:11px;
+}
+
+.choice input:checked + label{
+    border-color:var(--gold);
+    background:#f8f0e6;
+    box-shadow:0 7px 20px rgba(154,118,80,.12);
+}
+
+/* ================= INPUTS ================= */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.form-grid.three{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.field label{
+    font-size:13px;
+    font-weight:600;
+}
+
+.field input,
+.field select{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:13px;
+    padding:13px 14px;
+    background:#fff;
+    color:var(--dark);
+    font-family:inherit;
+    font-size:14px;
+    outline:none;
+    transition:.2s;
+}
+
+.field input:focus,
+.field select:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(154,118,80,.08);
+}
+
+.unit{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* ================= WALLS ================= */
+
+.wall-box{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+}
+
+.wall-item{
+    background:var(--soft);
+    padding:14px;
+    border-radius:15px;
+    border:1px solid var(--line);
+}
+
+.wall-item strong{
+    display:block;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.wall-item input{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px;
+    background:#fff;
+    font-family:inherit;
+}
+
+/* ================= EXTRA ================= */
+
+.notice{
+    background:#f7f1e8;
+    border:1px solid #eadcca;
+    border-radius:15px;
+    padding:14px 16px;
+    color:#695d50;
+    font-size:12px;
+    margin-bottom:17px;
+}
+
+.hidden{
+    display:none!important;
+}
+
+/* ================= QUANTITY ================= */
+
+.quantity-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:12px;
+}
+
+.quantity-card{
+    border:1px solid var(--line);
+    background:var(--soft);
+    border-radius:16px;
+    padding:15px;
+}
+
+.quantity-card .q-title{
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:9px;
+}
+
+.quantity-card select,
+.quantity-card input{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px;
+    background:#fff;
+    font-family:inherit;
+}
+
+.quantity-card .q-note{
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    margin-top:5px;
+}
+
+/* ================= SWITCH ================= */
+
+.switch-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:var(--soft);
+    border:1px solid var(--line);
+    padding:15px 18px;
+    border-radius:15px;
+}
+
+.switch{
+    position:relative;
+    width:50px;
+    height:28px;
+}
+
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+    background:#d6cec4;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.slider:before{
+    content:"";
+    position:absolute;
+    width:22px;
+    height:22px;
+    left:3px;
+    top:3px;
+    background:#fff;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.switch input:checked + .slider{
+    background:var(--gold);
+}
+
+.switch input:checked + .slider:before{
+    transform:translateX(22px);
+}
+
+/* ================= BUTTON ================= */
+
+.actions{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    margin:30px 0;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    border-radius:14px;
+    padding:15px 30px;
+    font-family:inherit;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--dark);
+    color:#fff;
+    min-width:250px;
+}
+
+.btn-primary:hover{
+    background:var(--gold-dark);
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:#fff;
+    color:var(--dark);
+    border:1px solid var(--line);
+}
+
+/* ================= TOTAL ================= */
+
+.result{
+    background:
+        linear-gradient(135deg,#302a23,#1f1c18);
+    color:#fff;
+    border-radius:28px;
+    padding:38px 30px;
+    text-align:center;
+    margin:35px 0 50px;
+    box-shadow:0 20px 55px rgba(30,25,20,.20);
+}
+
+.result .small-title{
+    color:#c9ad8c;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.result h2{
+    margin:8px 0 5px;
+    font-family:"Playfair Display",serif;
+    font-size:20px;
+    font-weight:500;
+}
+
+.total{
+    font-size:clamp(40px,7vw,68px);
+    font-weight:800;
+    letter-spacing:1px;
+    margin:5px 0;
+}
+
+.total span{
+    font-size:20px;
+    font-weight:500;
+}
+
+.vat-text{
+    color:#d0c7bc;
+    font-size:12px;
+}
+
+.result-actions{
+    margin-top:24px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.result button{
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    padding:11px 20px;
+    border-radius:11px;
+    font-family:inherit;
+    cursor:pointer;
+}
+
+/* ================= INTERNAL ================= */
+
+details{
+    margin-top:20px;
+}
+
+details summary{
+    cursor:pointer;
+    color:#d5b994;
+    font-size:12px;
+}
+
+.internal{
+    margin-top:15px;
+    text-align:right;
+    background:rgba(255,255,255,.05);
+    border-radius:15px;
+    padding:18px;
+    font-size:12px;
+    color:#ddd;
+}
+
+.internal-row{
+    display:flex;
+    justify-content:space-between;
+    padding:7px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:11px;
+    padding-bottom:30px;
+}
+
+@media(max-width:700px){
+
+    .section{
+        padding:20px;
+        border-radius:19px;
+    }
+
+    .form-grid,
+    .form-grid.three{
+        grid-template-columns:1fr;
+    }
+
+    .choice-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero{
+        padding-top:35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="hero">
+    <div class="brand">MOHAMED ABDELHADY</div>
+    <h1>Kitchen Quotation</h1>
+    <p>Create a premium kitchen quotation based on your design, dimensions and selected specifications.</p>
+</header>
+
+<div class="progress" id="progress">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+
+<!-- ================= 01 LAYOUT ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">01</div>
+        <div>
+            <h2>شكل المطبخ</h2>
+            <p>Kitchen Layout</p>
+        </div>
+    </div>
+
+    <div class="choice-grid">
+
+        <div class="choice">
+            <input type="radio" name="layout" id="layout-straight" value="straight" checked onchange="updateLayout()">
+            <label for="layout-straight">
+                <strong>مستقيم</strong>
+                <small>Single Wall</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="layout" id="layout-l" value="l" onchange="updateLayout()">
+            <label for="layout-l">
+                <strong>حرف L</strong>
+                <small>L Shape</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="layout" id="layout-u" value="u" onchange="updateLayout()">
+            <label for="layout-u">
+                <strong>حرف U</strong>
+                <small>U Shape</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="layout" id="layout-parallel" value="parallel" onchange="updateLayout()">
+            <label for="layout-parallel">
+                <strong>متوازي</strong>
+                <small>Parallel</small>
+            </label>
+        </div>
+
+    </div>
+
+    <div class="wall-box" id="wallInputs"></div>
+
+    <div class="form-grid" style="margin-top:15px">
+
+        <div class="field">
+            <label>فراغ الثلاجة</label>
+            <input type="number" id="fridgeVoid" value="0" min="0" step="0.01" oninput="calculate()">
+            <span class="unit">بالمتر — يخصم من السفلي فقط</span>
+        </div>
+
+        <div class="field">
+            <label>فراغ الشباك</label>
+            <input type="number" id="windowVoid" value="0" min="0" step="0.01" oninput="calculate()">
+            <span class="unit">بالمتر — يخصم من العلوي</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 02 MATERIAL ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">02</div>
+        <div>
+            <h2>نوع الخامة</h2>
+            <p>Kitchen Material</p>
+        </div>
+    </div>
+
+    <div class="choice-grid">
+
+        <div class="choice">
+            <input type="radio" name="material" id="mat-al" value="aluminum" checked onchange="calculate()">
+            <label for="mat-al">
+                <strong>ألمنيوم كامل</strong>
+                <small>Full Aluminum</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="material" id="mat-mix" value="mix" onchange="calculate()">
+            <label for="mat-mix">
+                <strong>ألمنيوم + خشب</strong>
+                <small>Aluminum + Wood</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="material" id="mat-wood" value="wood" onchange="calculate()">
+            <label for="mat-wood">
+                <strong>خشب كامل</strong>
+                <small>Full Wood</small>
+            </label>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 03 HEIGHT ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">03</div>
+        <div>
+            <h2>أبعاد المطبخ</h2>
+            <p>Dimensions</p>
+        </div>
+    </div>
+
+    <div class="form-grid">
+
+        <div class="field">
+            <label>الارتفاع الأساسي</label>
+            <input type="text" value="223 سم" readonly>
+            <span class="unit">الارتفاع المعتمد للمطبخ</span>
+        </div>
+
+        <div class="field">
+            <label>الارتفاع المطلوب للمطبخ</label>
+            <input
+                type="number"
+                id="requiredHeight"
+                value="223"
+                min="223"
+                step="1"
+                oninput="calculateExtraHeight()"
+            >
+            <span class="unit" id="heightDifference">
+                فرق الارتفاع: 0 سم
+            </span>
+        </div>
+
+    </div>
+
+    <div class="notice" style="margin-top:18px">
+        يتم توزيع فرق الارتفاع تلقائيًا بين عمق 60 سم وعمق 35 سم.
+    </div>
+
+    <div class="form-grid">
+
+        <!-- DEPTH 60 -->
+
+        <div>
+
+            <div class="field">
+                <label>فرق ارتفاع — عمق 60 سم</label>
+            </div>
+
+            <div class="form-grid" style="margin-top:8px">
+
+                <div class="field">
+                    <label>العرض</label>
+                    <input
+                        type="number"
+                        id="extra60Width"
+                        value="0"
+                        min="0"
+                        step="0.01"
+                        oninput="calculate()"
+                    >
+                    <span class="unit">متر</span>
+                </div>
+
+                <div class="field">
+                    <label>الارتفاع الإضافي</label>
+                    <input
+                        type="number"
+                        id="extra60Height"
+                        value="0"
+                        min="0"
+                        step="1"
+                        oninput="syncExtraHeight('60')"
+                    >
+                    <span class="unit">سم — يتبقى تلقائيًا لعمق 35</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DEPTH 35 -->
+
+        <div>
+
+            <div class="field">
+                <label>فرق ارتفاع — عمق 35 سم</label>
+            </div>
+
+            <div class="form-grid" style="margin-top:8px">
+
+                <div class="field">
+                    <label>العرض</label>
+                    <input
+                        type="number"
+                        id="extra35Width"
+                        value="0"
+                        min="0"
+                        step="0.01"
+                        oninput="calculate()"
+                    >
+                    <span class="unit">متر</span>
+                </div>
+
+                <div class="field">
+                    <label>الارتفاع الإضافي</label>
+                    <input
+                        type="number"
+                        id="extra35Height"
+                        value="0"
+                        min="0"
+                        step="1"
+                        oninput="syncExtraHeight('35')"
+                    >
+                    <span class="unit">سم — يتبقى تلقائيًا لعمق 60</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 04 TALL UNITS ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">04</div>
+        <div>
+            <h2>الدواليب الطويلة</h2>
+            <p>Tall Units</p>
+        </div>
+    </div>
+
+    <div class="quantity-grid">
+
+        <!-- FLEXIBLE 20-45 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                دولاب طويل 20 – 45 سم
+            </div>
+
+            <input
+                type="number"
+                id="tall2045Width"
+                value="30"
+                min="20"
+                max="45"
+                step="1"
+                oninput="calculate()"
+                placeholder="العرض الفعلي"
+            >
+
+            <span class="q-note">
+                العرض الفعلي بالسم
+            </span>
+
+            <input
+                type="number"
+                id="tall2045"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+                style="margin-top:8px"
+                placeholder="العدد"
+            >
+
+            <span class="q-note">
+                العدد
+            </span>
+
+        </div>
+
+
+        <!-- FLEXIBLE 46-60 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                دولاب طويل 46 – 60 سم
+            </div>
+
+            <input
+                type="number"
+                id="tall4660Width"
+                value="50"
+                min="46"
+                max="60"
+                step="1"
+                oninput="calculate()"
+                placeholder="العرض الفعلي"
+            >
+
+            <span class="q-note">
+                العرض الفعلي بالسم
+            </span>
+
+            <input
+                type="number"
+                id="tall4660"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+                style="margin-top:8px"
+                placeholder="العدد"
+            >
+
+            <span class="q-note">
+                العدد
+            </span>
+
+        </div>
+
+
+        <!-- 80 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                دولاب طويل 80 سم
+            </div>
+
+            <input
+                type="number"
+                id="tall80"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+            >
+
+        </div>
+
+
+        <!-- 90 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                دولاب طويل 90 سم
+            </div>
+
+            <input
+                type="number"
+                id="tall90"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+            >
+
+        </div>
+
+
+        <!-- 100 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                دولاب طويل 100 سم
+            </div>
+
+            <input
+                type="number"
+                id="tall100"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+            >
+
+        </div>
+
+
+        <!-- CORNER 90 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                زاوية طويلة 90
+            </div>
+
+            <input
+                type="number"
+                id="cornerTall90"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+            >
+
+        </div>
+
+
+        <!-- CORNER 100 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                زاوية طويلة 100
+            </div>
+
+            <input
+                type="number"
+                id="cornerTall100"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+            >
+
+        </div>
+
+
+        <!-- CORNER 110 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                زاوية طويلة 110
+            </div>
+
+            <input
+                type="number"
+                id="cornerTall110"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+            >
+
+        </div>
+
+
+        <!-- CORNER L 100 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                زاوية L — 100
+            </div>
+
+            <input
+                type="number"
+                id="cornerL100"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+            >
+
+        </div>
+
+
+        <!-- CORNER L 110 -->
+
+        <div class="quantity-card">
+
+            <div class="q-title">
+                زاوية L — 110
+            </div>
+
+            <input
+                type="number"
+                id="cornerL110"
+                value="0"
+                min="0"
+                step="1"
+                oninput="calculate()"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- AUTO TALL METERS -->
+
+    <div class="form-grid" style="margin-top:18px">
+
+        <div class="field">
+
+            <label>
+                إجمالي أمتار الدواليب الطويلة المؤثرة على السطح
+            </label>
+
+            <input
+                type="text"
+                id="tallMetersDisplay"
+                value="0.00 متر"
+                readonly
+            >
+
+            <span class="unit">
+                يتم حسابها تلقائيًا من المقاسات والكميات
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 05 COUNTERTOP ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">05</div>
+        <div>
+            <h2>السطح</h2>
+            <p>Countertop</p>
+        </div>
+    </div>
+
+    <div class="choice-grid">
+
+        <div class="choice">
+            <input type="radio" name="countertop" id="counter-standard" value="standard" checked onchange="calculate()">
+            <label for="counter-standard">
+                <strong>رخام صناعي</strong>
+                <small>Standard</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="countertop" id="counter-veined" value="veined" onchange="calculate()">
+            <label for="counter-veined">
+                <strong>رخام عروق</strong>
+                <small>Veined</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="countertop" id="counter-quartz" value="quartz" onchange="calculate()">
+            <label for="counter-quartz">
+                <strong>كوارتز منقط</strong>
+                <small>Quartz</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="countertop" id="counter-shiny" value="shiny" onchange="calculate()">
+            <label for="counter-shiny">
+                <strong>كوارتز لامع</strong>
+                <small>Shiny Quartz</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="countertop" id="counter-matte" value="matte" onchange="calculate()">
+            <label for="counter-matte">
+                <strong>كوارتز مطفي</strong>
+                <small>Matte Quartz</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="countertop" id="counter-wood" value="wood" onchange="calculate()">
+            <label for="counter-wood">
+                <strong>سطح خشب</strong>
+                <small>Wood</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="countertop" id="counter-porcelain" value="porcelain" onchange="calculate()">
+            <label for="counter-porcelain">
+                <strong>بورسلان</strong>
+                <small>Porcelain</small>
+            </label>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 06 CLADDING ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">06</div>
+        <div>
+            <h2>تلبيس الحائط</h2>
+            <p>Wall Cladding</p>
+        </div>
+    </div>
+
+    <div class="switch-row">
+
+        <div>
+            <strong>إضافة تلبيس للحائط</strong>
+            <div class="unit">
+                يتم حساب الحائط فقط — الجزيرة غير داخلة في التلبيس
+            </div>
+        </div>
+
+        <label class="switch">
+
+            <input
+                type="checkbox"
+                id="claddingEnabled"
+                onchange="toggleCladding()"
+            >
+
+            <span class="slider"></span>
+
+        </label>
+
+    </div>
+
+
+    <div id="claddingBox" class="hidden" style="margin-top:18px">
+
+        <div class="choice-grid">
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-al" value="aluminum" checked onchange="calculate()">
+                <label for="cl-al"><strong>ألمنيوم</strong></label>
+            </div>
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-calcium" value="calcium" onchange="calculate()">
+                <label for="cl-calcium"><strong>كالسيوم</strong></label>
+            </div>
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-wood" value="wood" onchange="calculate()">
+                <label for="cl-wood"><strong>خشب</strong></label>
+            </div>
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-groove" value="groove" onchange="calculate()">
+                <label for="cl-groove"><strong>خشب شرائح</strong></label>
+            </div>
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-veined" value="veined" onchange="calculate()">
+                <label for="cl-veined"><strong>رخام عروق</strong></label>
+            </div>
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-marble" value="marble" onchange="calculate()">
+                <label for="cl-marble"><strong>رخام صناعي</strong></label>
+            </div>
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-quartz" value="quartz" onchange="calculate()">
+                <label for="cl-quartz"><strong>كوارتز</strong></label>
+            </div>
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-qmatte" value="qmatte" onchange="calculate()">
+                <label for="cl-qmatte"><strong>كوارتز مطفي</strong></label>
+            </div>
+
+            <div class="choice">
+                <input type="radio" name="cladding" id="cl-porcelain" value="porcelain" onchange="calculate()">
+                <label for="cl-porcelain"><strong>بورسلان</strong></label>
+            </div>
+
+        </div>
+
+        <div class="form-grid" style="margin-top:18px">
+
+            <div class="field">
+
+                <label>ارتفاع التلبيس</label>
+
+                <input
+                    type="number"
+                    id="claddingHeight"
+                    value="60"
+                    min="1"
+                    step="1"
+                    oninput="calculate()"
+                >
+
+                <span class="unit">سم</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 07 HANDLES ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">07</div>
+        <div>
+            <h2>المسكات</h2>
+            <p>Handles</p>
+        </div>
+    </div>
+
+    <div class="choice-grid">
+
+        <div class="choice">
+            <input type="radio" name="handle" id="handle-free" value="free" checked onchange="calculate()">
+            <label for="handle-free">
+                <strong>بدون مسكة</strong>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="handle" id="handle-s" value="s" onchange="calculate()">
+            <label for="handle-s">
+                <strong>مسكة S</strong>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="handle" id="handle-m" value="m" onchange="calculate()">
+            <label for="handle-m">
+                <strong>مسكة M</strong>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="handle" id="handle-l" value="l" onchange="calculate()">
+            <label for="handle-l">
+                <strong>مسكة L</strong>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="handle" id="handle-gola" value="gola" onchange="calculate()">
+            <label for="handle-gola">
+                <strong>GOLA</strong>
+                <small>Hidden Handle</small>
+            </label>
+        </div>
+
+        <div class="choice">
+            <input type="radio" name="handle" id="handle-gola2" value="gola2" onchange="calculate()">
+            <label for="handle-gola2">
+                <strong>GOLA +2</strong>
+                <small>Premium</small>
+            </label>
+        </div>
+
+    </div>
+
+    <div class="form-grid" style="margin-top:18px">
+
+        <div class="field">
+
+            <label>الكمية / الأمتار التقريبية</label>
+
+            <input
+                type="number"
+                id="handleQty"
+                value="0"
+                min="0"
+                step="0.01"
+                oninput="calculate()"
+            >
+
+            <span class="unit">
+                اتركها 0 للحساب التلقائي حسب طول المطبخ
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 08 SINK + DRAWERS ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">08</div>
+        <div>
+            <h2>الحوض والأدراج</h2>
+            <p>Sink & Drawers</p>
+        </div>
+    </div>
+
+    <div class="field" style="margin-bottom:22px">
+
+        <label>الحوض</label>
+
+        <select id="sink" onchange="calculate()">
+
+            <option value="none">بدون حوض</option>
+            <option value="6018">حوض 6018</option>
+            <option value="evesarts">EVESARTS 60</option>
+            <option value="bh8451">BH-8451</option>
+            <option value="mt4444">MT4444</option>
+            <option value="mt5040">MT5040</option>
+            <option value="8045">8045</option>
+            <option value="mt10050">MT10050</option>
+            <option value="mt8044">MT8044</option>
+            <option value="mt7546">MT7546</option>
+            <option value="mt8250">MT8250</option>
+            <option value="sinkm1">SINK M1</option>
+            <option value="sinkm2">SINK M2</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="quantity-grid">
+
+        <div class="quantity-card">
+            <div class="q-title">درج S</div>
+            <input type="number" id="drawerS" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">درج M</div>
+            <input type="number" id="drawerM" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">درج L</div>
+            <input type="number" id="drawerL" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">درج هيدروليك</div>
+            <input type="number" id="drawerHyd" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">درج داخلي</div>
+            <input type="number" id="drawerInner" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">تخزين أرز</div>
+            <input type="number" id="riceStorage" value="0" min="0" oninput="calculate()">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 09 LED ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">09</div>
+        <div>
+            <h2>الإضاءة</h2>
+            <p>LED Lighting</p>
+        </div>
+    </div>
+
+    <div class="switch-row">
+
+        <div>
+            <strong>إضافة LED أسفل الدواليب العلوية</strong>
+
+            <div class="unit">
+                يتم حساب المحول تلقائيًا حسب الطول
+            </div>
+        </div>
+
+        <label class="switch">
+
+            <input
+                type="checkbox"
+                id="ledEnabled"
+                onchange="toggleLed()"
+            >
+
+            <span class="slider"></span>
+
+        </label>
+
+    </div>
+
+
+    <div id="ledBox" class="hidden" style="margin-top:18px">
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>أمتار LED</label>
+
+                <input
+                    type="number"
+                    id="ledMeters"
+                    value="0"
+                    min="0"
+                    step="0.01"
+                    oninput="calculate()"
+                >
+
+                <span class="unit">
+                    اتركها 0 للحساب التلقائي
+                </span>
+
+            </div>
+
+            <div class="field">
+
+                <label>عدد المحولات</label>
+
+                <input
+                    type="number"
+                    id="transformers"
+                    value="0"
+                    min="0"
+                    step="1"
+                    oninput="calculate()"
+                >
+
+                <span class="unit">
+                    اتركها 0 للحساب التلقائي
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 10 ISLAND ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">10</div>
+        <div>
+            <h2>الجزيرة</h2>
+            <p>Kitchen Island</p>
+        </div>
+    </div>
+
+    <div class="switch-row">
+
+        <div>
+            <strong>إضافة جزيرة</strong>
+
+            <div class="unit">
+                يتم حساب القاعدة والسطح والبراويز تلقائيًا
+            </div>
+        </div>
+
+        <label class="switch">
+
+            <input
+                type="checkbox"
+                id="islandEnabled"
+                onchange="toggleIsland()"
+            >
+
+            <span class="slider"></span>
+
+        </label>
+
+    </div>
+
+
+    <div id="islandBox" class="hidden" style="margin-top:18px">
+
+        <div class="form-grid">
+
+            <div class="field">
+
+                <label>طول الجزيرة</label>
+
+                <input
+                    type="number"
+                    id="islandLength"
+                    value="0"
+                    min="0"
+                    step="0.01"
+                    oninput="calculate()"
+                >
+
+                <span class="unit">متر</span>
+
+            </div>
+
+            <div class="field">
+
+                <label>عمق الجزيرة</label>
+
+                <select id="islandDepth" onchange="calculate()">
+
+                    <option value="60">60 سم</option>
+                    <option value="90">90 سم</option>
+                    <option value="120">120 سم</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="notice" style="margin-top:18px">
+
+            يتم تطبيق اختيار السطح نفسه على الجزيرة، مع احتساب البراويز من جميع الجهات.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 11 ACCESSORIES ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">11</div>
+        <div>
+            <h2>الإكسسوارات</h2>
+            <p>Accessories</p>
+        </div>
+    </div>
+
+    <div class="quantity-grid">
+
+        <div class="quantity-card">
+            <div class="q-title">تقسيم ملاعق بلاستيك</div>
+            <input type="number" id="accCutlery" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">سلة بهارات</div>
+            <input type="number" id="accSpice" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">سلة نفايات</div>
+            <input type="number" id="accTrash" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">سلة خضار خوص</div>
+            <input type="number" id="accWicker" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">عياشة</div>
+            <input type="number" id="accAyasha" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">تروللي سداسي 45</div>
+            <input type="number" id="accHex45" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">تروللي سداسي 60</div>
+            <input type="number" id="accHex60" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">تقسيم صواني</div>
+            <input type="number" id="accTray" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">تقسيم صواني + سحب</div>
+            <input type="number" id="accTrayPull" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">Pantry 600 زجاج</div>
+            <input type="number" id="accPantryGlass" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">Pantry 600 خشب</div>
+            <input type="number" id="accPantryWood" value="0" min="0" oninput="calculate()">
+        </div>
+
+        <div class="quantity-card">
+            <div class="q-title">سلة زاوية</div>
+            <input type="number" id="accCorner" value="0" min="0" oninput="calculate()">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 12 DISCOUNT ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="number">12</div>
+        <div>
+            <h2>الخصم</h2>
+            <p>Discount</p>
+        </div>
+    </div>
+
+    <div class="form-grid">
+
+        <div class="field">
+
+            <label>نسبة الخصم</label>
+
+            <input
+                type="number"
+                id="discount"
+                value="0"
+                min="0"
+                max="100"
+                step="0.1"
+                oninput="calculate()"
+            >
+
+            <span class="unit">
+                الخصم يطبق على قيمة الأمتار فقط
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="actions">
+
+    <button
+        class="btn btn-primary"
+        onclick="calculate(true)"
+    >
+        Calculate Quotation
+    </button>
+
+    <button
+        class="btn btn-secondary"
+        onclick="resetCalculator()"
+    >
+        Reset
+    </button>
+
+</div>
+
+
+<!-- ================= RESULT ================= -->
+
+<section class="result" id="result">
+
+    <div class="small-title">
+        Mohamed Abdelhady
+    </div>
+
+    <h2>Kitchen Quotation</h2>
+
+    <div class="total">
+
+        <span>SAR</span>
+
+        <span id="finalTotal">
+            0
+        </span>
+
+    </div>
+
+    <div class="vat-text">
+        Final quotation including 15% VAT
+    </div>
+
+    <div class="result-actions">
+
+        <button onclick="copyTotal()">
+            Copy Total
+        </button>
+
+        <button onclick="window.print()">
+            Print
+        </button>
+
+    </div>
+
+
+    <details>
+
+        <summary>
+            Internal Calculation Details
+        </summary>
+
+        <div
+            class="internal"
+            id="internalDetails"
+        ></div>
+
+    </details>
+
+</section>
+
+
+<footer>
+
+    © <span id="year"></span>
+    Mohamed Abdelhady — Interior & Kitchen Designer
+
+</footer>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   INTERNAL PRICE DATABASE
+   الأسعار هنا فقط ولا يتم عرضها في الواجهة
+========================================================= */
+
+const PRICES = {
+
+    material:{
+        aluminum:1800,
+        mix:2200,
+        wood:2400
+    },
+
+    tall:{
+        "2045":500,
+        "4660":600,
+        "80":800,
+        "90":900,
+        "100":1000,
+        corner90:1000,
+        corner100:1100,
+        corner110:1200,
+        cornerL100:1900,
+        cornerL110:2000
+    },
+
+    extraHeight:{
+        d35:790,
+        d60:1118,
+        frame:380
+    },
+
+    extraHeightMix:{
+        d35:965,
+        d60:1382
+    },
+
+    extraHeightWood:{
+        d35:1053,
+        d60:1514
+    },
+
+    countertop:{
+        standard:0,
+        veined:260,
+        quartz:160,
+        shiny:360,
+        matte:560,
+        wood:50,
+        porcelain:800
+    },
+
+    cladding:{
+        aluminum:380,
+        calcium:280,
+        wood:380,
+        groove:680,
+        veined:850,
+        marble:590,
+        quartz:950,
+        qmatte:1450,
+        porcelain:1392
+    },
+
+    handles:{
+        free:0,
+        s:5,
+        m:10,
+        l:15,
+        gola:150,
+        gola2:200
+    },
+
+    sink:{
+        none:0,
+        "6018":1390,
+        evesarts:700,
+        bh8451:1840,
+        mt4444:450,
+        mt5040:650,
+        "8045":1840,
+        mt10050:1840,
+        mt8044:1840,
+        mt7546:2100,
+        mt8250:3200,
+        sinkm1:650,
+        sinkm2:950
+    },
+
+    drawers:{
+        s:320,
+        m:350,
+        l:380,
+        hyd:250,
+        inner:350,
+        rice:350
+    },
+
+    led:150,
+
+    transformer:170,
+
+    islandDepth90:500,
+
+    islandFrame:380,
+
+    accessories:{
+        cutlery:150,
+        spice:350,
+        trash:550,
+        wicker:350,
+        ayasha:350,
+        hex45:1250,
+        hex60:1490,
+        tray:450,
+        trayPull:650,
+        pantryGlass:1600,
+        pantryWood:1490,
+        corner:1290
+    },
+
+    ventilation:50
+};
+
+
+/* =========================================================
+   BASIC FUNCTIONS
+========================================================= */
+
+function num(id){
+
+    return Number(
+        document.getElementById(id)?.value || 0
+    );
+
+}
+
+
+function selected(name){
+
+    return document.querySelector(
+        `input[name="${name}"]:checked`
+    )?.value;
+
+}
+
+
+function money(value){
+
+    return Math.round(value)
+        .toLocaleString("en-US");
+
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+function updateLayout(){
+
+    const layout = selected("layout");
+
+    const box =
+        document.getElementById("wallInputs");
+
+    let walls = 1;
+
+    if(layout === "l"){
+        walls = 2;
+    }
+
+    if(layout === "u"){
+        walls = 3;
+    }
+
+    if(layout === "parallel"){
+        walls = 2;
+    }
+
+    box.innerHTML = "";
+
+    for(let i=1;i<=walls;i++){
+
+        box.innerHTML += `
+
+            <div class="wall-item">
+
+                <strong>
+                    طول الحائط ${i}
+                </strong>
+
+                <input
+                    type="number"
+                    id="wall${i}"
+                    value="0"
+                    min="0"
+                    step="0.01"
+                    oninput="calculate()"
+                    placeholder="مثال 4.20"
+                >
+
+                <span class="unit">
+                    متر
+                </span>
+
+            </div>
+
+        `;
+
+    }
+
+    calculate();
+
+}
+
+
+/* =========================================================
+   EXTRA HEIGHT
+========================================================= */
+
+/*
+   الفكرة:
+
+   مثال:
+   الارتفاع المطلوب = 280
+   الفرق = 57
+
+   إذا أدخل المستخدم:
+   عمق 60 = 40
+
+   يتم تلقائيًا:
+   عمق 35 = 17
+
+   والعكس صحيح.
+*/
+
+function calculateExtraHeight(){
+
+    const required =
+        Math.max(
+            223,
+            num("requiredHeight")
+        );
+
+    const diff =
+        Math.max(
+            0,
+            required - 223
+        );
+
+    document.getElementById(
+        "heightDifference"
+    ).textContent =
+        `فرق الارتفاع: ${diff} سم`;
+
+    const h60 =
+        document.getElementById(
+            "extra60Height"
+        );
+
+    const h35 =
+        document.getElementById(
+            "extra35Height"
+        );
+
+    let current60 =
+        Math.max(
+            0,
+            Number(h60.value || 0)
+        );
+
+    if(current60 > diff){
+        current60 = diff;
+        h60.value = current60;
+    }
+
+    h35.value =
+        Math.max(
+            0,
+            diff - current60
+        );
+
+    calculate();
+
+}
+
+
+/* =========================================================
+   EXTRA HEIGHT SYNC
+========================================================= */
+
+function syncExtraHeight(source){
+
+    const required =
+        Math.max(
+            223,
+            num("requiredHeight")
+        );
+
+    const diff =
+        Math.max(
+            0,
+            required - 223
+        );
+
+    const h60 =
+        document.getElementById(
+            "extra60Height"
+        );
+
+    const h35 =
+        document.getElementById(
+            "extra35Height"
+        );
+
+
+    if(source === "60"){
+
+        let value =
+            Math.max(
+                0,
+                Number(h60.value || 0)
+            );
+
+        if(value > diff){
+            value = diff;
+            h60.value = value;
+        }
+
+        h35.value =
+            Math.max(
+                0,
+                diff - value
+            );
+
+    }
+
+
+    if(source === "35"){
+
+        let value =
+            Math.max(
+                0,
+                Number(h35.value || 0)
+            );
+
+        if(value > diff){
+            value = diff;
+            h35.value = value;
+        }
+
+        h60.value =
+            Math.max(
+                0,
+                diff - value
+            );
+
+    }
+
+
+    document.getElementById(
+        "heightDifference"
+    ).textContent =
+        `فرق الارتفاع: ${diff} سم`;
+
+    calculate();
+
+}
+
+
+/* =========================================================
+   AUTOMATIC TALL METERS
+========================================================= */
+
+function calculateTallMeters(){
+
+    /*
+       20–45:
+       العرض الفعلي × العدد
+
+       46–60:
+       العرض الفعلي × العدد
+
+       المقاسات الثابتة:
+       80 / 90 / 100
+
+       الزوايا:
+       90 / 100 / 110
+
+       زاوية L:
+       100 / 110
+    */
+
+
+    const tall2045Width =
+        Math.max(
+            0,
+            Math.min(
+                45,
+                Math.max(
+                    20,
+                    num("tall2045Width")
+                )
+            )
+        );
+
+    const tall4660Width =
+        Math.max(
+            0,
+            Math.min(
+                60,
+                Math.max(
+                    46,
+                    num("tall4660Width")
+                )
+            )
+        );
+
+
+    const meters2045 =
+        (tall2045Width *
+        num("tall2045")) / 100;
+
+
+    const meters4660 =
+        (tall4660Width *
+        num("tall4660")) / 100;
+
+
+    const meters80 =
+        (80 *
+        num("tall80")) / 100;
+
+
+    const meters90 =
+        (90 *
+        num("tall90")) / 100;
+
+
+    const meters100 =
+        (100 *
+        num("tall100")) / 100;
+
+
+    const metersCorner90 =
+        (90 *
+        num("cornerTall90")) / 100;
+
+
+    const metersCorner100 =
+        (100 *
+        num("cornerTall100")) / 100;
+
+
+    const metersCorner110 =
+        (110 *
+        num("cornerTall110")) / 100;
+
+
+    const metersCornerL100 =
+        (100 *
+        num("cornerL100")) / 100;
+
+
+    const metersCornerL110 =
+        (110 *
+        num("cornerL110")) / 100;
+
+
+    const total =
+
+        meters2045 +
+
+        meters4660 +
+
+        meters80 +
+
+        meters90 +
+
+        meters100 +
+
+        metersCorner90 +
+
+        metersCorner100 +
+
+        metersCorner110 +
+
+        metersCornerL100 +
+
+        metersCornerL110;
+
+
+    const display =
+        document.getElementById(
+            "tallMetersDisplay"
+        );
+
+    if(display){
+
+        display.value =
+            total.toFixed(2) + " متر";
+
+    }
+
+
+    return total;
+
+}
+
+
+/* =========================================================
+   TOGGLES
+========================================================= */
+
+function toggleCladding(){
+
+    document.getElementById(
+        "claddingBox"
+    ).classList.toggle(
+        "hidden",
+        !document.getElementById(
+            "claddingEnabled"
+        ).checked
+    );
+
+    calculate();
+
+}
+
+
+function toggleLed(){
+
+    document.getElementById(
+        "ledBox"
+    ).classList.toggle(
+        "hidden",
+        !document.getElementById(
+            "ledEnabled"
+        ).checked
+    );
+
+    calculate();
+
+}
+
+
+function toggleIsland(){
+
+    document.getElementById(
+        "islandBox"
+    ).classList.toggle(
+        "hidden",
+        !document.getElementById(
+            "islandEnabled"
+        ).checked
+    );
+
+    calculate();
+
+}
+
+
+/* =========================================================
+   MAIN CALCULATION
+========================================================= */
+
+function calculate(showResult=false){
+
+    const layout =
+        selected("layout");
+
+
+    /* ---------- WALLS ---------- */
+
+    let totalWalls = 0;
+
+    const wallCount =
+
+        layout === "straight" ? 1 :
+
+        layout === "l" ? 2 :
+
+        layout === "u" ? 3 :
+
+        layout === "parallel" ? 2 :
+
+        1;
+
+
+    for(
+        let i=1;
+        i<=wallCount;
+        i++
+    ){
+
+        totalWalls +=
+            num(`wall${i}`);
+
+    }
+
+
+    /* ---------- CORNERS ---------- */
+
+    let sharedCorners = 0;
+
+    if(layout === "l"){
+        sharedCorners = 1;
+    }
+
+    if(layout === "u"){
+        sharedCorners = 2;
+    }
+
+
+    const fridgeVoid =
+        num("fridgeVoid");
+
+
+    const windowVoid =
+        num("windowVoid");
+
+
+    /* ---------- MATERIAL ---------- */
+
+    const material =
+        selected("material");
+
+
+    const materialRate =
+        PRICES.material[material];
+
+
+    const lowerRate =
+        materialRate * (2/3);
+
+
+    const upperRate =
+        materialRate * (1/3);
+
+
+    /* ---------- METERS ---------- */
+
+    let lowerMeters =
+
+        totalWalls
+
+        - (sharedCorners * 0.60)
+
+        - fridgeVoid;
+
+
+    let upperMeters =
+
+        totalWalls
+
+        - (sharedCorners * 0.35)
+
+        - windowVoid;
+
+
+    lowerMeters =
+        Math.max(
+            0,
+            lowerMeters
+        );
+
+
+    upperMeters =
+        Math.max(
+            0,
+            upperMeters
+        );
+
+
+    const meterBaseValue =
+
+        (lowerMeters * lowerRate)
+
+        +
+
+        (upperMeters * upperRate);
+
+
+    /* ---------- DISCOUNT ---------- */
+
+    const discountPercent =
+
+        Math.max(
+            0,
+            Math.min(
+                100,
+                num("discount")
+            )
+        );
+
+
+    const discountAmount =
+
+        meterBaseValue *
+        discountPercent /
+        100;
+
+
+    /* ---------- TALL METERS ---------- */
+
+    const tallMeters =
+        calculateTallMeters();
+
+
+    const usableCounterMeters =
+
+        Math.max(
+            0,
+            lowerMeters - tallMeters
+        );
+
+
+    /* ---------- TALL UNITS COST ---------- */
+
+    let tallCost = 0;
+
+
+    tallCost +=
+        num("tall2045") *
+        PRICES.tall["2045"];
+
+
+    tallCost +=
+        num("tall4660") *
+        PRICES.tall["4660"];
+
+
+    tallCost +=
+        num("tall80") *
+        PRICES.tall["80"];
+
+
+    tallCost +=
+        num("tall90") *
+        PRICES.tall["90"];
+
+
+    tallCost +=
+        num("tall100") *
+        PRICES.tall["100"];
+
+
+    tallCost +=
+        num("cornerTall90") *
+        PRICES.tall.corner90;
+
+
+    tallCost +=
+        num("cornerTall100") *
+        PRICES.tall.corner100;
+
+
+    tallCost +=
+        num("cornerTall110") *
+        PRICES.tall.corner110;
+
+
+    tallCost +=
+        num("cornerL100") *
+        PRICES.tall.cornerL100;
+
+
+    tallCost +=
+        num("cornerL110") *
+        PRICES.tall.cornerL110;
+
+
+    /* ---------- SHAKER DOOR ---------- */
+
+    const shakerDoors =
+
+        document.querySelector(
+            'input[name="shaker"]:checked'
+        )?.value === "yes";
+
+
+    const shakerCost = 0;
+
+
+    /* ---------- EXTRA HEIGHT ---------- */
+
+    const extra60Width =
+        num("extra60Width");
+
+
+    const extra60Height =
+        num("extra60Height");
+
+
+    const extra35Width =
+        num("extra35Width");
+
+
+    const extra35Height =
+        num("extra35Height");
+
+
+    let extra60Rate =
+        PRICES.extraHeight.d60;
+
+
+    let extra35Rate =
+        PRICES.extraHeight.d35;
+
+
+    if(material === "mix"){
+
+        extra60Rate =
+            PRICES.extraHeightMix.d60;
+
+        extra35Rate =
+            PRICES.extraHeightMix.d35;
+
+    }
+
+
+    if(material === "wood"){
+
+        extra60Rate =
+            PRICES.extraHeightWood.d60;
+
+        extra35Rate =
+            PRICES.extraHeightWood.d35;
+
+    }
+
+
+    const extra60Area =
+
+        extra60Width *
+        (extra60Height / 100);
+
+
+    const extra35Area =
+
+        extra35Width *
+        (extra35Height / 100);
+
+
+    const extra60Cost =
+
+        extra60Area *
+        extra60Rate;
+
+
+    const extra35Cost =
+
+        extra35Area *
+        extra35Rate;
+
+
+    /*
+       البراويز لعمق 60
+       يتم حسابها على كامل عرض منطقة
+       عمق 60 بعد إزالة خانة التداخل اليدوية.
+    */
+
+    const frameArea =
+
+        extra60Width *
+        (extra60Height / 100);
+
+
+    const frameCost =
+
+        frameArea *
+        PRICES.extraHeight.frame;
+
+
+    /* ---------- COUNTERTOP ---------- */
+
+    const countertop =
+        selected("countertop");
+
+
+    const countertopUpgrade =
+
+        PRICES.countertop[countertop] *
+        usableCounterMeters;
+
+
+    /* ---------- SINK ---------- */
+
+    const sinkValue =
+        document.getElementById(
+            "sink"
+        ).value;
+
+
+    const sinkCost =
+
+        PRICES.sink[sinkValue] || 0;
+
+
+    /* ---------- DRAWERS ---------- */
+
+    let drawerCost = 0;
+
+
+    drawerCost +=
+        num("drawerS") *
+        PRICES.drawers.s;
+
+
+    drawerCost +=
+        num("drawerM") *
+        PRICES.drawers.m;
+
+
+    drawerCost +=
+        num("drawerL") *
+        PRICES.drawers.l;
+
+
+    drawerCost +=
+        num("drawerHyd") *
+        PRICES.drawers.hyd;
+
+
+    drawerCost +=
+        num("drawerInner") *
+        PRICES.drawers.inner;
+
+
+    drawerCost +=
+        num("riceStorage") *
+        PRICES.drawers.rice;
+
+
+    /* ---------- CLADDING ---------- */
+
+    let claddingCost = 0;
+
+
+    if(
+        document.getElementById(
+            "claddingEnabled"
+        ).checked
+    ){
+
+        const claddingType =
+            selected("cladding");
+
+
+        const claddingHeight =
+            num("claddingHeight");
+
+
+        const claddingArea =
+
+            usableCounterMeters *
+            (claddingHeight / 100);
+
+
+        if(claddingType === "porcelain"){
+
+            claddingCost =
+
+                usableCounterMeters *
+                PRICES.cladding.porcelain;
+
+        }
+
+        else{
+
+            claddingCost =
+
+                claddingArea *
+                PRICES.cladding[
+                    claddingType
+                ];
+
+        }
+
+    }
+
+
+    /* ---------- HANDLE ---------- */
+
+    const handleType =
+        selected("handle");
+
+
+    let handleLength =
+        num("handleQty");
+
+
+    if(handleLength === 0){
+
+        handleLength =
+            usableCounterMeters;
+
+    }
+
+
+    const handleCost =
+
+        handleLength *
+        PRICES.handles[
+            handleType
+        ];
+
+
+    /* ---------- LED ---------- */
+
+    let ledCost = 0;
+
+    let transformerCost = 0;
+
+
+    if(
+        document.getElementById(
+            "ledEnabled"
+        ).checked
+    ){
+
+        let ledMeters =
+            num("ledMeters");
+
+
+        if(ledMeters === 0){
+
+            ledMeters =
+                usableCounterMeters;
+
+        }
+
+
+        let transformerCount =
+            num("transformers");
+
+
+        if(transformerCount === 0){
+
+            transformerCount =
+                Math.ceil(
+                    ledMeters / 5
+                );
+
+        }
+
+
+        ledCost =
+
+            ledMeters *
+            PRICES.led;
+
+
+        transformerCost =
+
+            transformerCount *
+            PRICES.transformer;
+
+    }
+
+
+    /* ---------- ISLAND ---------- */
+
+    let islandCost = 0;
+
+
+    if(
+        document.getElementById(
+            "islandEnabled"
+        ).checked
+    ){
+
+        const islandLength =
+            num("islandLength");
+
+
+        const islandDepth =
+            Number(
+                document.getElementById(
+                    "islandDepth"
+                ).value
+            );
+
+
+        let depthFactor = 1;
+
+
+        if(islandDepth === 120){
+
+            depthFactor = 2;
+
+        }
+
+
+        const islandBase =
+
+            islandLength *
+            lowerRate *
+            depthFactor;
+
+
+        let islandDepthUpgrade = 0;
+
+
+        if(islandDepth === 90){
+
+            islandDepthUpgrade =
+
+                islandLength *
+                PRICES.islandDepth90;
+
+        }
+
+
+        const islandCountertop =
+
+            islandLength *
+            PRICES.countertop[
+                countertop
+            ] *
+            depthFactor;
+
+
+        const islandPerimeter =
+
+            (2 * islandLength)
+
+            +
+
+            (2 * (islandDepth / 100));
+
+
+        const islandFrameArea =
+
+            islandPerimeter *
+            0.72;
+
+
+        const islandFrames =
+
+            islandFrameArea *
+            PRICES.islandFrame;
+
+
+        islandCost =
+
+            islandBase
+
+            +
+
+            islandDepthUpgrade
+
+            +
+
+            islandCountertop
+
+            +
+
+            islandFrames;
+
+    }
+
+
+    /* ---------- ACCESSORIES ---------- */
+
+    let accessoryCost = 0;
+
+
+    accessoryCost +=
+        num("accCutlery") *
+        PRICES.accessories.cutlery;
+
+
+    accessoryCost +=
+        num("accSpice") *
+        PRICES.accessories.spice;
+
+
+    accessoryCost +=
+        num("accTrash") *
+        PRICES.accessories.trash;
+
+
+    accessoryCost +=
+        num("accWicker") *
+        PRICES.accessories.wicker;
+
+
+    accessoryCost +=
+        num("accAyasha") *
+        PRICES.accessories.ayasha;
+
+
+    accessoryCost +=
+        num("accHex45") *
+        PRICES.accessories.hex45;
+
+
+    accessoryCost +=
+        num("accHex60") *
+        PRICES.accessories.hex60;
+
+
+    accessoryCost +=
+        num("accTray") *
+        PRICES.accessories.tray;
+
+
+    accessoryCost +=
+        num("accTrayPull") *
+        PRICES.accessories.trayPull;
+
+
+    accessoryCost +=
+        num("accPantryGlass") *
+        PRICES.accessories.pantryGlass;
+
+
+    accessoryCost +=
+        num("accPantryWood") *
+        PRICES.accessories.pantryWood;
+
+
+    accessoryCost +=
+        num("accCorner") *
+        PRICES.accessories.corner;
+
+
+    /* ---------- MANDATORY VENTILATION ---------- */
+
+    accessoryCost +=
+        PRICES.ventilation;
+
+
+    /* ---------- SUBTOTAL ---------- */
+
+    const subtotalBeforeDiscount =
+
+        meterBaseValue
+
+        +
+
+        tallCost
+
+        +
+
+        shakerCost
+
+        +
+
+        extra60Cost
+
+        +
+
+        extra35Cost
+
+        +
+
+        frameCost
+
+        +
+
+        countertopUpgrade
+
+        +
+
+        sinkCost
+
+        +
+
+        drawerCost
+
+        +
+
+        claddingCost
+
+        +
+
+        handleCost
+
+        +
+
+        ledCost
+
+        +
+
+        transformerCost
+
+        +
+
+        islandCost
+
+        +
+
+        accessoryCost;
+
+
+    const subtotal =
+
+        Math.max(
+            0,
+            subtotalBeforeDiscount -
+            discountAmount
+        );
+
+
+    /* ---------- VAT ---------- */
+
+    const vat =
+        subtotal * 0.15;
+
+
+    const finalTotal =
+        subtotal + vat;
+
+
+    /* ---------- DISPLAY ---------- */
+
+    document.getElementById(
+        "finalTotal"
+    ).textContent =
+        money(finalTotal);
+
+
+    document.getElementById(
+        "internalDetails"
+    ).innerHTML = `
+
+        <div class="internal-row">
+            <span>إجمالي الحوائط</span>
+            <strong>
+                ${totalWalls.toFixed(2)} م
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>الأمتار السفلية</span>
+            <strong>
+                ${lowerMeters.toFixed(2)} م
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>الأمتار العلوية</span>
+            <strong>
+                ${upperMeters.toFixed(2)} م
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>أمتار الدواليب الطويلة</span>
+            <strong>
+                ${tallMeters.toFixed(2)} م
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>أمتار السطح</span>
+            <strong>
+                ${usableCounterMeters.toFixed(2)} م
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>قيمة الأمتار قبل الخصم</span>
+            <strong>
+                ${money(meterBaseValue)} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>قيمة الخصم</span>
+            <strong>
+                ${money(discountAmount)} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>الدواليب الطويلة</span>
+            <strong>
+                ${money(tallCost)} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>فرق الارتفاع</span>
+            <strong>
+                ${money(
+                    extra60Cost +
+                    extra35Cost +
+                    frameCost
+                )} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>السطح والإضافات</span>
+            <strong>
+                ${money(countertopUpgrade)} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>التلبيس</span>
+            <strong>
+                ${money(claddingCost)} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>الحوض والأدراج</span>
+            <strong>
+                ${money(
+                    sinkCost +
+                    drawerCost
+                )} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>المسكات والإضاءة</span>
+            <strong>
+                ${money(
+                    handleCost +
+                    ledCost +
+                    transformerCost
+                )} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>الجزيرة</span>
+            <strong>
+                ${money(islandCost)} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>الإكسسوارات</span>
+            <strong>
+                ${money(accessoryCost)} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>قبل الضريبة</span>
+            <strong>
+                ${money(subtotal)} SAR
+            </strong>
+        </div>
+
+        <div class="internal-row">
+            <span>VAT 15%</span>
+            <strong>
+                ${money(vat)} SAR
+            </strong>
+        </div>
+
+    `;
+
+
+    if(showResult){
+
+        document.getElementById(
+            "result"
+        ).scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+function copyTotal(){
+
+    const total =
+        document.getElementById(
+            "finalTotal"
+        ).textContent;
+
+
+    navigator.clipboard.writeText(
+        `Kitchen Quotation: SAR ${total}`
+    );
+
+
+    alert(
+        "تم نسخ الإجمالي بنجاح"
+    );
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetCalculator(){
+
+    if(
+        !confirm(
+            "هل تريد إعادة الحاسبة للوضع الافتراضي؟"
+        )
+    ){
+
+        return;
+
+    }
+
+    location.reload();
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function updateProgress(){
+
+    const sections =
+        document.querySelectorAll(
+            ".section"
+        );
+
+
+    const dots =
+        document.querySelectorAll(
+            ".progress span"
+        );
+
+
+    const scroll =
+        window.scrollY +
+        window.innerHeight * .35;
+
+
+    let active = 0;
+
+
+    sections.forEach(
+        (section,index)=>{
+
+            if(
+                scroll >=
+                section.offsetTop
+            ){
+
+                active = index;
+
+            }
+
+        }
+    );
+
+
+    dots.forEach(
+        (dot,index)=>{
+
+            dot.classList.toggle(
+                "active",
+                index <=
+                Math.min(active,4)
+            );
+
+        }
+    );
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateProgress
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
+updateLayout();
+
+
+/*
+   تشغيل الارتفاع الأساسي
+*/
+calculateExtraHeight();
+
+
+calculate();
+
+</script>
+
+</body>
+</html>
