@@ -1,1243 +1,2670 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchen Sketch | Mohamed Abdelhady</title>
-    <meta name="description" content="أنشئ مخططًا مبدئيًا لمطبخك بنفسك، أضف المقاسات والأجهزة والفتحات، وأرسل التصميم مباشرة للمراجعة مع مصمم المطابخ محمد عبدالهادي.">
-    <meta name="keywords" content="Mohamed Abdelhady, Interior Designer Riyadh, Kitchen Designer Riyadh, Kitchen Design Saudi Arabia, Kitchen Designer Egypt, محمد عبدالهادي, مصمم مطابخ الرياض, مصمم داخلي الرياض">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Kitchen Sketch | Mohamed Abdelhady">
-    <meta property="og:description" content="أنشئ مخططًا مبدئيًا لمطبخك بنفسك وأرسله للمراجعة.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mohamed-abdelhady.com/kitchen-sketch.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kitchen Sketch | Mohamed Abdelhady</title>
+<meta name="description" content="ارسم مطبخك بنفسك، أضف الوحدات السفلية والعلوية والأجهزة وشاهد التصميم ثلاثي الأبعاد واحصل على سعر تقديري.">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS CDN for rapid luxury styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        bgPage: '#f4efe7',
-                        darkText: '#2b2722',
-                        accentColor: '#9a7650',
-                        lightCard: '#fffdf9',
-                        borderColor: '#ddd3c6'
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                        playfair: ['Playfair Display', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #f4efe7;
-            color: #2b2722;
-            font-family: 'Cairo', sans-serif;
-        }
-        .brand-font {
-            font-family: 'Playfair Display', serif;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f4efe7;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ddd3c6;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #9a7650;
-        }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#f4efe7;
+    --dark:#2b2722;
+    --accent:#9a7650;
+    --card:#fffdf9;
+    --border:#ddd3c6;
+    --soft:#eee6da;
+    --danger:#b42318;
+}
+
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    background:var(--bg);
+    color:var(--dark);
+    font-family:'Cairo',sans-serif;
+}
+
+button,input,select,textarea{font-family:inherit}
+
+button{
+    cursor:pointer;
+}
+
+.brand{
+    font-family:'Playfair Display',serif;
+}
+
+header{
+    height:80px;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.header-inner{
+    max-width:1400px;
+    height:100%;
+    margin:auto;
+    padding:0 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    text-decoration:none;
+    color:var(--dark);
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    font-weight:700;
+}
+
+.logo small{
+    display:block;
+    font-family:'Cairo',sans-serif;
+    color:var(--accent);
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.nav{
+    display:flex;
+    gap:18px;
+    align-items:center;
+}
+
+.nav a{
+    text-decoration:none;
+    color:var(--dark);
+    font-size:13px;
+}
+
+.lang{
+    padding:7px 13px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:var(--bg);
+}
+
+main{
+    max-width:1400px;
+    margin:auto;
+    padding:25px 20px 50px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:20px;
+    margin-bottom:22px;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 12px;
+    border-radius:20px;
+    background:var(--soft);
+    border:1px solid var(--border);
+    font-size:11px;
+    margin-bottom:8px;
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    margin:0;
+    font-size:38px;
+}
+
+.subtitle{
+    margin:5px 0 0;
+    color:#756b61;
+    font-size:14px;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:330px 1fr;
+    gap:20px;
+}
+
+.sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:17px;
+    box-shadow:0 3px 12px rgba(43,39,34,.04);
+}
+
+.card h3{
+    margin:0 0 13px;
+    font-size:14px;
+}
+
+.section-label{
+    color:var(--accent);
+    font-size:11px;
+    font-weight:700;
+    margin:12px 0 7px;
+}
+
+.grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+.btn{
+    border:1px solid var(--border);
+    background:var(--bg);
+    color:var(--dark);
+    padding:10px;
+    border-radius:9px;
+    font-size:11px;
+    transition:.2s;
+}
+
+.btn:hover{
+    border-color:var(--accent);
+}
+
+.btn.primary{
+    background:var(--dark);
+    border-color:var(--dark);
+    color:#fff;
+}
+
+.btn.accent{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#fff;
+}
+
+.btn.danger{
+    color:var(--danger);
+    border-color:#efc8c4;
+    background:#fff7f6;
+}
+
+.full{width:100%}
+
+.field{
+    margin-bottom:10px;
+}
+
+.field label{
+    display:block;
+    font-size:11px;
+    margin-bottom:4px;
+    color:#665c52;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    border:1px solid var(--border);
+    background:var(--bg);
+    border-radius:8px;
+    padding:9px 10px;
+    outline:none;
+    font-size:12px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:var(--accent);
+}
+
+.workspace{
+    min-width:0;
+}
+
+.toolbar{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+}
+
+.toolbar-group{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.view-btn{
+    padding:9px 15px;
+    border:1px solid var(--border);
+    background:var(--bg);
+    border-radius:8px;
+    font-size:11px;
+}
+
+.view-btn.active{
+    background:var(--accent);
+    color:#fff;
+    border-color:var(--accent);
+}
+
+.canvas-wrap{
+    position:relative;
+    height:620px;
+    overflow:hidden;
+    border:2px solid var(--border);
+    border-radius:18px;
+    background:#fffdf9;
+    box-shadow:inset 0 0 30px rgba(43,39,34,.04);
+}
+
+#canvas2d{
+    width:100%;
+    height:100%;
+    display:block;
+    touch-action:none;
+}
+
+#scene3d{
+    width:100%;
+    height:100%;
+    position:relative;
+    overflow:hidden;
+    display:none;
+    perspective:1100px;
+    background:
+        radial-gradient(circle at center,#fffdf9 0%,#f7f0e7 65%,#eee4d7 100%);
+}
+
+.scene{
+    position:absolute;
+    left:50%;
+    top:52%;
+    transform-style:preserve-3d;
+    transform:translate(-50%,-50%) rotateX(58deg) rotateZ(-32deg);
+    transition:transform .08s linear;
+}
+
+.floor{
+    position:absolute;
+    width:900px;
+    height:650px;
+    left:-450px;
+    top:-325px;
+    background:
+        linear-gradient(90deg,rgba(154,118,80,.08) 1px,transparent 1px),
+        linear-gradient(rgba(154,118,80,.08) 1px,transparent 1px);
+    background-size:50px 50px;
+    border:1px solid #ddd3c6;
+    transform:translateZ(-2px);
+}
+
+.wall3d{
+    position:absolute;
+    height:280px;
+    background:linear-gradient(90deg,#eee7dd,#fffdf9);
+    border:1px solid #d9cfc2;
+    transform-origin:bottom;
+}
+
+.wall-back{
+    width:850px;
+    left:-425px;
+    top:-280px;
+    transform:rotateX(90deg);
+}
+
+.cabinet{
+    position:absolute;
+    transform-style:preserve-3d;
+}
+
+.cabinet-body{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,#e5d8c8,#cbb69d);
+    border:1px solid #8f775d;
+}
+
+.cabinet-front{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#d7c4ad,#b99b7c);
+    border:2px solid #8e7459;
+    transform:translateZ(18px);
+}
+
+.cabinet-top{
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:calc(100% + 6px);
+    height:22px;
+    background:#cfc5b8;
+    border:1px solid #a99b8a;
+    transform:translateZ(18px) translateY(-10px);
+}
+
+.handle{
+    position:absolute;
+    width:7px;
+    height:32px;
+    background:#2b2722;
+    border-radius:4px;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%) translateZ(22px);
+}
+
+.upper .cabinet-front{
+    background:linear-gradient(135deg,#e7dbcc,#cfbca4);
+}
+
+.tall .cabinet-front{
+    background:linear-gradient(135deg,#d2bca1,#ad8e6c);
+}
+
+.appliance3d{
+    position:absolute;
+    background:linear-gradient(135deg,#333,#111);
+    border:2px solid #555;
+    border-radius:3px;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+    transform:translateZ(18px);
+}
+
+.counter{
+    position:absolute;
+    height:18px;
+    background:#d7d1c9;
+    border:1px solid #aaa19a;
+    transform:translateZ(23px);
+}
+
+.selection{
+    position:absolute;
+    bottom:15px;
+    left:15px;
+    right:15px;
+    background:rgba(255,253,249,.95);
+    border:1px solid var(--accent);
+    border-radius:12px;
+    padding:12px;
+    display:none;
+    z-index:10;
+}
+
+.selection.show{
+    display:block;
+}
+
+.selection-title{
+    font-size:12px;
+    font-weight:700;
+    color:var(--accent);
+    margin-bottom:8px;
+}
+
+.selection-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+}
+
+.bottom-actions{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:13px;
+    margin-top:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+}
+
+.price-box{
+    min-width:240px;
+}
+
+.price-label{
+    font-size:11px;
+    color:#756b61;
+}
+
+.price{
+    font-family:'Playfair Display',serif;
+    font-size:29px;
+    font-weight:700;
+    color:var(--accent);
+}
+
+.measurements{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-top:10px;
+}
+
+.measure{
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:8px;
+    text-align:center;
+}
+
+.measure strong{
+    display:block;
+    font-size:15px;
+}
+
+.measure span{
+    font-size:9px;
+    color:#756b61;
+}
+
+footer{
+    background:var(--card);
+    border-top:1px solid var(--border);
+    padding:25px;
+    text-align:center;
+    color:#756b61;
+    font-size:11px;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    z-index:500;
+}
+
+.modal.show{display:flex}
+
+.modal-box{
+    width:100%;
+    max-width:500px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    left:15px;
+    top:12px;
+    border:0;
+    background:none;
+    font-size:20px;
+}
+
+.summary{
+    background:var(--bg);
+    border:1px solid var(--border);
+    padding:13px;
+    border-radius:10px;
+    font-size:12px;
+    line-height:1.9;
+    margin:15px 0;
+}
+
+@media(max-width:1000px){
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        order:2;
+    }
+
+    .workspace{
+        order:1;
+    }
+}
+
+@media(max-width:650px){
+    .header-inner{
+        padding:0 12px;
+    }
+
+    .nav a{
+        display:none;
+    }
+
+    main{
+        padding:18px 10px 35px;
+    }
+
+    .top{
+        align-items:start;
+        flex-direction:column;
+    }
+
+    h1{
+        font-size:29px;
+    }
+
+    .canvas-wrap{
+        height:500px;
+    }
+
+    .selection-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .bottom-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .price-box{
+        text-align:center;
+    }
+}
+</style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-[#9a7650] selection:text-white">
 
-    <!-- CONFIGURATION & APP STATE (Handled via JS) -->
-    
-    <!-- HEADER -->
-    <header class="bg-[#fffdf9] border-b border-[#ddd3c6] sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand -->
-            <div class="flex flex-col">
-                <a href="https://mohamed-abdelhady.com/" class="text-xl sm:text-2xl font-bold tracking-wider brand-font text-[#2b2722]">
-                    MOHAMED ABDELHADY
-                </a>
-                <span class="text-[10px] sm:text-xs tracking-widest text-[#9a7650] font-medium uppercase">
-                    Interior & Kitchen Designer
-                </span>
-            </div>
+<body>
 
-            <!-- Navigation & Actions -->
-            <div class="flex items-center gap-3 sm:gap-6">
-                <a href="index.html" id="navHome" class="text-sm font-medium text-[#2b2722] hover:text-[#9a7650] transition-colors hidden sm:inline-block">
-                    الرئيسية
-                </a>
-                <a href="kitchen-sketch.html" id="navSketch" class="text-sm font-semibold text-[#9a7650] border-b-2 border-[#9a7650] pb-0.5">
-                    Kitchen Sketch
-                </a>
-                <button id="langToggleBtn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full border border-[#ddd3c6] text-xs font-semibold hover:border-[#9a7650] hover:text-[#9a7650] transition-all bg-[#f4efe7]">
-                    English | العربية
-                </button>
-            </div>
-        </div>
-    </header>
+<header>
+<div class="header-inner">
 
-    <!-- MAIN CONTENT -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col gap-6">
-
-        <!-- TITLE & INTRO -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#ddd3c6] pb-6">
-            <div>
-                <div class="flex items-center gap-3 mb-2">
-                    <span id="badgeText" class="px-3 py-1 bg-[#ddd3c6]/40 text-[#2b2722] text-xs font-semibold rounded-full border border-[#ddd3c6]">
-                        مخطط مبدئي — ليس رسم تنفيذ
-                    </span>
-                </div>
-                <h1 id="mainTitle" class="text-2xl sm:text-4xl font-bold text-[#2b2722] brand-font">
-                    ارسم مطبخك بنفسك
-                </h1>
-                <p id="mainSubtitle" class="text-sm sm:text-base text-[#2b2722]/70 mt-1 max-w-2xl">
-                    أنشئ مخططًا مبدئيًا لمطبخك، أضف المقاسات والفتحات والأجهزة، ثم أرسل التصميم للمراجعة.
-                </p>
-            </div>
-            
-            <!-- Global Actions Top -->
-            <div class="flex flex-wrap items-center gap-2">
-                <button onclick="openTutorialModal()" id="btnHelp" class="px-3.5 py-2 bg-[#fffdf9] border border-[#ddd3c6] hover:border-[#9a7650] text-xs font-semibold rounded-lg shadow-sm transition-all flex items-center gap-1.5">
-                    <span>💡</span> <span id="txtHowTo">كيف تستخدم الأداة؟</span>
-                </button>
-                <button onclick="restoreProject()" id="btnRestore" class="px-3.5 py-2 bg-[#fffdf9] border border-[#ddd3c6] hover:border-[#9a7650] text-xs font-semibold rounded-lg shadow-sm transition-all hidden">
-                    📂 <span id="txtRestore">استعادة المحفوظ</span>
-                </button>
-                <button onclick="confirmNewProject()" id="btnNew" class="px-3.5 py-2 bg-[#fffdf9] border border-[#ddd3c6] hover:border-red-400 hover:text-red-600 text-xs font-semibold rounded-lg shadow-sm transition-all">
-                    🔄 <span id="txtNew">مخطط جديد</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- WORKSPACE LAYOUT (Desktop Sidebar + Canvas | Mobile Stacked) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-
-            <!-- SIDEBAR CONTROLS (Left in LTR, Right in RTL for desktop) -->
-            <div class="lg:col-span-4 flex flex-col gap-6 order-2 lg:order-1">
-
-                <!-- 1. KITCHEN SHAPE SELECTOR -->
-                <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-5 shadow-sm">
-                    <h3 id="lblShapeTitle" class="text-sm font-bold text-[#2b2722] mb-3 uppercase tracking-wider flex items-center justify-between">
-                        <span>1. شكل المطبخ (Kitchen Shape)</span>
-                    </h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="shapeButtonsContainer">
-                        <!-- Rendered dynamically or via static structured buttons -->
-                        <button onclick="setKitchenShape('I')" data-shape="I" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#9a7650] bg-[#9a7650]/10 transition-all">
-                            <span class="text-lg mb-1">📏</span>
-                            <span class="text-xs font-semibold">I Shape</span>
-                            <span class="text-[10px] opacity-70" data-i18n="shapeI">خطي</span>
-                        </button>
-                        <button onclick="setKitchenShape('L')" data-shape="L" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#ddd3c6] bg-[#f4efe7]/50 hover:border-[#9a7650] transition-all">
-                            <span class="text-lg mb-1">📐</span>
-                            <span class="text-xs font-semibold">L Shape</span>
-                            <span class="text-[10px] opacity-70" data-i18n="shapeL">حرف L</span>
-                        </button>
-                        <button onclick="setKitchenShape('U')" data-shape="U" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#ddd3c6] bg-[#f4efe7]/50 hover:border-[#9a7650] transition-all">
-                            <span class="text-lg mb-1">🔲</span>
-                            <span class="text-xs font-semibold">U Shape</span>
-                            <span class="text-[10px] opacity-70" data-i18n="shapeU">حرف U</span>
-                        </button>
-                        <button onclick="setKitchenShape('Parallel')" data-shape="Parallel" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#ddd3c6] bg-[#f4efe7]/50 hover:border-[#9a7650] transition-all">
-                            <span class="text-lg mb-1">⏸️</span>
-                            <span class="text-xs font-semibold">Parallel</span>
-                            <span class="text-[10px] opacity-70" data-i18n="shapeParallel">متوازي</span>
-                        </button>
-                        <button onclick="setKitchenShape('Island')" data-shape="Island" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#ddd3c6] bg-[#f4efe7]/50 hover:border-[#9a7650] transition-all">
-                            <span class="text-lg mb-1">🏝️</span>
-                            <span class="text-xs font-semibold">Island</span>
-                            <span class="text-[10px] opacity-70" data-i18n="shapeIsland">مع جزيرة</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- 2. WALL DIMENSIONS -->
-                <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-5 shadow-sm">
-                    <h3 id="lblDimTitle" class="text-sm font-bold text-[#2b2722] mb-3 uppercase tracking-wider">
-                        2. مقاسات الحوائط (سم)
-                    </h3>
-                    <div id="dimensionsInputsContainer" class="space-y-3">
-                        <!-- Dynamically filled depending on shape -->
-                    </div>
-                </div>
-
-                <!-- 3. ADD ITEMS TOOLBAR -->
-                <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-5 shadow-sm">
-                    <h3 id="lblAddTitle" class="text-sm font-bold text-[#2b2722] mb-3 uppercase tracking-wider">
-                        3. إضافة عناصر ومعدات
-                    </h3>
-                    
-                    <div class="space-y-4">
-                        <!-- Architecture -->
-                        <div>
-                            <span class="text-xs font-semibold text-[#9a7650] block mb-1.5" id="catArch">الفتحات الهندسية</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <button onclick="addItem('Door')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
-                                    🚪 <span id="itemDoor">باب</span>
-                                </button>
-                                <button onclick="addItem('Window')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
-                                    🪟 <span id="itemWindow">شباك</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Appliances -->
-                        <div>
-                            <span class="text-xs font-semibold text-[#9a7650] block mb-1.5" id="catApp">الأجهزة والوحدات</span>
-                            <div class="grid grid-cols-2 gap-2">
-                                <button onclick="addItem('Fridge')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
-                                    🧊 <span id="itemFridge">ثلاجة</span>
-                                </button>
-                                <button onclick="addItem('Oven')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
-                                    🔥 <span id="itemOven">فرن</span>
-                                </button>
-                                <button onclick="addItem('Hob')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
-                                    🍳 <span id="itemHob">بوتاجاز (سطح)</span>
-                                </button>
-                                <button onclick="addItem('Sink')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
-                                    🚰 <span id="itemSink">حوض</span>
-                                </button>
-                                <button onclick="addItem('Dishwasher')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
-                                    🍽️ <span id="itemDishwasher">غسالة أطباق</span>
-                                </button>
-                                <button onclick="addItem('WashingMachine')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
-                                    👕 <span id="itemWash">غسالة ملابس</span>
-                                </button>
-                                <button onclick="addItem('TallUnit')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5 col-span-2">
-                                    🪵 <span id="itemTall">وحدة طويلة (Tall Unit)</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Services -->
-                        <div>
-                            <span class="text-xs font-semibold text-[#9a7650] block mb-1.5" id="catServ">نقاط الخدمات</span>
-                            <div class="grid grid-cols-3 gap-2">
-                                <button onclick="addItem('ElectricalOutlet')" class="px-2 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-[11px] font-medium transition-all flex flex-col items-center justify-center">
-                                    ⚡ <span id="itemElec">كهرباء</span>
-                                </button>
-                                <button onclick="addItem('WaterPoint')" class="px-2 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-[11px] font-medium transition-all flex flex-col items-center justify-center">
-                                    💧 <span id="itemWater">مياه</span>
-                                </button>
-                                <button onclick="addItem('DrainPoint')" class="px-2 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-[11px] font-medium transition-all flex flex-col items-center justify-center">
-                                    🌀 <span id="itemDrain">صرف</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- CANVAS & INTERACTIVE STAGE (Right in LTR, Left in RTL for desktop) -->
-            <div class="lg:col-span-8 flex flex-col gap-4 order-1 lg:order-2">
-
-                <!-- Canvas Toolbar -->
-                <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-3 shadow-sm flex flex-wrap items-center justify-between gap-3">
-                    <div class="flex items-center gap-1.5">
-                        <button onclick="undo()" title="Undo" class="p-2 bg-[#f4efe7] hover:bg-[#ddd3c6] rounded-lg border border-[#ddd3c6] text-xs font-semibold transition-all flex items-center gap-1">
-                            ↶ <span class="hidden sm:inline" id="txtUndo">تراجع</span>
-                        </button>
-                        <button onclick="redo()" title="Redo" class="p-2 bg-[#f4efe7] hover:bg-[#ddd3c6] rounded-lg border border-[#ddd3c6] text-xs font-semibold transition-all flex items-center gap-1">
-                            ↷ <span class="hidden sm:inline" id="txtRedo">إعادة</span>
-                        </button>
-                        <div class="h-5 w-[1px] bg-[#ddd3c6] mx-1"></div>
-                        <button onclick="resetZoom()" title="Reset Zoom" class="p-2 bg-[#f4efe7] hover:bg-[#ddd3c6] rounded-lg border border-[#ddd3c6] text-xs font-semibold transition-all">
-                            🔍 <span id="txtResetZoom">إعادة ضبط</span>
-                        </button>
-                    </div>
-
-                    <div class="flex items-center gap-2">
-                        <button onclick="clearAllItems()" class="px-3 py-2 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg text-xs font-semibold transition-all">
-                            🗑️ <span id="txtClear">مسح العناصر</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Canvas Container -->
-                <div class="relative bg-[#fffdf9] border-2 border-[#ddd3c6] rounded-2xl overflow-hidden shadow-inner flex items-center justify-center h-[520px] sm:h-[600px] touch-none" id="canvasWrapper">
-                    
-                    <!-- SVG Interactive Canvas Layer -->
-                    <svg id="kitchenCanvas" class="w-full h-full cursor-grab active:cursor-grabbing select-none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <pattern id="gridPattern" width="30" height="30" patternUnits="userSpaceOnUse">
-                                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e8dfd3" stroke-width="0.8"/>
-                            </pattern>
-                        </defs>
-                        <!-- Grid Background -->
-                        <rect width="100%" height="100%" fill="url(#gridPattern)" />
-
-                        <!-- Dynamic Group for Zoom/Pan and Drawn Elements -->
-                        <g id="viewportGroup">
-                            <!-- Walls & Architectural Outlines -->
-                            <g id="wallsGroup"></g>
-                            <!-- Dimension Indicators -->
-                            <g id="dimensionsGroup"></g>
-                            <!-- Kitchen Items (Appliances, Doors, Windows, Services) -->
-                            <g id="itemsGroup"></g>
-                        </g>
-                    </svg>
-
-                    <!-- Floating Selected Item Inspector Panel (If item selected) -->
-                    <div id="inspectorPanel" class="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-80 bg-[#fffdf9]/95 backdrop-blur-md border border-[#9a7650] rounded-xl p-4 shadow-xl hidden z-20">
-                        <div class="flex items-center justify-between mb-3 pb-2 border-b border-[#ddd3c6]">
-                            <span id="inspectorTitle" class="text-xs font-bold text-[#9a7650] uppercase tracking-wider">العنصر المحدد</span>
-                            <div class="flex items-center gap-2">
-                                <button onclick="deleteSelectedItem()" class="text-xs text-red-600 hover:text-red-800 font-semibold flex items-center gap-1 bg-red-50 hover:bg-red-100 px-2 py-1 rounded transition-colors">
-                                    🗑️ <span id="txtDelete">حذف</span>
-                                </button>
-                                <button onclick="closeInspector()" class="text-xs text-[#2b2722]/60 hover:text-[#2b2722] font-bold px-1.5 py-0.5 rounded">✕</button>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div>
-                                <label class="block text-[#2b2722]/70 mb-1 font-medium" id="lblWidth">العرض (سم):</label>
-                                <input type="number" id="propWidth" onchange="updateSelectedItemProp('width', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded px-2.5 py-1.5 font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
-                            </div>
-                            <div>
-                                <label class="block text-[#2b2722]/70 mb-1 font-medium" id="lblHeight">الارتفاع/العمق (سم):</label>
-                                <input type="number" id="propHeight" onchange="updateSelectedItemProp('height', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded px-2.5 py-1.5 font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
-                            </div>
-                            <div>
-                                <label class="block text-[#2b2722]/70 mb-1 font-medium">الموضع X:</label>
-                                <input type="number" id="propX" onchange="updateSelectedItemProp('x', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded px-2.5 py-1.5 font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
-                            </div>
-                            <div>
-                                <label class="block text-[#2b2722]/70 mb-1 font-medium">الموضع Y:</label>
-                                <input type="number" id="propY" onchange="updateSelectedItemProp('y', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded px-2.5 py-1.5 font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Watermark preview badge on canvas -->
-                    <div class="absolute top-3 right-3 pointer-events-none bg-[#fffdf9]/80 backdrop-blur border border-[#ddd3c6]/60 px-3 py-1.5 rounded-lg text-[10px] text-[#2b2722]/70 flex flex-col items-end">
-                        <span class="font-bold brand-font text-[#9a7650]">Mohamed Abdelhady</span>
-                        <span>Preliminary Sketch</span>
-                    </div>
-
-                </div>
-
-                <!-- Bottom Canvas Actions (Save Image & Send WhatsApp) -->
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-4 shadow-sm">
-                    <div class="text-xs text-[#2b2722]/70 text-center sm:text-start" id="canvasHint">
-                        💡 اسحب العناصر بالماوس أو الإصبع لتغيير أماكنها داخل المطبخ.
-                    </div>
-                    <div class="flex items-center gap-3 w-full sm:w-auto">
-                        <button onclick="saveAsImage()" class="flex-1 sm:flex-none px-4 py-2.5 bg-[#f4efe7] border border-[#ddd3c6] hover:border-[#9a7650] text-[#2b2722] text-xs font-bold rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
-                            📸 <span id="txtSaveImg">حفظ صورة PNG</span>
-                        </button>
-                        <button onclick="openSendModal()" class="flex-1 sm:flex-none px-5 py-2.5 bg-[#9a7650] hover:bg-[#836342] text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                            💬 <span id="txtSendWhatsapp">إرسال التصميم عبر WhatsApp</span>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-[#fffdf9] border-t border-[#ddd3c6] mt-12 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
-            <div>
-                <p class="font-bold brand-font text-base text-[#2b2722]">Mohamed Abdelhady</p>
-                <p class="text-xs text-[#2b2722]/70 mt-0.5">Interior & Kitchen Designer — Riyadh, Saudi Arabia & Egypt</p>
-            </div>
-            <div>
-                <a href="https://mohamed-abdelhady.com/" target="_blank" class="text-xs font-semibold text-[#9a7650] hover:underline">
-                    https://mohamed-abdelhady.com/
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WHATSAPP SEND MODAL -->
-    <div id="sendModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-2xl max-w-md w-full p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
-            <button onclick="closeSendModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 font-bold text-lg">✕</button>
-            
-            <h3 id="modalTitle" class="text-lg font-bold text-[#2b2722] mb-1 brand-font">إرسال التصميم للمراجعة</h3>
-            <p id="modalSubtitle" class="text-xs text-[#2b2722]/70 mb-5">املأ بياناتك أدناه لإرسال تفاصيل المخطط مباشرة إلى المهندس محمد عبدالهادي عبر واتساب.</p>
-            
-            <div class="space-y-3.5 text-xs">
-                <div>
-                    <label class="block font-medium mb-1" id="lblClientName">الاسم الكريم:</label>
-                    <input type="text" id="clientName" placeholder="أدخل اسمك الكامل" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg p-2.5 focus:outline-none focus:border-[#9a7650]">
-                </div>
-                <div>
-                    <label class="block font-medium mb-1" id="lblClientPhone">رقم الواتساب:</label>
-                    <input type="tel" id="clientPhone" placeholder="مثال: 966500000000" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg p-2.5 focus:outline-none focus:border-[#9a7650]">
-                </div>
-                <div>
-                    <label class="block font-medium mb-1" id="lblClientCity">المدينة:</label>
-                    <input type="text" id="clientCity" placeholder="مثال: الرياض، جدة، القاهرة..." class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg p-2.5 focus:outline-none focus:border-[#9a7650]">
-                </div>
-                <div>
-                    <label class="block font-medium mb-1" id="lblClientNotes">ملاحظات إضافية أو خامات مفضلة:</label>
-                    <textarea id="clientNotes" rows="3" placeholder="اكتب أي تفاصيل إضافية عن مطبخك..." class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg p-2.5 focus:outline-none focus:border-[#9a7650] resize-none"></textarea>
-                </div>
-            </div>
-
-            <div class="mt-6 flex items-center justify-end gap-3">
-                <button onclick="closeSendModal()" id="btnCancel" class="px-4 py-2 bg-[#f4efe7] border border-[#ddd3c6] rounded-lg font-medium text-xs hover:bg-[#ddd3c6] transition-all">إلغاء</button>
-                <button onclick="submitToWhatsApp()" id="btnSubmitWA" class="px-5 py-2.5 bg-[#9a7650] hover:bg-[#836342] text-white rounded-lg font-bold text-xs shadow-md transition-all flex items-center gap-2">
-                    <span>💬</span> فتح واتساب وإرسال
-                </button>
-            </div>
-        </div>
+    <div>
+        <a class="logo" href="index.html">MOHAMED ABDELHADY</a>
+        <small>INTERIOR & KITCHEN DESIGNER</small>
     </div>
 
-    <!-- TUTORIAL MODAL -->
-    <div id="tutorialModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
-            <button onclick="closeTutorialModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 font-bold text-lg">✕</button>
-            
-            <h3 id="tutTitle" class="text-xl font-bold text-[#2b2722] mb-3 brand-font flex items-center gap-2">
-                <span>💡</span> دليل استخدام أداة المخطط
-            </h3>
-            
-            <div id="tutBody" class="space-y-3 text-xs sm:text-sm text-[#2b2722]/80 leading-relaxed mb-6">
-                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
-                    <span class="font-bold text-[#9a7650]">1.</span>
-                    <p><strong>اختر شكل المطبخ:</strong> (خطي، حرف L، حرف U، متوازي، أو مع جزيرة) لتحديد هيكل الحوائط الأساسي.</p>
-                </div>
-                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
-                    <span class="font-bold text-[#9a7650]">2.</span>
-                    <p><strong>أدخل مقاسات الحوائط:</strong> بالسنتيمتر حسب أطوال مطبخك الحقيقية.</p>
-                </div>
-                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
-                    <span class="font-bold text-[#9a7650]">3.</span>
-                    <p><strong>أضف العناصر والأجهزة:</strong> من الأزرار الجانبية (ثلاجة، حوض، فرن، أبواب، شبابيك، نقاط كهرباء).</p>
-                </div>
-                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
-                    <span class="font-bold text-[#9a7650]">4.</span>
-                    <p><strong>حرك وعدل:</strong> اسحب العناصر داخل المخطط، أو انقر على أي عنصر لتعديل أبعاده بدقة من اللوحة الجانبية.</p>
-                </div>
-                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
-                    <span class="font-bold text-[#9a7650]">5.</span>
-                    <p><strong>احفظ وأرسل:</strong> احفظ صورة المخطط على جهازك ثم أرسلها مباشرة للمهندس عبر واتساب للمراجعة والبدء بالتصميم التفصيلي.</p>
-                </div>
-            </div>
-
-            <div class="flex justify-end">
-                <button onclick="closeTutorialModal()" id="tutBtnClose" class="px-5 py-2.5 bg-[#9a7650] text-white rounded-xl font-bold text-xs shadow-md">
-                    فهمت، ابدأ الآن
-                </button>
-            </div>
-        </div>
+    <div class="nav">
+        <a href="index.html" id="homeLink">الرئيسية</a>
+        <a href="kitchen-sketch.html" style="color:var(--accent)">Kitchen Sketch</a>
+        <button class="lang" onclick="toggleLanguage()" id="langBtn">English | العربية</button>
     </div>
 
-    <!-- CANVAS EXPORT HIDDEN CONTAINER -->
-    <div id="exportContainer" class="hidden"></div>
+</div>
+</header>
 
-    <!-- MAIN JAVASCRIPT APP -->
-    <script>
-        /* ==========================================
-           CONFIGURATION SECTION
-           ========================================== */
-        const CONFIG = {
-            WHATSAPP_NUMBER: "966500000000", // ضع رقم الواتساب الخاص بك هنا بصيغة الدول بدون علامة +
-            SITE_URL: "https://mohamed-abdelhady.com/",
-            BRAND_NAME: "Mohamed Abdelhady",
-            DEFAULT_WALL_LENGTH: 420,
-            DEFAULT_LANGUAGE: "ar"
-        };
+<main>
 
-        // Translations Dictionary
-        const TRANSLATIONS = {
-            ar: {
-                navHome: "الرئيسية",
-                badgeText: "مخطط مبدئي — ليس رسم تنفيذ",
-                mainTitle: "ارسم مطبخك بنفسك",
-                mainSubtitle: "أنشئ مخططًا مبدئيًا لمطبخك، أضف المقاسات والفتحات والأجهزة، ثم أرسل التصميم للمراجعة.",
-                txtHowTo: "كيف تستخدم الأداة؟",
-                txtRestore: "استعادة المحفوظ",
-                txtNew: "مخطط جديد",
-                lblShapeTitle: "1. شكل المطبخ (Kitchen Shape)",
-                shapeI: "خطي",
-                shapeL: "حرف L",
-                shapeU: "حرف U",
-                shapeParallel: "متوازي",
-                shapeIsland: "مع جزيرة",
-                lblDimTitle: "2. مقاسات الحوائط (سم)",
-                lblAddTitle: "3. إضافة عناصر ومعدات",
-                catArch: "الفتحات الهندسية",
-                itemDoor: "باب",
-                itemWindow: "شباك",
-                catApp: "الأجهزة والوحدات",
-                itemFridge: "ثلاجة",
-                itemOven: "فرن",
-                itemHob: "بوتاجاز (سطح)",
-                itemSink: "حوض",
-                itemDishwasher: "غسالة أطباق",
-                itemWash: "غسالة ملابس",
-                itemTall: "وحدة طويلة",
-                catServ: "نقاط الخدمات",
-                itemElec: "كهرباء",
-                itemWater: "مياه",
-                itemDrain: "صرف",
-                txtUndo: "تراجع",
-                txtRedo: "إعادة",
-                txtResetZoom: "إعادة ضبط",
-                txtClear: "مسح العناصر",
-                inspectorTitle: "العنصر المحدد",
-                txtDelete: "حذف",
-                lblWidth: "العرض (سم):",
-                lblHeight: "الارتفاع/العمق (سم):",
-                canvasHint: "💡 اسحب العناصر بالماوس أو الإصبع لتغيير أماكنها داخل المطبخ.",
-                txtSaveImg: "حفظ صورة PNG",
-                txtSendWhatsapp: "إرسال التصميم عبر WhatsApp",
-                modalTitle: "إرسال التصميم للمراجعة",
-                modalSubtitle: "املأ بياناتك أدناه لإرسال تفاصيل المخطط مباشرة إلى المهندس محمد عبدالهادي عبر واتساب.",
-                lblClientName: "الاسم الكريم:",
-                lblClientPhone: "رقم الواتساب:",
-                lblClientCity: "المدينة:",
-                lblClientNotes: "ملاحظات إضافية أو خامات مفضلة:",
-                btnCancel: "إلغاء",
-                btnSubmitWA: "فتح واتساب وإرسال",
-                tutTitle: "💡 دليل استخدام أداة المخطط",
-                tutBtnClose: "فهمت، ابدأ الآن"
-            },
-            en: {
-                navHome: "Home",
-                badgeText: "Preliminary sketch — not for execution",
-                mainTitle: "Sketch Your Kitchen",
-                mainSubtitle: "Create a simple kitchen layout, add dimensions, openings and appliances, then send it for review.",
-                txtHowTo: "How to use?",
-                txtRestore: "Restore Saved",
-                txtNew: "New Sketch",
-                lblShapeTitle: "1. Kitchen Shape",
-                shapeI: "I Shape",
-                shapeL: "L Shape",
-                shapeU: "U Shape",
-                shapeParallel: "Parallel",
-                shapeIsland: "With Island",
-                lblDimTitle: "2. Wall Dimensions (cm)",
-                lblAddTitle: "3. Add Items & Appliances",
-                catArch: "Architectural Openings",
-                itemDoor: "Door",
-                itemWindow: "Window",
-                catApp: "Appliances & Units",
-                itemFridge: "Fridge",
-                itemOven: "Oven",
-                itemHob: "Hob",
-                itemSink: "Sink",
-                itemDishwasher: "Dishwasher",
-                itemWash: "Washing Machine",
-                itemTall: "Tall Unit",
-                catServ: "Services Points",
-                itemElec: "Electrical",
-                itemWater: "Water",
-                itemDrain: "Drain",
-                txtUndo: "Undo",
-                txtRedo: "Redo",
-                txtResetZoom: "Reset Zoom",
-                txtClear: "Clear All",
-                inspectorTitle: "Selected Item",
-                txtDelete: "Delete",
-                lblWidth: "Width (cm):",
-                lblHeight: "Height/Depth (cm):",
-                canvasHint: "💡 Drag items with mouse or touch to position them inside the kitchen.",
-                txtSaveImg: "Save PNG",
-                txtSendWhatsapp: "Send via WhatsApp",
-                modalTitle: "Send Design for Review",
-                modalSubtitle: "Fill in your details below to send layout summary directly to Eng. Mohamed Abdelhady via WhatsApp.",
-                lblClientName: "Your Name:",
-                lblClientPhone: "WhatsApp Number:",
-                lblClientCity: "City:",
-                lblClientNotes: "Additional Notes or Preferences:",
-                btnCancel: "Cancel",
-                btnSubmitWA: "Open WhatsApp & Send",
-                tutTitle: "💡 Kitchen Planner Guide",
-                tutBtnClose: "Got it, Let's Start"
-            }
-        };
+<div class="top">
+    <div>
+        <span class="badge" id="badge">مخطط مبدئي — ليس رسم تنفيذ</span>
+        <h1 id="title">ارسم مطبخك بنفسك</h1>
+        <p class="subtitle" id="subtitle">
+            صمم توزيع مطبخك، أضف الوحدات السفلية والعلوية، شاهد المنظور ثلاثي الأبعاد واحصل على سعر تقديري.
+        </p>
+    </div>
 
-        // Default Item Dimensions & Defaults
-        const ITEM_SPECS = {
-            Door: { width: 90, height: 10, type: 'arch', labelAr: 'باب', labelEn: 'Door' },
-            Window: { width: 120, height: 10, type: 'arch', labelAr: 'شباك', labelEn: 'Window' },
-            Fridge: { width: 90, height: 70, type: 'app', labelAr: 'ثلاجة', labelEn: 'Fridge' },
-            Oven: { width: 60, height: 60, type: 'app', labelAr: 'فرن', labelEn: 'Oven' },
-            Hob: { width: 80, height: 60, type: 'app', labelAr: 'بوتاجاز', labelEn: 'Hob' },
-            Sink: { width: 80, height: 60, type: 'app', labelAr: 'حوض', labelEn: 'Sink' },
-            Dishwasher: { width: 60, height: 60, type: 'app', labelAr: 'غسالة أطباق', labelEn: 'Dishwasher' },
-            WashingMachine: { width: 60, height: 60, type: 'app', labelAr: 'غسالة ملابس', labelEn: 'Washing Machine' },
-            TallUnit: { width: 60, height: 60, type: 'app', labelAr: 'وحدة طويلة', labelEn: 'Tall Unit' },
-            ElectricalOutlet: { width: 25, height: 25, type: 'service', labelAr: 'كهرباء', labelEn: 'Electrical' },
-            WaterPoint: { width: 25, height: 25, type: 'service', labelAr: 'مياه', labelEn: 'Water' },
-            DrainPoint: { width: 25, height: 25, type: 'service', labelAr: 'صرف', labelEn: 'Drain' }
-        };
+    <div>
+        <button class="btn" onclick="openHelp()" id="helpBtn">💡 كيف تستخدم الأداة؟</button>
+        <button class="btn" onclick="newProject()" id="newBtn">🔄 مخطط جديد</button>
+    </div>
+</div>
 
-        // Application State
-        let state = {
-            lang: 'ar',
-            shape: 'I',
-            dimensions: {
-                mainWall: 420,
-                sideWall: 280,
-                thirdWall: 280,
-                island: 180
-            },
-            items: [],
-            selectedItemId: null,
-            history: [],
-            historyIndex: -1,
-            panX: 50,
-            panY: 50,
-            zoom: 1
-        };
+<div class="layout">
 
-        // Dragging & Interaction State
-        let isDraggingCanvas = false;
-        let isDraggingItem = false;
-        let activeDraggedItemId = null;
-        let startMouseX = 0;
-        let startMouseY = 0;
-        let dragOffsetX = 0;
-        let dragOffsetY = 0;
+<aside class="sidebar">
 
-        // Initialization
-        window.addEventListener('DOMContentLoaded', () => {
-            loadFromLocalStorage();
-            updateLanguageUI();
-            renderDimensionsInputs();
-            setupCanvasEvents();
-            redrawCanvas();
-            checkRestoreButton();
-        });
+<!-- SHAPE -->
+<div class="card">
 
-        /* ==========================================
-           LANGUAGE & LOCALIZATION
-           ========================================== */
-        function toggleLanguage() {
-            state.lang = state.lang === 'ar' ? 'en' : 'ar';
-            document.documentElement.setAttribute('lang', state.lang);
-            document.documentElement.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
-            updateLanguageUI();
-            redrawCanvas();
+<h3 id="shapeTitle">1. شكل المطبخ</h3>
+
+<div class="grid2">
+
+<button class="btn primary" onclick="setShape('I')" id="shapeI">
+📏 خطي
+</button>
+
+<button class="btn" onclick="setShape('L')" id="shapeL">
+📐 L
+</button>
+
+<button class="btn" onclick="setShape('U')" id="shapeU">
+🔲 U
+</button>
+
+<button class="btn" onclick="setShape('Parallel')" id="shapeP">
+⏸️ متوازي
+</button>
+
+<button class="btn" onclick="setShape('Island')" id="shapeIsland">
+🏝️ جزيرة
+</button>
+
+</div>
+</div>
+
+<!-- WALLS -->
+<div class="card">
+
+<h3 id="wallTitle">2. مقاسات الحوائط</h3>
+
+<div class="field">
+<label id="mainWallLabel">الحائط الرئيسي (سم)</label>
+<input id="mainWall" type="number" value="420" min="150" max="1000" onchange="updateWall()">
+</div>
+
+<div class="field" id="sideWallField">
+<label id="sideWallLabel">الحائط الجانبي (سم)</label>
+<input id="sideWall" type="number" value="280" min="150" max="1000" onchange="updateWall()">
+</div>
+
+<div class="field" id="thirdWallField" style="display:none">
+<label>الحائط الثالث (سم)</label>
+<input id="thirdWall" type="number" value="280" onchange="updateWall()">
+</div>
+
+<div class="field" id="islandField" style="display:none">
+<label>طول الجزيرة (سم)</label>
+<input id="islandLength" type="number" value="180" onchange="updateWall()">
+</div>
+
+</div>
+
+<!-- UNITS -->
+<div class="card">
+
+<h3 id="unitsTitle">3. إضافة وحدات المطبخ</h3>
+
+<div class="section-label" id="lowerLabel">الوحدات السفلية</div>
+
+<div class="grid2">
+
+<button class="btn" onclick="addCabinet('lower')">
+➕ <span id="lowerBtn">وحدة سفلية</span>
+</button>
+
+<button class="btn" onclick="addCabinet('lowerDrawer')">
+➕ <span id="drawerBtn">وحدة أدراج</span>
+</button>
+
+</div>
+
+<div class="section-label" id="upperLabel">الوحدات العلوية</div>
+
+<div class="grid2">
+
+<button class="btn" onclick="addCabinet('upper')">
+➕ <span id="upperBtn">وحدة علوية</span>
+</button>
+
+<button class="btn" onclick="addCabinet('upperGlass')">
+➕ <span id="glassBtn">علوية زجاج</span>
+</button>
+
+</div>
+
+<div class="section-label" id="tallLabel">الوحدات الطويلة</div>
+
+<button class="btn full" onclick="addCabinet('tall')">
+➕ <span id="tallBtn">وحدة Tall</span>
+</button>
+
+</div>
+
+<!-- APPLIANCES -->
+<div class="card">
+
+<h3 id="applianceTitle">4. الأجهزة</h3>
+
+<div class="grid2">
+
+<button class="btn" onclick="addAppliance('fridge')">🧊 <span id="fridge">ثلاجة</span></button>
+<button class="btn" onclick="addAppliance('oven')">🔥 <span id="oven">فرن</span></button>
+<button class="btn" onclick="addAppliance('sink')">🚰 <span id="sink">حوض</span></button>
+<button class="btn" onclick="addAppliance('hob')">🍳 <span id="hob">بوتاجاز</span></button>
+<button class="btn" onclick="addAppliance('dishwasher')">🍽️ <span id="dishwasher">غسالة أطباق</span></button>
+<button class="btn" onclick="addAppliance('washing')">👕 <span id="washing">غسالة ملابس</span></button>
+
+</div>
+
+</div>
+
+<!-- PRICE SETTINGS -->
+<div class="card">
+
+<h3 id="pricingTitle">5. إعداد السعر</h3>
+
+<div class="field">
+<label id="materialLabel">نوع الخامة</label>
+
+<select id="material" onchange="calculatePrice()">
+<option value="aluminum">ألومنيوم كامل</option>
+<option value="mixed">ألومنيوم + أبواب خشب</option>
+<option value="wood">خشب كامل</option>
+</select>
+
+</div>
+
+<div class="field">
+
+<label id="counterLabel">سطح العمل</label>
+
+<select id="counter" onchange="calculatePrice()">
+<option value="standard">رخام صناعي قياسي</option>
+<option value="veined">رخام صناعي عروق</option>
+<option value="quartz">Quartz</option>
+<option value="matte">Matte Quartz</option>
+<option value="porcelain">Porcelain</option>
+</select>
+
+</div>
+
+<div class="field">
+
+<label id="discountLabel">الخصم %</label>
+
+<input id="discount" type="number" value="0" min="0" max="100" onchange="calculatePrice()">
+
+</div>
+
+</div>
+
+</aside>
+
+<section class="workspace">
+
+<div class="toolbar">
+
+<div class="toolbar-group">
+
+<button class="view-btn active" id="btn2D" onclick="show2D()">📐 2D</button>
+<button class="view-btn" id="btn3D" onclick="show3D()">🏠 3D</button>
+
+</div>
+
+<div class="toolbar-group">
+
+<button class="btn" onclick="undo()">↶ <span id="undoText">تراجع</span></button>
+<button class="btn" onclick="redo()">↷ <span id="redoText">إعادة</span></button>
+<button class="btn" onclick="resetView()">🔍 <span id="resetText">إعادة ضبط</span></button>
+<button class="btn danger" onclick="clearItems()">🗑️ <span id="clearText">مسح</span></button>
+
+</div>
+
+</div>
+
+<div class="canvas-wrap">
+
+<canvas id="canvas2d"></canvas>
+
+<div id="scene3d">
+
+<div class="scene" id="scene">
+
+<div class="floor"></div>
+<div class="wall3d wall-back"></div>
+
+</div>
+
+</div>
+
+<div class="selection" id="selection">
+
+<div class="selection-title" id="selectedTitle">العنصر المحدد</div>
+
+<div class="selection-grid">
+
+<div class="field">
+<label id="widthLabel">العرض سم</label>
+<input id="selectedWidth" type="number" onchange="changeSelected('width',this.value)">
+</div>
+
+<div class="field">
+<label id="depthLabel">العمق سم</label>
+<input id="selectedDepth" type="number" onchange="changeSelected('depth',this.value)">
+</div>
+
+<div class="field">
+<label id="heightLabel">الارتفاع سم</label>
+<input id="selectedHeight" type="number" onchange="changeSelected('height',this.value)">
+</div>
+
+<div>
+<button class="btn danger full" onclick="deleteSelected()">🗑️ حذف</button>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="bottom-actions">
+
+<div class="price-box">
+
+<div class="price-label" id="estimatedLabel">السعر التقديري</div>
+
+<div class="price" id="price">0 SAR</div>
+
+<div class="measurements">
+
+<div class="measure">
+<strong id="lowerMeters">0.00</strong>
+<span id="lowerMetersText">متر سفلي</span>
+</div>
+
+<div class="measure">
+<strong id="upperMeters">0.00</strong>
+<span id="upperMetersText">متر علوي</span>
+</div>
+
+<div class="measure">
+<strong id="tallMeters">0.00</strong>
+<span id="tallMetersText">متر Tall</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="toolbar-group">
+
+<button class="btn" onclick="savePNG()">📸 <span id="saveText">حفظ PNG</span></button>
+
+<button class="btn accent" onclick="openSend()">💬 <span id="sendText">إرسال التصميم</span></button>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+<footer>
+<strong>Mohamed Abdelhady</strong>
+<br>
+Interior & Kitchen Designer — Riyadh, Saudi Arabia & Egypt
+</footer>
+
+
+<!-- SEND MODAL -->
+
+<div class="modal" id="sendModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeSend()">✕</button>
+
+<h2 class="brand" id="sendTitle">إرسال تصميم المطبخ</h2>
+
+<div class="summary" id="summary"></div>
+
+<div class="field">
+<label id="clientNameLabel">الاسم</label>
+<input id="clientName" placeholder="الاسم الكامل">
+</div>
+
+<div class="field">
+<label id="clientPhoneLabel">رقم الواتساب</label>
+<input id="clientPhone" placeholder="9665xxxxxxxx">
+</div>
+
+<div class="field">
+<label id="clientCityLabel">المدينة</label>
+<input id="clientCity" placeholder="الرياض">
+</div>
+
+<div class="field">
+<label id="clientNotesLabel">ملاحظات</label>
+<textarea id="clientNotes" rows="3"></textarea>
+</div>
+
+<button class="btn accent full" onclick="sendWhatsApp()" id="sendWhatsApp">
+💬 فتح واتساب
+</button>
+
+</div>
+
+</div>
+
+
+<!-- HELP MODAL -->
+
+<div class="modal" id="helpModal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeHelp()">✕</button>
+
+<h2 class="brand" id="helpTitle">طريقة الاستخدام</h2>
+
+<div class="summary" id="helpBody">
+1. اختر شكل المطبخ.<br>
+2. أدخل مقاسات الحوائط.<br>
+3. أضف الوحدات السفلية والعلوية.<br>
+4. عدّل مقاسات كل وحدة.<br>
+5. شاهد التصميم في 3D.<br>
+6. اختر الخامة وسطح العمل.<br>
+7. احصل على السعر التقديري.<br>
+8. احفظ التصميم وأرسله للمراجعة.
+</div>
+
+<button class="btn accent full" onclick="closeHelp()" id="helpClose">فهمت</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   CONFIGURATION
+===================================================== */
+
+const CONFIG = {
+
+    WHATSAPP_NUMBER:"966552113516",
+
+    SITE_URL:"https://mohamed-abdelhady.com/",
+
+    BRAND_NAME:"Mohamed Abdelhady",
+
+    DEFAULT_WALL:420
+
+};
+
+
+/* =====================================================
+   PRICING
+   يمكن تعديل هذه الأرقام لاحقًا لمطابقة calculator.html
+===================================================== */
+
+const PRICING = {
+
+    materials:{
+        aluminum:{
+            lower:1200,
+            upper:600
+        },
+
+        mixed:{
+            lower:1466.67,
+            upper:733.33
+        },
+
+        wood:{
+            lower:1600,
+            upper:800
         }
+    },
+
+    tall:1000,
+
+    counter:{
+        standard:590,
+        veined:850,
+        quartz:1200,
+        matte:1360,
+        porcelain:1390
+    },
+
+    vat:0.15
+};
+
+
+/* =====================================================
+   TRANSLATIONS
+===================================================== */
+
+const T={
+
+ar:{
+title:"ارسم مطبخك بنفسك",
+subtitle:"صمم توزيع مطبخك، أضف الوحدات السفلية والعلوية، شاهد المنظور ثلاثي الأبعاد واحصل على سعر تقديري.",
+badge:"مخطط مبدئي — ليس رسم تنفيذ",
+home:"الرئيسية",
+help:"💡 كيف تستخدم الأداة؟",
+newProject:"🔄 مخطط جديد",
+shape:"1. شكل المطبخ",
+walls:"2. مقاسات الحوائط",
+units:"3. إضافة وحدات المطبخ",
+appliances:"4. الأجهزة",
+pricing:"5. إعداد السعر",
+lower:"الوحدات السفلية",
+upper:"الوحدات العلوية",
+tall:"الوحدات الطويلة",
+lowerBtn:"وحدة سفلية",
+drawer:"وحدة أدراج",
+upperBtn:"وحدة علوية",
+glass:"علوية زجاج",
+tallBtn:"وحدة Tall",
+fridge:"ثلاجة",
+oven:"فرن",
+sink:"حوض",
+hob:"بوتاجاز",
+dishwasher:"غسالة أطباق",
+washing:"غسالة ملابس",
+material:"نوع الخامة",
+counter:"سطح العمل",
+discount:"الخصم %",
+estimated:"السعر التقديري",
+lowerMeters:"متر سفلي",
+upperMeters:"متر علوي",
+tallMeters:"متر Tall",
+undo:"تراجع",
+redo:"إعادة",
+reset:"إعادة ضبط",
+clear:"مسح",
+save:"حفظ PNG",
+send:"إرسال التصميم",
+selected:"العنصر المحدد",
+width:"العرض سم",
+depth:"العمق سم",
+height:"الارتفاع سم",
+sendTitle:"إرسال تصميم المطبخ",
+name:"الاسم",
+phone:"رقم الواتساب",
+city:"المدينة",
+notes:"ملاحظات",
+openWA:"💬 فتح واتساب",
+helpTitle:"طريقة الاستخدام",
+helpClose:"فهمت"
+},
+
+en:{
+title:"Sketch Your Kitchen",
+subtitle:"Design your kitchen layout, add lower and upper cabinets, view it in 3D and get an estimated quotation.",
+badge:"Preliminary sketch — not for execution",
+home:"Home",
+help:"💡 How to use?",
+newProject:"🔄 New Project",
+shape:"1. Kitchen Shape",
+walls:"2. Wall Dimensions",
+units:"3. Add Kitchen Units",
+appliances:"4. Appliances",
+pricing:"5. Pricing",
+lower:"Lower Cabinets",
+upper:"Upper Cabinets",
+tall:"Tall Units",
+lowerBtn:"Lower Cabinet",
+drawer:"Drawer Cabinet",
+upperBtn:"Upper Cabinet",
+glass:"Glass Upper",
+tallBtn:"Tall Unit",
+fridge:"Fridge",
+oven:"Oven",
+sink:"Sink",
+hob:"Hob",
+dishwasher:"Dishwasher",
+washing:"Washing Machine",
+material:"Material",
+counter:"Countertop",
+discount:"Discount %",
+estimated:"Estimated Price",
+lowerMeters:"Lower meters",
+upperMeters:"Upper meters",
+tallMeters:"Tall meters",
+undo:"Undo",
+redo:"Redo",
+reset:"Reset",
+clear:"Clear",
+save:"Save PNG",
+send:"Send Design",
+selected:"Selected Item",
+width:"Width cm",
+depth:"Depth cm",
+height:"Height cm",
+sendTitle:"Send Kitchen Design",
+name:"Name",
+phone:"WhatsApp",
+city:"City",
+notes:"Notes",
+openWA:"💬 Open WhatsApp",
+helpTitle:"How to use",
+helpClose:"Got it"
+}
+
+};
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let state={
+
+lang:"ar",
+
+shape:"I",
+
+walls:{
+main:420,
+side:280,
+third:280,
+island:180
+},
+
+items:[],
+
+selected:null,
+
+history:[],
+
+historyIndex:-1,
+
+view:"2d",
+
+zoom:1,
+
+panX:0,
+
+panY:0,
+
+rotX:58,
+
+rotZ:-32
+
+};
+
+
+/* =====================================================
+   ITEM DEFINITIONS
+===================================================== */
+
+const SPECS={
+
+lower:{
+kind:"lower",
+width:60,
+depth:60,
+height:85,
+label:"Lower"
+},
+
+lowerDrawer:{
+kind:"lower",
+width:60,
+depth:60,
+height:85,
+label:"Drawer"
+},
+
+upper:{
+kind:"upper",
+width:60,
+depth:35,
+height:72,
+label:"Upper"
+},
+
+upperGlass:{
+kind:"upper",
+width:60,
+depth:35,
+height:72,
+label:"Glass Upper"
+},
 
-        function updateLanguageUI() {
-            const t = TRANSLATIONS[state.lang];
-            for (let key in t) {
-                const el = document.getElementById(key);
-                if (el) el.innerText = t[key];
-            }
-            // Update shape button labels
-            document.querySelectorAll('.shape-btn').forEach(btn => {
-                const s = btn.getAttribute('data-shape');
-                const spanSub = btn.querySelector('span:last-child');
-                if (spanSub) {
-                    if (s === 'I') spanSub.innerText = t.shapeI;
-                    if (s === 'L') spanSub.innerText = t.shapeL;
-                    if (s === 'U') spanSub.innerText = t.shapeU;
-                    if (s === 'Parallel') spanSub.innerText = t.shapeParallel;
-                    if (s === 'Island') spanSub.innerText = t.shapeIsland;
-                }
-            });
-        }
-
-        /* ==========================================
-           KITCHEN SHAPES & DIMENSIONS
-           ========================================== */
-        function setKitchenShape(shape) {
-            state.shape = shape;
-            // Update active state on shape buttons
-            document.querySelectorAll('.shape-btn').forEach(btn => {
-                if (btn.getAttribute('data-shape') === shape) {
-                    btn.classList.add('border-[#9a7650]', 'bg-[#9a7650]/10');
-                    btn.classList.remove('border-[#ddd3c6]', 'bg-[#f4efe7]/50');
-                } else {
-                    btn.classList.remove('border-[#9a7650]', 'bg-[#9a7650]/10');
-                    btn.classList.add('border-[#ddd3c6]', 'bg-[#f4efe7]/50');
-                }
-            });
-            renderDimensionsInputs();
-            recordHistory();
-            redrawCanvas();
-        }
-
-        function renderDimensionsInputs() {
-            const container = document.getElementById('dimensionsInputsContainer');
-            container.innerHTML = '';
-            const t = TRANSLATIONS[state.lang];
-
-            let fields = [];
-            if (state.shape === 'I') {
-                fields = [{ key: 'mainWall', label: state.lang === 'ar' ? 'الحائط الرئيسي (Main Wall)' : 'Main Wall' }];
-            } else if (state.shape === 'L') {
-                fields = [
-                    { key: 'mainWall', label: state.lang === 'ar' ? 'الحائط الرئيسي (Main Wall)' : 'Main Wall' },
-                    { key: 'sideWall', label: state.lang === 'ar' ? 'الحائط الجانبي (Side Wall)' : 'Side Wall' }
-                ];
-            } else if (state.shape === 'U') {
-                fields = [
-                    { key: 'mainWall', label: state.lang === 'ar' ? 'الحائط الرئيسي (Main Wall)' : 'Main Wall' },
-                    { key: 'sideWall', label: state.lang === 'ar' ? 'الحائط الجانبي الأول' : 'Side Wall 1' },
-                    { key: 'thirdWall', label: state.lang === 'ar' ? 'الحائط الجانبي الثاني' : 'Side Wall 2' }
-                ];
-            } else if (state.shape === 'Parallel') {
-                fields = [
-                    { key: 'mainWall', label: state.lang === 'ar' ? 'طول الحائطين (Length)' : 'Walls Length' },
-                    { key: 'sideWall', label: state.lang === 'ar' ? 'المسافة بين الحائطين' : 'Distance Between' }
-                ];
-            } else if (state.shape === 'Island') {
-                fields = [
-                    { key: 'mainWall', label: state.lang === 'ar' ? 'الحائط الرئيسي (Main Wall)' : 'Main Wall' },
-                    { key: 'island', label: state.lang === 'ar' ? 'طول الجزيرة (Island Length)' : 'Island Length' }
-                ];
-            }
-
-            fields.forEach(f => {
-                const val = state.dimensions[f.key] || 400;
-                const div = document.createElement('div');
-                div.innerHTML = `
-                    <label class="block text-xs font-medium text-[#2b2722]/80 mb-1">${f.label}</label>
-                    <div class="flex items-center gap-2">
-                        <input type="number" min="150" max="800" step="10" value="${val}" onchange="updateDimension('${f.key}', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg px-3 py-1.5 text-xs font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
-                        <span class="text-xs text-[#2b2722]/60 font-medium">سم</span>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        function updateDimension(key, val) {
-            let num = parseInt(val) || 100;
-            if (num < 100) num = 100;
-            if (num > 1000) num = 1000;
-            state.dimensions[key] = num;
-            recordHistory();
-            redrawCanvas();
-        }
-
-        /* ==========================================
-           ITEMS MANAGEMENT & PLACEMENT
-           ========================================== */
-        function addItem(itemType) {
-            const spec = ITEM_SPECS[itemType];
-            if (!spec) return;
-
-            const newItem = {
-                id: 'item_' + Date.now(),
-                type: itemType,
-                subType: spec.type,
-                width: spec.width,
-                height: spec.height,
-                x: 100 + (state.items.length * 20) % 150,
-                y: 100 + (state.items.length * 20) % 150,
-                labelAr: spec.labelAr,
-                labelEn: spec.labelEn
-            };
-
-            state.items.push(newItem);
-            selectItem(newItem.id);
-            recordHistory();
-            redrawCanvas();
-        }
-
-        function selectItem(id) {
-            state.selectedItemId = id;
-            const item = state.items.find(i => i.id === id);
-            const panel = document.getElementById('inspectorPanel');
-            if (item) {
-                panel.classList.remove('hidden');
-                document.getElementById('propWidth').value = item.width;
-                document.getElementById('propHeight').value = item.height;
-                document.getElementById('propX').value = Math.round(item.x);
-                document.getElementById('propY').value = Math.round(item.y);
-            } else {
-                panel.classList.add('hidden');
-            }
-            redrawCanvas();
-        }
-
-        function closeInspector() {
-            state.selectedItemId = null;
-            document.getElementById('inspectorPanel').classList.add('hidden');
-            redrawCanvas();
-        }
-
-        function updateSelectedItemProp(prop, val) {
-            if (!state.selectedItemId) return;
-            const item = state.items.find(i => i.id === state.selectedItemId);
-            if (!item) return;
-
-            let num = parseFloat(val) || 10;
-            if (prop === 'width' || prop === 'height') {
-                if (num < 5) num = 5;
-                if (num > 300) num = 300;
-            }
-            item[prop] = num;
-            recordHistory();
-            redrawCanvas();
-        }
-
-        function deleteSelectedItem() {
-            if (!state.selectedItemId) return;
-            state.items = state.items.filter(i => i.id !== state.selectedItemId);
-            closeInspector();
-            recordHistory();
-            redrawCanvas();
-        }
-
-        function clearAllItems() {
-            if (confirm(state.lang === 'ar' ? 'هل أنت متأكد من مسح جميع العناصر؟' : 'Are you sure you want to clear all items?')) {
-                state.items = [];
-                closeInspector();
-                recordHistory();
-                redrawCanvas();
-            }
-        }
-
-        /* ==========================================
-           CANVAS RENDERING & SVG ENGINE
-           ========================================== */
-        function redrawCanvas() {
-            const wallsGroup = document.getElementById('wallsGroup');
-            const dimensionsGroup = document.getElementById('dimensionsGroup');
-            const itemsGroup = document.getElementById('itemsGroup');
-
-            wallsGroup.innerHTML = '';
-            dimensionsGroup.innerHTML = '';
-            itemsGroup.innerHTML = '';
-
-            // Scale factor to convert cm to svg units (approx 1 cm = 1.2 px or dynamic)
-            const scale = 0.9;
-            const mainW = (state.dimensions.mainWall || 400) * scale;
-            const sideW = (state.dimensions.sideWall || 280) * scale;
-            const thirdW = (state.dimensions.thirdWall || 280) * scale;
-            const islandW = (state.dimensions.island || 180) * scale;
-
-            // Center origin offset
-            const startX = 150 + state.panX;
-            const startY = 120 + state.panY;
-
-            // Render Walls based on Shape
-            let wallPath = '';
-            if (state.shape === 'I') {
-                // Horizontal Wall
-                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-                // Wall Dimension Label
-                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
-            } else if (state.shape === 'L') {
-                // Main Wall (Horizontal) + Side Wall (Vertical)
-                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX}" y2="${startY + sideW}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-                
-                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
-                dimensionsGroup.innerHTML += `<text x="${startX - 25}" y="${startY + sideW/2}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold" transform="rotate(-90 ${startX - 25} ${startY + sideW/2})">${state.dimensions.sideWall} cm</text>`;
-            } else if (state.shape === 'U') {
-                // Left Wall + Main Wall + Right Wall
-                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY + sideW}" x2="${startX}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-                wallsGroup.innerHTML += `<line x1="${startX + mainW}" y1="${startY}" x2="${startX + mainW}" y2="${startY + thirdW}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-
-                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
-                dimensionsGroup.innerHTML += `<text x="${startX - 25}" y="${startY + sideW/2}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold" transform="rotate(-90 ${startX - 25} ${startY + sideW/2})">${state.dimensions.sideWall} cm</text>`;
-                dimensionsGroup.innerHTML += `<text x="${startX + mainW + 30}" y="${startY + thirdW/2}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold" transform="rotate(90 ${startX + mainW + 30} ${startY + thirdW/2})">${state.dimensions.thirdWall} cm</text>`;
-            } else if (state.shape === 'Parallel') {
-                // Two parallel walls
-                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY + sideW}" x2="${startX + mainW}" y2="${startY + sideW}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-
-                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
-                dimensionsGroup.innerHTML += `<text x="${startX - 25}" y="${startY + sideW/2}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold" transform="rotate(-90 ${startX - 25} ${startY + sideW/2})">${state.dimensions.sideWall} cm (Distance)</text>`;
-            } else if (state.shape === 'Island') {
-                // Main wall + Island block indicator
-                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
-                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
-                
-                // Island outline preview
-                const islandX = startX + (mainW - islandW*scale)/2;
-                const islandY = startY + 160;
-                wallsGroup.innerHTML += `<rect x="${islandX}" y="${islandY}" width="${islandW*scale}" height="90" rx="6" fill="#fffdf9" stroke="#9a7650" stroke-dasharray="4" stroke-width="2"/>`;
-                dimensionsGroup.innerHTML += `<text x="${islandX + (islandW*scale)/2}" y="${islandY + 45}" text-anchor="middle" fill="#9a7650" font-size="11" font-weight="bold">Island (${state.dimensions.island} cm)</text>`;
-            }
-
-            // Render Items
-            state.items.forEach(item => {
-                const itemW = item.width * scale;
-                const itemH = item.height * scale;
-                const isSelected = item.id === state.selectedItemId;
-                const label = state.lang === 'ar' ? item.labelAr : item.labelEn;
-
-                let fillCol = "#fffdf9";
-                let strokeCol = isSelected ? "#9a7650" : "#ddd3c6";
-                let strokeW = isSelected ? "2.5" : "1.5";
-
-                if (item.subType === 'arch') {
-                    fillCol = "#e8dfd3";
-                } else if (item.subType === 'service') {
-                    fillCol = "#9a7650";
-                }
-
-                let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                g.setAttribute("transform", `translate(${startX + item.x}, ${startY + item.y})`);
-                g.setAttribute("class", "cursor-pointer transition-transform");
-                g.setAttribute("onmousedown", `startDragItem(evt, '${item.id}')`);
-                g.setAttribute("ontouchstart", `startDragItem(evt, '${item.id}')`);
-                g.setAttribute("onclick", `selectItem('${item.id}')`);
-
-                // Shape graphics based on item type
-                let innerSvg = `<rect width="${itemW}" height="${itemH}" rx="6" fill="${fillCol}" stroke="${strokeCol}" stroke-width="${strokeW}" />`;
-
-                if (item.type === 'Fridge') {
-                    innerSvg += `<line x1="${itemW*0.2}" y1="5" x2="${itemW*0.2}" y2="${itemH-5}" stroke="#9a7650" stroke-width="1.5" stroke-dasharray="2"/>`;
-                    innerSvg += `<text x="${itemW/2}" y="${itemH/2 + 4}" text-anchor="middle" font-size="10" fill="#2b2722" font-weight="bold">🧊 ${label}</text>`;
-                } else if (item.type === 'Sink') {
-                    innerSvg += `<circle cx="${itemW/2}" cy="${itemH/2}" r="${Math.min(itemW, itemH)*0.3}" fill="none" stroke="#9a7650" stroke-width="2"/>`;
-                    innerSvg += `<text x="${itemW/2}" y="${itemH - 6}" text-anchor="middle" font-size="9" fill="#2b2722">${label}</text>`;
-                } else if (item.type === 'Hob' || item.type === 'Oven') {
-                    innerSvg += `<circle cx="${itemW*0.3}" cy="${itemH*0.4}" r="6" fill="none" stroke="#9a7650" stroke-width="1.5"/>`;
-                    innerSvg += `<circle cx="${itemW*0.7}" cy="${itemH*0.4}" r="6" fill="none" stroke="#9a7650" stroke-width="1.5"/>`;
-                    innerSvg += `<text x="${itemW/2}" y="${itemH - 6}" text-anchor="middle" font-size="9" fill="#2b2722">${label}</text>`;
-                } else if (item.subType === 'service') {
-                    innerSvg += `<text x="${itemW/2}" y="${itemH/2 + 4}" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">${label[0]}</text>`;
-                } else {
-                    innerSvg += `<text x="${itemW/2}" y="${itemH/2 + 4}" text-anchor="middle" font-size="10" fill="#2b2722" font-weight="600">${label}</text>`;
-                }
-
-                // Dimension tag below/inside item
-                innerSvg += `<text x="${itemW/2}" y="${itemH + 12}" text-anchor="middle" font-size="8" fill="#9a7650">${item.width}×${item.height}</text>`;
-
-                g.innerHTML = innerSvg;
-                itemsGroup.appendChild(g);
-            });
-        }
-
-        /* ==========================================
-           DRAG & DROP / MOUSE & TOUCH INTERACTION
-           ========================================== */
-        function setupCanvasEvents() {
-            const svg = document.getElementById('kitchenCanvas');
-
-            // Mouse & Touch Pan on Canvas Background
-            svg.addEventListener('mousedown', (e) => {
-                if (e.target === svg || e.target.tagName === 'rect' && e.target.getAttribute('fill')?.includes('url')) {
-                    isDraggingCanvas = true;
-                    startMouseX = e.clientX;
-                    startMouseY = e.clientY;
-                }
-            });
-
-            window.addEventListener('mousemove', (e) => {
-                if (isDraggingCanvas) {
-                    state.panX += (e.clientX - startMouseX);
-                    state.panY += (e.clientY - startMouseY);
-                    startMouseX = e.clientX;
-                    startMouseY = e.clientY;
-                    redrawCanvas();
-                } else if (isDraggingItem && activeDraggedItemId) {
-                    const item = state.items.find(i => i.id === activeDraggedItemId);
-                    if (item) {
-                        item.x += (e.clientX - startMouseX);
-                        item.y += (e.clientY - startMouseY);
-                        startMouseX = e.clientX;
-                        startMouseY = e.clientY;
-                        
-                        // Update inspector if active
-                        if (state.selectedItemId === item.id) {
-                            document.getElementById('propX').value = Math.round(item.x);
-                            document.getElementById('propY').value = Math.round(item.y);
-                        }
-                        redrawCanvas();
-                    }
-                }
-            });
-
-            window.addEventListener('mouseup', () => {
-                if (isDraggingCanvas || isDraggingItem) {
-                    if (isDraggingItem) recordHistory();
-                    isDraggingCanvas = false;
-                    isDraggingItem = false;
-                    activeDraggedItemId = null;
-                }
-            });
-
-            // Touch Support for Mobile Dragging
-            svg.addEventListener('touchstart', (e) => {
-                if (e.target === svg || e.target.tagName === 'rect') {
-                    if (e.touches.length === 1) {
-                        isDraggingCanvas = true;
-                        startMouseX = e.touches[0].clientX;
-                        startMouseY = e.touches[0].clientY;
-                    }
-                }
-            });
-
-            window.addEventListener('touchmove', (e) => {
-                if (isDraggingCanvas && e.touches.length === 1) {
-                    state.panX += (e.touches[0].clientX - startMouseX);
-                    state.panY += (e.touches[0].clientY - startMouseY);
-                    startMouseX = e.touches[0].clientX;
-                    startMouseY = e.touches[0].clientY;
-                    redrawCanvas();
-                } else if (isDraggingItem && activeDraggedItemId && e.touches.length === 1) {
-                    const item = state.items.find(i => i.id === activeDraggedItemId);
-                    if (item) {
-                        item.x += (e.touches[0].clientX - startMouseX);
-                        item.y += (e.touches[0].clientY - startMouseY);
-                        startMouseX = e.touches[0].clientX;
-                        startMouseY = e.touches[0].clientY;
-                        redrawCanvas();
-                    }
-                }
-            });
-
-            window.addEventListener('touchend', () => {
-                if (isDraggingItem) recordHistory();
-                isDraggingCanvas = false;
-                isDraggingItem = false;
-                activeDraggedItemId = null;
-            });
-        }
-
-        function startDragItem(evt, id) {
-            evt.stopPropagation();
-            isDraggingItem = true;
-            activeDraggedItemId = id;
-            selectItem(id);
-            if (evt.clientX) {
-                startMouseX = evt.clientX;
-                startMouseY = evt.clientY;
-            } else if (evt.touches && evt.touches[0]) {
-                startMouseX = evt.touches[0].clientX;
-                startMouseY = evt.touches[0].clientY;
-            }
-        }
-
-        function resetZoom() {
-            state.panX = 50;
-            state.panY = 50;
-            state.zoom = 1;
-            redrawCanvas();
-        }
-
-        /* ==========================================
-           UNDO / REDO / HISTORY
-           ========================================== */
-        function recordHistory() {
-            // Remove future states if any
-            state.history = state.history.slice(0, state.historyIndex + 1);
-            // Push clone of items and dimensions
-            const snapshot = JSON.stringify({
-                items: state.items,
-                dimensions: state.dimensions,
-                shape: state.shape
-            });
-            state.history.push(snapshot);
-            state.historyIndex = state.history.length - 1;
-            saveToLocalStorage();
-        }
-
-        function undo() {
-            if (state.historyIndex > 0) {
-                state.historyIndex--;
-                const stateData = JSON.parse(state.history[state.historyIndex]);
-                state.items = stateData.items;
-                state.dimensions = stateData.dimensions;
-                state.shape = stateData.shape;
-                renderDimensionsInputs();
-                redrawCanvas();
-                saveToLocalStorage();
-            }
-        }
-
-        function redo() {
-            if (state.historyIndex < state.history.length - 1) {
-                state.historyIndex++;
-                const stateData = JSON.parse(state.history[state.historyIndex]);
-                state.items = stateData.items;
-                state.dimensions = stateData.dimensions;
-                state.shape = stateData.shape;
-                renderDimensionsInputs();
-                redrawCanvas();
-                saveToLocalStorage();
-            }
-        }
-
-        /* ==========================================
-           LOCAL STORAGE PERSISTENCE
-           ========================================== */
-        function saveToLocalStorage() {
-            try {
-                localStorage.setItem('kitchen_sketch_project', JSON.stringify({
-                    shape: state.shape,
-                    dimensions: state.dimensions,
-                    items: state.items
-                }));
-                checkRestoreButton();
-            } catch(e) {}
-        }
-
-        function loadFromLocalStorage() {
-            try {
-                const saved = localStorage.getItem('kitchen_sketch_project');
-                if (saved) {
-                    const data = JSON.parse(saved);
-                    state.shape = data.shape || 'I';
-                    state.dimensions = data.dimensions || state.dimensions;
-                    state.items = data.items || [];
-                    setKitchenShape(state.shape);
-                    recordHistory();
-                } else {
-                    recordHistory();
-                }
-            } catch(e) {
-                recordHistory();
-            }
-        }
-
-        function restoreProject() {
-            loadFromLocalStorage();
-        }
-
-        function checkRestoreButton() {
-            const btn = document.getElementById('btnRestore');
-            if (localStorage.getItem('kitchen_sketch_project')) {
-                btn.classList.remove('hidden');
-            } else {
-                btn.classList.add('hidden');
-            }
-        }
-
-        function confirmNewProject() {
-            if (confirm(state.lang === 'ar' ? 'هل تريد بدء مخطط جديد؟ سيتم حذف المخطط الحالي.' : 'Start new sketch? Current layout will be cleared.')) {
-                localStorage.removeItem('kitchen_sketch_project');
-                state.items = [];
-                state.shape = 'I';
-                state.dimensions = { mainWall: 420, sideWall: 280, thirdWall: 280, island: 180 };
-                setKitchenShape('I');
-                closeInspector();
-                recordHistory();
-                checkRestoreButton();
-            }
-        }
-
-        /* ==========================================
-           MODALS (TUTORIAL & WHATSAPP SUBMISSION)
-           ========================================== */
-        function openTutorialModal() {
-            document.getElementById('tutorialModal').classList.remove('hidden');
-        }
-
-        function closeTutorialModal() {
-            document.getElementById('tutorialModal').classList.add('hidden');
-        }
-
-        function openSendModal() {
-            document.getElementById('sendModal').classList.remove('hidden');
-        }
-
-        function closeSendModal() {
-            document.getElementById('sendModal').classList.add('hidden');
-        }
-
-        /* ==========================================
-           EXPORT IMAGE & WHATSAPP SUBMISSION
-           ========================================== */
-        function saveAsImage() {
-            // High fidelity SVG export to PNG via Canvas
-            const svgElement = document.getElementById('kitchenCanvas');
-            const svgString = new XMLSerializer().serializeToString(svgElement);
-            const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
-            const URL = window.URL || window.webkitURL || window;
-            const blobURL = URL.createObjectURL(svgBlob);
-
-            const image = new Image();
-            image.onload = () => {
-                const canvas = document.createElement('canvas');
-                canvas.width = 1200;
-                canvas.height = 800;
-                const ctx = canvas.getContext('2d');
-
-                // Fill luxury background
-                ctx.fillStyle = '#fffdf9';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                // Draw SVG
-                ctx.drawImage(image, 50, 50, canvas.width - 100, canvas.height - 150);
-
-                // Draw Watermark / Footer on image
-                ctx.fillStyle = '#2b2722';
-                ctx.font = 'bold 20px Playfair Display, serif';
-                ctx.fillText('Mohamed Abdelhady | Interior & Kitchen Designer', 50, canvas.height - 60);
-
-                ctx.fillStyle = '#9a7650';
-                ctx.font = '14px Cairo, sans-serif';
-                ctx.fillText('Preliminary sketch — not for execution | https://mohamed-abdelhady.com/', 50, canvas.height - 35);
-
-                // Trigger Download
-                const pngURL = canvas.toDataURL('image/png');
-                const downloadLink = document.createElement('a');
-                downloadLink.href = pngURL;
-                downloadLink.download = 'Mohamed-Abdelhady-Kitchen-Sketch.png';
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            };
-            image.src = blobURL;
-        }
-
-        function submitToWhatsApp() {
-            const name = document.getElementById('clientName').value.trim() || (state.lang === 'ar' ? 'عميل الكريم' : 'Valued Client');
-            const phone = document.getElementById('clientPhone').value.trim() || 'N/A';
-            const city = document.getElementById('clientCity').value.trim() || (state.lang === 'ar' ? 'غير مدخلة' : 'Not specified');
-            const notes = document.getElementById('clientNotes').value.trim() || (state.lang === 'ar' ? 'لا توجد ملاحظات' : 'None');
-
-            // List items summary
-            const itemsSummary = state.items.map(i => state.lang === 'ar' ? i.labelAr : i.labelEn).join(', ') || (state.lang === 'ar' ? 'لا توجد عناصر مضافة' : 'No items added');
-
-            const message = `مرحبًا م. محمد عبدالهادي،\nأرغب في تصميم مطبخي.\n\n` +
-                `الاسم: ${name}\n` +
-                `رقم الهاتف: ${phone}\n` +
-                `المدينة: ${city}\n` +
-                `شكل المطبخ: ${state.shape} Shape\n` +
-                `المقاس الرئيسي: ${state.dimensions.mainWall} سم\n` +
-                `المقاس الجانبي: ${state.dimensions.sideWall || '-'} سم\n` +
-                `العناصر الموجودة: ${itemsSummary}\n` +
-                `ملاحظات: ${notes}\n\n` +
-                `تم إنشاء المخطط من Kitchen Sketch على موقع Mohamed Abdelhady.`;
-
-            const encodedMessage = encodeURIComponent(message);
-            const waNumber = CONFIG.WHATSAPP_NUMBER;
-            const waURL = `https://wa.me/${waNumber}?text=${encodedMessage}`;
-
-            // Save image automatically before opening whatsapp
-            saveAsImage();
-
-            // Open WhatsApp
-            window.open(waURL, '_blank');
-            closeSendModal();
-
-            alert(state.lang === 'ar' ? 
-                'تم تجهيز الرسالة وحفظ صورة المخطط على جهازك.\nيرجى إرفاق صورة المخطط المحفوظة في محادثة الواتساب قبل الإرسال للمهندس محمد عبدالهادي.' :
-                'Message prepared and sketch image saved to your device.\nPlease attach the saved sketch image in the WhatsApp chat before sending to Eng. Mohamed Abdelhady.');
-        }
-    </script>
+tall:{
+kind:"tall",
+width:60,
+depth:60,
+height:222,
+label:"Tall"
+},
+
+fridge:{
+kind:"appliance",
+width:90,
+depth:70,
+height:200,
+label:"Fridge"
+},
+
+oven:{
+kind:"appliance",
+width:60,
+depth:60,
+height:85,
+label:"Oven"
+},
+
+sink:{
+kind:"appliance",
+width:80,
+depth:60,
+height:85,
+label:"Sink"
+},
+
+hob:{
+kind:"appliance",
+width:80,
+depth:60,
+height:85,
+label:"Hob"
+},
+
+dishwasher:{
+kind:"appliance",
+width:60,
+depth:60,
+height:85,
+label:"Dishwasher"
+},
+
+washing:{
+kind:"appliance",
+width:60,
+depth:60,
+height:85,
+label:"Washing"
+}
+
+};
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+window.addEventListener("DOMContentLoaded",()=>{
+
+load();
+
+resizeCanvas();
+
+window.addEventListener("resize",resizeCanvas);
+
+draw2D();
+
+calculatePrice();
+
+});
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function toggleLanguage(){
+
+state.lang=state.lang==="ar"?"en":"ar";
+
+document.documentElement.lang=state.lang;
+
+document.documentElement.dir=state.lang==="ar"?"rtl":"ltr";
+
+updateLanguage();
+
+draw2D();
+
+}
+
+function updateLanguage(){
+
+const t=T[state.lang];
+
+document.getElementById("title").textContent=t.title;
+document.getElementById("subtitle").textContent=t.subtitle;
+document.getElementById("badge").textContent=t.badge;
+document.getElementById("homeLink").textContent=t.home;
+document.getElementById("helpBtn").textContent=t.help;
+document.getElementById("newBtn").textContent=t.newProject;
+document.getElementById("shapeTitle").textContent=t.shape;
+document.getElementById("wallTitle").textContent=t.walls;
+document.getElementById("unitsTitle").textContent=t.units;
+document.getElementById("applianceTitle").textContent=t.appliances;
+document.getElementById("pricingTitle").textContent=t.pricing;
+document.getElementById("lowerLabel").textContent=t.lower;
+document.getElementById("upperLabel").textContent=t.upper;
+document.getElementById("tallLabel").textContent=t.tall;
+document.getElementById("lowerBtn").textContent=t.lowerBtn;
+document.getElementById("drawerBtn").textContent=t.drawer;
+document.getElementById("upperBtn").textContent=t.upperBtn;
+document.getElementById("glassBtn").textContent=t.glass;
+document.getElementById("tallBtn").textContent=t.tallBtn;
+document.getElementById("fridge").textContent=t.fridge;
+document.getElementById("oven").textContent=t.oven;
+document.getElementById("sink").textContent=t.sink;
+document.getElementById("hob").textContent=t.hob;
+document.getElementById("dishwasher").textContent=t.dishwasher;
+document.getElementById("washing").textContent=t.washing;
+document.getElementById("materialLabel").textContent=t.material;
+document.getElementById("counterLabel").textContent=t.counter;
+document.getElementById("discountLabel").textContent=t.discount;
+document.getElementById("estimatedLabel").textContent=t.estimated;
+document.getElementById("lowerMetersText").textContent=t.lowerMeters;
+document.getElementById("upperMetersText").textContent=t.upperMeters;
+document.getElementById("tallMetersText").textContent=t.tallMeters;
+document.getElementById("undoText").textContent=t.undo;
+document.getElementById("redoText").textContent=t.redo;
+document.getElementById("resetText").textContent=t.reset;
+document.getElementById("clearText").textContent=t.clear;
+document.getElementById("saveText").textContent=t.save;
+document.getElementById("sendText").textContent=t.send;
+document.getElementById("selectedTitle").textContent=t.selected;
+document.getElementById("widthLabel").textContent=t.width;
+document.getElementById("depthLabel").textContent=t.depth;
+document.getElementById("heightLabel").textContent=t.height;
+document.getElementById("sendTitle").textContent=t.sendTitle;
+document.getElementById("clientNameLabel").textContent=t.name;
+document.getElementById("clientPhoneLabel").textContent=t.phone;
+document.getElementById("clientCityLabel").textContent=t.city;
+document.getElementById("clientNotesLabel").textContent=t.notes;
+document.getElementById("sendWhatsApp").textContent=t.openWA;
+document.getElementById("helpTitle").textContent=t.helpTitle;
+document.getElementById("helpClose").textContent=t.helpClose;
+
+}
+
+
+/* =====================================================
+   SHAPES
+===================================================== */
+
+function setShape(shape){
+
+state.shape=shape;
+
+document.querySelectorAll("[id^='shape']").forEach(b=>{
+b.classList.remove("primary");
+});
+
+const map={
+I:"shapeI",
+L:"shapeL",
+U:"shapeU",
+Parallel:"shapeP",
+Island:"shapeIsland"
+};
+
+document.getElementById(map[shape]).classList.add("primary");
+
+document.getElementById("thirdWallField").style.display=
+shape==="U"?"block":"none";
+
+document.getElementById("islandField").style.display=
+shape==="Island"?"block":"none";
+
+saveHistory();
+
+draw2D();
+
+}
+
+
+/* =====================================================
+   WALLS
+===================================================== */
+
+function updateWall(){
+
+state.walls.main=Number(document.getElementById("mainWall").value)||420;
+
+state.walls.side=Number(document.getElementById("sideWall").value)||280;
+
+state.walls.third=Number(document.getElementById("thirdWall").value)||280;
+
+state.walls.island=Number(document.getElementById("islandLength").value)||180;
+
+saveHistory();
+
+draw2D();
+
+}
+
+
+/* =====================================================
+   ADD ITEMS
+===================================================== */
+
+function addCabinet(type){
+
+addItem(type);
+
+}
+
+function addAppliance(type){
+
+addItem(type);
+
+}
+
+function addItem(type){
+
+const s=SPECS[type];
+
+if(!s)return;
+
+const item={
+
+id:Date.now()+Math.random(),
+
+type,
+
+kind:s.kind,
+
+width:s.width,
+
+depth:s.depth,
+
+height:s.height,
+
+x:80+(state.items.length*65)%350,
+
+y:60+(state.items.length*30)%220
+
+};
+
+state.items.push(item);
+
+state.selected=item.id;
+
+saveHistory();
+
+draw2D();
+
+render3D();
+
+calculatePrice();
+
+showInspector();
+
+}
+
+
+/* =====================================================
+   INSPECTOR
+===================================================== */
+
+function showInspector(){
+
+const item=state.items.find(x=>x.id===state.selected);
+
+const box=document.getElementById("selection");
+
+if(!item){
+
+box.classList.remove("show");
+
+return;
+
+}
+
+box.classList.add("show");
+
+document.getElementById("selectedWidth").value=item.width;
+document.getElementById("selectedDepth").value=item.depth;
+document.getElementById("selectedHeight").value=item.height;
+
+}
+
+function changeSelected(prop,value){
+
+const item=state.items.find(x=>x.id===state.selected);
+
+if(!item)return;
+
+item[prop]=Math.max(5,Number(value)||5);
+
+saveHistory();
+
+draw2D();
+
+render3D();
+
+calculatePrice();
+
+}
+
+function deleteSelected(){
+
+if(!state.selected)return;
+
+state.items=state.items.filter(x=>x.id!==state.selected);
+
+state.selected=null;
+
+document.getElementById("selection").classList.remove("show");
+
+saveHistory();
+
+draw2D();
+
+render3D();
+
+calculatePrice();
+
+}
+
+
+/* =====================================================
+   2D CANVAS
+===================================================== */
+
+const canvas=document.getElementById("canvas2d");
+
+const ctx=canvas.getContext("2d");
+
+function resizeCanvas(){
+
+const r=canvas.getBoundingClientRect();
+
+canvas.width=r.width*devicePixelRatio;
+
+canvas.height=r.height*devicePixelRatio;
+
+ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+
+draw2D();
+
+}
+
+function draw2D(){
+
+const w=canvas.clientWidth;
+
+const h=canvas.clientHeight;
+
+ctx.clearRect(0,0,w,h);
+
+drawGrid(w,h);
+
+const scale=Math.min(
+(w-100)/Math.max(state.walls.main,300),
+(h-150)/500
+);
+
+const s=Math.max(.65,Math.min(1.25,scale));
+
+const ox=70+state.panX;
+
+const oy=150+state.panY;
+
+ctx.lineCap="round";
+
+ctx.lineWidth=8;
+
+ctx.strokeStyle="#2b2722";
+
+function wall(x1,y1,x2,y2){
+
+ctx.beginPath();
+
+ctx.moveTo(x1,y1);
+
+ctx.lineTo(x2,y2);
+
+ctx.stroke();
+
+}
+
+const main=state.walls.main*s;
+const side=state.walls.side*s;
+const third=state.walls.third*s;
+
+if(state.shape==="I"){
+
+wall(ox,oy,ox+main,oy);
+
+drawDimension(ox,oy,ox+main,oy-25,state.walls.main+" cm");
+
+}
+
+if(state.shape==="L"){
+
+wall(ox,oy,ox+main,oy);
+
+wall(ox,oy,ox,oy+side);
+
+drawDimension(ox,oy,ox+main,oy-25,state.walls.main+" cm");
+
+drawDimension(ox-25,oy,ox-25,oy+side,state.walls.side+" cm");
+
+}
+
+if(state.shape==="U"){
+
+wall(ox,oy,ox+main,oy);
+
+wall(ox,oy,ox,oy+side);
+
+wall(ox+main,oy,ox+main,oy+third);
+
+drawDimension(ox,oy,ox+main,oy-25,state.walls.main+" cm");
+
+}
+
+if(state.shape==="Parallel"){
+
+wall(ox,oy,ox+main,oy);
+
+wall(ox,oy+side,ox+main,oy+side);
+
+drawDimension(ox,oy,ox+main,oy-25,state.walls.main+" cm");
+
+}
+
+if(state.shape==="Island"){
+
+wall(ox,oy,ox+main,oy);
+
+const iw=state.walls.island*s;
+
+ctx.strokeStyle="#9a7650";
+ctx.lineWidth=3;
+ctx.setLineDash([6,5]);
+
+ctx.strokeRect(
+ox+main/2-iw/2,
+oy+150,
+iw,
+70
+);
+
+ctx.setLineDash([]);
+
+ctx.fillStyle="#9a7650";
+
+ctx.font="bold 11px Cairo";
+
+ctx.textAlign="center";
+
+ctx.fillText(
+"Island "+state.walls.island+" cm",
+ox+main/2,
+oy+190
+);
+
+}
+
+state.items.forEach(item=>{
+
+const x=ox+item.x*s;
+const y=oy+item.y*s;
+
+const iw=item.width*s;
+const ih=(item.kind==="upper"?item.height:item.height*.55)*s;
+
+let fill="#fffdf9";
+
+if(item.kind==="lower")fill="#d8c5ae";
+
+if(item.kind==="upper")fill="#e7dacb";
+
+if(item.kind==="tall")fill="#c4a98b";
+
+if(item.kind==="appliance")fill="#d6d2cd";
+
+ctx.fillStyle=fill;
+
+ctx.strokeStyle=
+item.id===state.selected
+?"#9a7650"
+:"#8f8376";
+
+ctx.lineWidth=item.id===state.selected?3:1.5;
+
+ctx.beginPath();
+
+ctx.roundRect(x,y,iw,ih,5);
+
+ctx.fill();
+
+ctx.stroke();
+
+ctx.fillStyle="#2b2722";
+
+ctx.font="bold 10px Cairo";
+
+ctx.textAlign="center";
+
+ctx.fillText(
+getItemLabel(item),
+x+iw/2,
+y+ih/2+3
+);
+
+ctx.font="8px Cairo";
+
+ctx.fillStyle="#9a7650";
+
+ctx.fillText(
+item.width+" × "+item.height,
+x+iw/2,
+y+ih+12
+);
+
+});
+
+}
+
+function drawGrid(w,h){
+
+ctx.fillStyle="#fffdf9";
+
+ctx.fillRect(0,0,w,h);
+
+ctx.strokeStyle="#eee6da";
+
+ctx.lineWidth=1;
+
+for(let x=0;x<w;x+=30){
+
+ctx.beginPath();
+ctx.moveTo(x,0);
+ctx.lineTo(x,h);
+ctx.stroke();
+
+}
+
+for(let y=0;y<h;y+=30){
+
+ctx.beginPath();
+ctx.moveTo(0,y);
+ctx.lineTo(w,y);
+ctx.stroke();
+
+}
+
+}
+
+function drawDimension(x1,y1,x2,y2,text){
+
+ctx.strokeStyle="#9a7650";
+
+ctx.lineWidth=1;
+
+ctx.beginPath();
+
+ctx.moveTo(x1,y1);
+ctx.lineTo(x2,y2);
+
+ctx.stroke();
+
+ctx.fillStyle="#9a7650";
+
+ctx.font="bold 11px Cairo";
+
+ctx.textAlign="center";
+
+ctx.fillText(text,(x1+x2)/2,(y1+y2)/2-5);
+
+}
+
+
+/* =====================================================
+   2D DRAG
+===================================================== */
+
+let dragging=false;
+
+let dragX=0;
+
+let dragY=0;
+
+canvas.addEventListener("pointerdown",e=>{
+
+const rect=canvas.getBoundingClientRect();
+
+const px=e.clientX-rect.left;
+
+const py=e.clientY-rect.top;
+
+const s=Math.max(.65,Math.min(1.25,
+(canvas.clientWidth-100)/Math.max(state.walls.main,300)
+));
+
+const ox=70+state.panX;
+
+const oy=150+state.panY;
+
+for(let i=state.items.length-1;i>=0;i--){
+
+const item=state.items[i];
+
+const x=ox+item.x*s;
+const y=oy+item.y*s;
+const iw=item.width*s;
+const ih=(item.kind==="upper"?item.height:item.height*.55)*s;
+
+if(px>=x&&px<=x+iw&&py>=y&&py<=y+ih){
+
+state.selected=item.id;
+
+dragging=true;
+
+dragX=px-x;
+
+dragY=py-y;
+
+showInspector();
+
+canvas.setPointerCapture(e.pointerId);
+
+return;
+
+}
+
+}
+
+state.selected=null;
+
+document.getElementById("selection").classList.remove("show");
+
+draw2D();
+
+});
+
+canvas.addEventListener("pointermove",e=>{
+
+if(!dragging)return;
+
+const rect=canvas.getBoundingClientRect();
+
+const px=e.clientX-rect.left;
+
+const py=e.clientY-rect.top;
+
+const s=Math.max(.65,Math.min(1.25,
+(canvas.clientWidth-100)/Math.max(state.walls.main,300)
+));
+
+const ox=70+state.panX;
+
+const oy=150+state.panY;
+
+const item=state.items.find(x=>x.id===state.selected);
+
+if(!item)return;
+
+item.x=(px-dragX-ox)/s;
+
+item.y=(py-dragY-oy)/s;
+
+draw2D();
+
+render3D();
+
+});
+
+canvas.addEventListener("pointerup",()=>{
+
+if(dragging){
+
+dragging=false;
+
+saveHistory();
+
+}
+
+});
+
+
+/* =====================================================
+   3D VIEW
+===================================================== */
+
+function show2D(){
+
+state.view="2d";
+
+canvas.style.display="block";
+
+document.getElementById("scene3d").style.display="none";
+
+document.getElementById("btn2D").classList.add("active");
+
+document.getElementById("btn3D").classList.remove("active");
+
+}
+
+function show3D(){
+
+state.view="3d";
+
+canvas.style.display="none";
+
+document.getElementById("scene3d").style.display="block";
+
+document.getElementById("btn2D").classList.remove("active");
+
+document.getElementById("btn3D").classList.add("active");
+
+render3D();
+
+}
+
+function render3D(){
+
+const scene=document.getElementById("scene");
+
+scene.innerHTML="";
+
+const floor=document.createElement("div");
+
+floor.className="floor";
+
+scene.appendChild(floor);
+
+const wall=document.createElement("div");
+
+wall.className="wall3d wall-back";
+
+scene.appendChild(wall);
+
+const scale=.75;
+
+state.items.forEach(item=>{
+
+const el=document.createElement("div");
+
+el.className="cabinet "+item.kind;
+
+let width=item.width*scale;
+
+let height=item.height*.75;
+
+if(item.kind==="upper")height=item.height*.65;
+
+if(item.kind==="tall")height=220;
+
+el.style.width=width+"px";
+el.style.height=height+"px";
+
+el.style.left=(-400+item.x*.65)+"px";
+
+let top;
+
+if(item.kind==="lower"){
+top=60;
+}else if(item.kind==="upper"){
+top=-110;
+}else if(item.kind==="tall"){
+top=-100;
+}else{
+top=60;
+}
+
+el.style.top=top+"px";
+
+const body=document.createElement("div");
+
+body.className="cabinet-body";
+
+el.appendChild(body);
+
+const front=document.createElement("div");
+
+front.className="cabinet-front";
+
+el.appendChild(front);
+
+if(item.kind==="lower"){
+
+const counter=document.createElement("div");
+
+counter.className="cabinet-top";
+
+el.appendChild(counter);
+
+}
+
+if(item.kind==="lower"||item.kind==="upper"||item.kind==="tall"){
+
+const handle=document.createElement("div");
+
+handle.className="handle";
+
+el.appendChild(handle);
+
+}
+
+if(item.kind==="appliance"){
+
+el.className="appliance3d";
+
+el.textContent=getItemLabel(item);
+
+}
+
+scene.appendChild(el);
+
+});
+
+scene.style.transform=
+`translate(-50%,-50%) rotateX(${state.rotX}deg) rotateZ(${state.rotZ}deg) scale(${state.zoom})`;
+
+}
+
+
+/* =====================================================
+   3D MOUSE ROTATION
+===================================================== */
+
+let rotating=false;
+
+let lastRX=0;
+
+let lastRY=0;
+
+const scene3d=document.getElementById("scene3d");
+
+scene3d.addEventListener("pointerdown",e=>{
+
+rotating=true;
+
+lastRX=e.clientX;
+
+lastRY=e.clientY;
+
+scene3d.setPointerCapture(e.pointerId);
+
+});
+
+scene3d.addEventListener("pointermove",e=>{
+
+if(!rotating)return;
+
+state.rotZ+=(e.clientX-lastRX)*.25;
+
+state.rotX-=(e.clientY-lastRY)*.2;
+
+state.rotX=Math.max(20,Math.min(80,state.rotX));
+
+lastRX=e.clientX;
+
+lastRY=e.clientY;
+
+render3D();
+
+});
+
+scene3d.addEventListener("pointerup",()=>rotating=false);
+
+scene3d.addEventListener("wheel",e=>{
+
+e.preventDefault();
+
+state.zoom+=e.deltaY<0?.08:-.08;
+
+state.zoom=Math.max(.55,Math.min(1.7,state.zoom));
+
+render3D();
+
+},{passive:false});
+
+
+/* =====================================================
+   PRICE CALCULATION
+===================================================== */
+
+function calculatePrice(){
+
+const material=document.getElementById("material").value;
+
+const counter=document.getElementById("counter").value;
+
+const discount=Math.max(
+0,
+Math.min(100,Number(document.getElementById("discount").value)||0)
+);
+
+let lower=0;
+let upper=0;
+let tall=0;
+
+state.items.forEach(item=>{
+
+if(item.kind==="lower")lower+=item.width/100;
+
+if(item.kind==="upper")upper+=item.width/100;
+
+if(item.kind==="tall")tall+=item.width/100;
+
+});
+
+document.getElementById("lowerMeters").textContent=lower.toFixed(2);
+
+document.getElementById("upperMeters").textContent=upper.toFixed(2);
+
+document.getElementById("tallMeters").textContent=tall.toFixed(2);
+
+const rates=PRICING.materials[material];
+
+let base=
+lower*rates.lower+
+upper*rates.upper+
+tall*PRICING.tall;
+
+const counterMeters=lower;
+
+base+=counterMeters*PRICING.counter[counter];
+
+const discountAmount=
+(lower*rates.lower+
+upper*rates.upper+
+tall*PRICING.tall)
+*(discount/100);
+
+base-=discountAmount;
+
+const vat=base*PRICING.vat;
+
+const total=base+vat;
+
+document.getElementById("price").textContent=
+Math.round(total).toLocaleString("en-US")+" SAR";
+
+}
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+function snapshot(){
+
+return JSON.stringify({
+
+shape:state.shape,
+
+walls:state.walls,
+
+items:state.items
+
+});
+
+}
+
+function saveHistory(){
+
+const snap=snapshot();
+
+if(
+state.history[state.history.length-1]===snap
+)return;
+
+state.history=
+state.history.slice(0,state.historyIndex+1);
+
+state.history.push(snap);
+
+state.historyIndex=state.history.length-1;
+
+save();
+
+}
+
+function undo(){
+
+if(state.historyIndex<=0)return;
+
+state.historyIndex--;
+
+restoreSnapshot(
+JSON.parse(state.history[state.historyIndex])
+);
+
+}
+
+function redo(){
+
+if(state.historyIndex>=state.history.length-1)return;
+
+state.historyIndex++;
+
+restoreSnapshot(
+JSON.parse(state.history[state.historyIndex])
+);
+
+}
+
+function restoreSnapshot(data){
+
+state.shape=data.shape;
+
+state.walls=data.walls;
+
+state.items=data.items;
+
+state.selected=null;
+
+document.getElementById("mainWall").value=state.walls.main;
+
+document.getElementById("sideWall").value=state.walls.side;
+
+document.getElementById("thirdWall").value=state.walls.third;
+
+document.getElementById("islandLength").value=state.walls.island;
+
+setShape(state.shape);
+
+draw2D();
+
+render3D();
+
+calculatePrice();
+
+}
+
+
+/* =====================================================
+   LOCAL STORAGE
+===================================================== */
+
+function save(){
+
+localStorage.setItem(
+"kitchen_sketch_v2",
+JSON.stringify({
+
+shape:state.shape,
+
+walls:state.walls,
+
+items:state.items
+
+})
+);
+
+}
+
+function load(){
+
+try{
+
+const data=JSON.parse(
+localStorage.getItem("kitchen_sketch_v2")
+);
+
+if(data){
+
+state.shape=data.shape||"I";
+
+state.walls=data.walls||state.walls;
+
+state.items=data.items||[];
+
+document.getElementById("mainWall").value=state.walls.main;
+
+document.getElementById("sideWall").value=state.walls.side;
+
+document.getElementById("thirdWall").value=state.walls.third;
+
+document.getElementById("islandLength").value=state.walls.island;
+
+}
+
+}catch(e){}
+
+saveHistory();
+
+}
+
+
+/* =====================================================
+   NEW / CLEAR
+===================================================== */
+
+function clearItems(){
+
+if(!confirm(
+state.lang==="ar"
+?"هل تريد حذف جميع الوحدات والعناصر؟"
+:"Delete all units and items?"
+))return;
+
+state.items=[];
+
+state.selected=null;
+
+document.getElementById("selection").classList.remove("show");
+
+saveHistory();
+
+draw2D();
+
+render3D();
+
+calculatePrice();
+
+}
+
+function newProject(){
+
+if(!confirm(
+state.lang==="ar"
+?"بدء مخطط جديد؟"
+:"Start a new project?"
+))return;
+
+state.shape="I";
+
+state.walls={
+main:420,
+side:280,
+third:280,
+island:180
+};
+
+state.items=[];
+
+state.selected=null;
+
+state.history=[];
+
+state.historyIndex=-1;
+
+document.getElementById("mainWall").value=420;
+
+document.getElementById("sideWall").value=280;
+
+document.getElementById("thirdWall").value=280;
+
+document.getElementById("islandLength").value=180;
+
+setShape("I");
+
+saveHistory();
+
+draw2D();
+
+render3D();
+
+calculatePrice();
+
+}
+
+
+/* =====================================================
+   RESET VIEW
+===================================================== */
+
+function resetView(){
+
+state.panX=0;
+
+state.panY=0;
+
+state.zoom=1;
+
+state.rotX=58;
+
+state.rotZ=-32;
+
+draw2D();
+
+render3D();
+
+}
+
+
+/* =====================================================
+   ITEM LABEL
+===================================================== */
+
+function getItemLabel(item){
+
+const ar={
+lower:"سفلي",
+lowerDrawer:"أدراج",
+upper:"علوي",
+upperGlass:"علوي زجاج",
+tall:"Tall",
+fridge:"ثلاجة",
+oven:"فرن",
+sink:"حوض",
+hob:"بوتاجاز",
+dishwasher:"غسالة أطباق",
+washing:"غسالة ملابس"
+};
+
+const en={
+lower:"Lower",
+lowerDrawer:"Drawers",
+upper:"Upper",
+upperGlass:"Glass Upper",
+tall:"Tall",
+fridge:"Fridge",
+oven:"Oven",
+sink:"Sink",
+hob:"Hob",
+dishwasher:"Dishwasher",
+washing:"Washing"
+};
+
+return state.lang==="ar"?ar[item.type]:en[item.type];
+
+}
+
+
+/* =====================================================
+   SAVE PNG
+===================================================== */
+
+function savePNG(){
+
+if(state.view==="3d"){
+
+show2D();
+
+setTimeout(savePNG,100);
+
+return;
+
+}
+
+const link=document.createElement("a");
+
+link.download="Mohamed-Abdelhady-Kitchen-Sketch.png";
+
+link.href=canvas.toDataURL("image/png");
+
+link.click();
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function openSend(){
+
+buildSummary();
+
+document.getElementById("sendModal").classList.add("show");
+
+}
+
+function closeSend(){
+
+document.getElementById("sendModal").classList.remove("show");
+
+}
+
+function buildSummary(){
+
+let lower=0;
+let upper=0;
+let tall=0;
+
+state.items.forEach(i=>{
+
+if(i.kind==="lower")lower+=i.width/100;
+
+if(i.kind==="upper")upper+=i.width/100;
+
+if(i.kind==="tall")tall+=i.width/100;
+
+});
+
+const price=document.getElementById("price").textContent;
+
+document.getElementById("summary").innerHTML=`
+
+<strong>Kitchen Shape:</strong> ${state.shape}<br>
+
+<strong>Lower:</strong> ${lower.toFixed(2)} m<br>
+
+<strong>Upper:</strong> ${upper.toFixed(2)} m<br>
+
+<strong>Tall:</strong> ${tall.toFixed(2)} m<br>
+
+<strong>Items:</strong> ${state.items.length}<br>
+
+<strong>Estimated:</strong> ${price}
+
+`;
+
+}
+
+function sendWhatsApp(){
+
+const name=document.getElementById("clientName").value.trim()||"عميل كريم";
+
+const phone=document.getElementById("clientPhone").value.trim()||"غير مدخل";
+
+const city=document.getElementById("clientCity").value.trim()||"غير محددة";
+
+const notes=document.getElementById("clientNotes").value.trim()||"لا توجد";
+
+let lower=0;
+let upper=0;
+let tall=0;
+
+state.items.forEach(i=>{
+
+if(i.kind==="lower")lower+=i.width/100;
+
+if(i.kind==="upper")upper+=i.width/100;
+
+if(i.kind==="tall")tall+=i.width/100;
+
+});
+
+const message=
+
+`مرحبًا م. محمد عبدالهادي،
+
+أرغب في تصميم مطبخي.
+
+الاسم: ${name}
+رقم الواتساب: ${phone}
+المدينة: ${city}
+
+شكل المطبخ: ${state.shape}
+
+الحائط الرئيسي: ${state.walls.main} سم
+الحائط الجانبي: ${state.walls.side} سم
+
+الوحدات السفلية: ${lower.toFixed(2)} متر
+الوحدات العلوية: ${upper.toFixed(2)} متر
+الوحدات الطويلة: ${tall.toFixed(2)} متر
+
+عدد العناصر: ${state.items.length}
+
+السعر التقديري: ${document.getElementById("price").textContent}
+
+ملاحظات:
+${notes}
+
+تم إنشاء المخطط بواسطة Kitchen Sketch على موقع Mohamed Abdelhady.`;
+
+const url=
+`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+savePNG();
+
+window.open(url,"_blank");
+
+closeSend();
+
+}
+
+
+/* =====================================================
+   HELP
+===================================================== */
+
+function openHelp(){
+
+document.getElementById("helpModal").classList.add("show");
+
+}
+
+function closeHelp(){
+
+document.getElementById("helpModal").classList.remove("show");
+
+}
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+document.addEventListener("keydown",e=>{
+
+if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="z"){
+
+e.preventDefault();
+
+undo();
+
+}
+
+if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="y"){
+
+e.preventDefault();
+
+redo();
+
+}
+
+if(e.key==="Delete"){
+
+deleteSelected();
+
+}
+
+});
+
+</script>
+
 </body>
 </html>
