@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Sketch | Mohamed Abdelhady</title>
+    <meta name="description" content="أنشئ مخططًا مبدئيًا لمطبخك بنفسك، أضف المقاسات والأجهزة والفتحات، وأرسل التصميم مباشرة للمراجعة مع مصمم المطابخ محمد عبدالهادي.">
+    <meta name="keywords" content="Mohamed Abdelhady, Interior Designer Riyadh, Kitchen Designer Riyadh, Kitchen Design Saudi Arabia, Kitchen Designer Egypt, محمد عبدالهادي, مصمم مطابخ الرياض, مصمم داخلي الرياض">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Kitchen Sketch | Mohamed Abdelhady">
+    <meta property="og:description" content="أنشئ مخططًا مبدئيًا لمطبخك بنفسك وأرسله للمراجعة.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mohamed-abdelhady.com/kitchen-sketch.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN for rapid luxury styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgPage: '#f4efe7',
+                        darkText: '#2b2722',
+                        accentColor: '#9a7650',
+                        lightCard: '#fffdf9',
+                        borderColor: '#ddd3c6'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f4efe7;
+            color: #2b2722;
+            font-family: 'Cairo', sans-serif;
+        }
+        .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f4efe7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ddd3c6;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9a7650;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#9a7650] selection:text-white">
+
+    <!-- CONFIGURATION & APP STATE (Handled via JS) -->
+    
+    <!-- HEADER -->
+    <header class="bg-[#fffdf9] border-b border-[#ddd3c6] sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand -->
+            <div class="flex flex-col">
+                <a href="https://mohamed-abdelhady.com/" class="text-xl sm:text-2xl font-bold tracking-wider brand-font text-[#2b2722]">
+                    MOHAMED ABDELHADY
+                </a>
+                <span class="text-[10px] sm:text-xs tracking-widest text-[#9a7650] font-medium uppercase">
+                    Interior & Kitchen Designer
+                </span>
+            </div>
+
+            <!-- Navigation & Actions -->
+            <div class="flex items-center gap-3 sm:gap-6">
+                <a href="index.html" id="navHome" class="text-sm font-medium text-[#2b2722] hover:text-[#9a7650] transition-colors hidden sm:inline-block">
+                    الرئيسية
+                </a>
+                <a href="kitchen-sketch.html" id="navSketch" class="text-sm font-semibold text-[#9a7650] border-b-2 border-[#9a7650] pb-0.5">
+                    Kitchen Sketch
+                </a>
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full border border-[#ddd3c6] text-xs font-semibold hover:border-[#9a7650] hover:text-[#9a7650] transition-all bg-[#f4efe7]">
+                    English | العربية
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col gap-6">
+
+        <!-- TITLE & INTRO -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#ddd3c6] pb-6">
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <span id="badgeText" class="px-3 py-1 bg-[#ddd3c6]/40 text-[#2b2722] text-xs font-semibold rounded-full border border-[#ddd3c6]">
+                        مخطط مبدئي — ليس رسم تنفيذ
+                    </span>
+                </div>
+                <h1 id="mainTitle" class="text-2xl sm:text-4xl font-bold text-[#2b2722] brand-font">
+                    ارسم مطبخك بنفسك
+                </h1>
+                <p id="mainSubtitle" class="text-sm sm:text-base text-[#2b2722]/70 mt-1 max-w-2xl">
+                    أنشئ مخططًا مبدئيًا لمطبخك، أضف المقاسات والفتحات والأجهزة، ثم أرسل التصميم للمراجعة.
+                </p>
+            </div>
+            
+            <!-- Global Actions Top -->
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="openTutorialModal()" id="btnHelp" class="px-3.5 py-2 bg-[#fffdf9] border border-[#ddd3c6] hover:border-[#9a7650] text-xs font-semibold rounded-lg shadow-sm transition-all flex items-center gap-1.5">
+                    <span>💡</span> <span id="txtHowTo">كيف تستخدم الأداة؟</span>
+                </button>
+                <button onclick="restoreProject()" id="btnRestore" class="px-3.5 py-2 bg-[#fffdf9] border border-[#ddd3c6] hover:border-[#9a7650] text-xs font-semibold rounded-lg shadow-sm transition-all hidden">
+                    📂 <span id="txtRestore">استعادة المحفوظ</span>
+                </button>
+                <button onclick="confirmNewProject()" id="btnNew" class="px-3.5 py-2 bg-[#fffdf9] border border-[#ddd3c6] hover:border-red-400 hover:text-red-600 text-xs font-semibold rounded-lg shadow-sm transition-all">
+                    🔄 <span id="txtNew">مخطط جديد</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- WORKSPACE LAYOUT (Desktop Sidebar + Canvas | Mobile Stacked) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+            <!-- SIDEBAR CONTROLS (Left in LTR, Right in RTL for desktop) -->
+            <div class="lg:col-span-4 flex flex-col gap-6 order-2 lg:order-1">
+
+                <!-- 1. KITCHEN SHAPE SELECTOR -->
+                <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-5 shadow-sm">
+                    <h3 id="lblShapeTitle" class="text-sm font-bold text-[#2b2722] mb-3 uppercase tracking-wider flex items-center justify-between">
+                        <span>1. شكل المطبخ (Kitchen Shape)</span>
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" id="shapeButtonsContainer">
+                        <!-- Rendered dynamically or via static structured buttons -->
+                        <button onclick="setKitchenShape('I')" data-shape="I" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#9a7650] bg-[#9a7650]/10 transition-all">
+                            <span class="text-lg mb-1">📏</span>
+                            <span class="text-xs font-semibold">I Shape</span>
+                            <span class="text-[10px] opacity-70" data-i18n="shapeI">خطي</span>
+                        </button>
+                        <button onclick="setKitchenShape('L')" data-shape="L" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#ddd3c6] bg-[#f4efe7]/50 hover:border-[#9a7650] transition-all">
+                            <span class="text-lg mb-1">📐</span>
+                            <span class="text-xs font-semibold">L Shape</span>
+                            <span class="text-[10px] opacity-70" data-i18n="shapeL">حرف L</span>
+                        </button>
+                        <button onclick="setKitchenShape('U')" data-shape="U" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#ddd3c6] bg-[#f4efe7]/50 hover:border-[#9a7650] transition-all">
+                            <span class="text-lg mb-1">🔲</span>
+                            <span class="text-xs font-semibold">U Shape</span>
+                            <span class="text-[10px] opacity-70" data-i18n="shapeU">حرف U</span>
+                        </button>
+                        <button onclick="setKitchenShape('Parallel')" data-shape="Parallel" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#ddd3c6] bg-[#f4efe7]/50 hover:border-[#9a7650] transition-all">
+                            <span class="text-lg mb-1">⏸️</span>
+                            <span class="text-xs font-semibold">Parallel</span>
+                            <span class="text-[10px] opacity-70" data-i18n="shapeParallel">متوازي</span>
+                        </button>
+                        <button onclick="setKitchenShape('Island')" data-shape="Island" class="shape-btn flex flex-col items-center justify-center p-3 rounded-lg border-2 border-[#ddd3c6] bg-[#f4efe7]/50 hover:border-[#9a7650] transition-all">
+                            <span class="text-lg mb-1">🏝️</span>
+                            <span class="text-xs font-semibold">Island</span>
+                            <span class="text-[10px] opacity-70" data-i18n="shapeIsland">مع جزيرة</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. WALL DIMENSIONS -->
+                <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-5 shadow-sm">
+                    <h3 id="lblDimTitle" class="text-sm font-bold text-[#2b2722] mb-3 uppercase tracking-wider">
+                        2. مقاسات الحوائط (سم)
+                    </h3>
+                    <div id="dimensionsInputsContainer" class="space-y-3">
+                        <!-- Dynamically filled depending on shape -->
+                    </div>
+                </div>
+
+                <!-- 3. ADD ITEMS TOOLBAR -->
+                <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-5 shadow-sm">
+                    <h3 id="lblAddTitle" class="text-sm font-bold text-[#2b2722] mb-3 uppercase tracking-wider">
+                        3. إضافة عناصر ومعدات
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Architecture -->
+                        <div>
+                            <span class="text-xs font-semibold text-[#9a7650] block mb-1.5" id="catArch">الفتحات الهندسية</span>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="addItem('Door')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+                                    🚪 <span id="itemDoor">باب</span>
+                                </button>
+                                <button onclick="addItem('Window')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+                                    🪟 <span id="itemWindow">شباك</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Appliances -->
+                        <div>
+                            <span class="text-xs font-semibold text-[#9a7650] block mb-1.5" id="catApp">الأجهزة والوحدات</span>
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="addItem('Fridge')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+                                    🧊 <span id="itemFridge">ثلاجة</span>
+                                </button>
+                                <button onclick="addItem('Oven')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+                                    🔥 <span id="itemOven">فرن</span>
+                                </button>
+                                <button onclick="addItem('Hob')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+                                    🍳 <span id="itemHob">بوتاجاز (سطح)</span>
+                                </button>
+                                <button onclick="addItem('Sink')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+                                    🚰 <span id="itemSink">حوض</span>
+                                </button>
+                                <button onclick="addItem('Dishwasher')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+                                    🍽️ <span id="itemDishwasher">غسالة أطباق</span>
+                                </button>
+                                <button onclick="addItem('WashingMachine')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5">
+                                    👕 <span id="itemWash">غسالة ملابس</span>
+                                </button>
+                                <button onclick="addItem('TallUnit')" class="px-3 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-1.5 col-span-2">
+                                    🪵 <span id="itemTall">وحدة طويلة (Tall Unit)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Services -->
+                        <div>
+                            <span class="text-xs font-semibold text-[#9a7650] block mb-1.5" id="catServ">نقاط الخدمات</span>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button onclick="addItem('ElectricalOutlet')" class="px-2 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-[11px] font-medium transition-all flex flex-col items-center justify-center">
+                                    ⚡ <span id="itemElec">كهرباء</span>
+                                </button>
+                                <button onclick="addItem('WaterPoint')" class="px-2 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-[11px] font-medium transition-all flex flex-col items-center justify-center">
+                                    💧 <span id="itemWater">مياه</span>
+                                </button>
+                                <button onclick="addItem('DrainPoint')" class="px-2 py-2 bg-[#f4efe7] hover:bg-[#9a7650] hover:text-white border border-[#ddd3c6] rounded-lg text-[11px] font-medium transition-all flex flex-col items-center justify-center">
+                                    🌀 <span id="itemDrain">صرف</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CANVAS & INTERACTIVE STAGE (Right in LTR, Left in RTL for desktop) -->
+            <div class="lg:col-span-8 flex flex-col gap-4 order-1 lg:order-2">
+
+                <!-- Canvas Toolbar -->
+                <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-3 shadow-sm flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center gap-1.5">
+                        <button onclick="undo()" title="Undo" class="p-2 bg-[#f4efe7] hover:bg-[#ddd3c6] rounded-lg border border-[#ddd3c6] text-xs font-semibold transition-all flex items-center gap-1">
+                            ↶ <span class="hidden sm:inline" id="txtUndo">تراجع</span>
+                        </button>
+                        <button onclick="redo()" title="Redo" class="p-2 bg-[#f4efe7] hover:bg-[#ddd3c6] rounded-lg border border-[#ddd3c6] text-xs font-semibold transition-all flex items-center gap-1">
+                            ↷ <span class="hidden sm:inline" id="txtRedo">إعادة</span>
+                        </button>
+                        <div class="h-5 w-[1px] bg-[#ddd3c6] mx-1"></div>
+                        <button onclick="resetZoom()" title="Reset Zoom" class="p-2 bg-[#f4efe7] hover:bg-[#ddd3c6] rounded-lg border border-[#ddd3c6] text-xs font-semibold transition-all">
+                            🔍 <span id="txtResetZoom">إعادة ضبط</span>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button onclick="clearAllItems()" class="px-3 py-2 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg text-xs font-semibold transition-all">
+                            🗑️ <span id="txtClear">مسح العناصر</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Canvas Container -->
+                <div class="relative bg-[#fffdf9] border-2 border-[#ddd3c6] rounded-2xl overflow-hidden shadow-inner flex items-center justify-center h-[520px] sm:h-[600px] touch-none" id="canvasWrapper">
+                    
+                    <!-- SVG Interactive Canvas Layer -->
+                    <svg id="kitchenCanvas" class="w-full h-full cursor-grab active:cursor-grabbing select-none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="gridPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+                                <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#e8dfd3" stroke-width="0.8"/>
+                            </pattern>
+                        </defs>
+                        <!-- Grid Background -->
+                        <rect width="100%" height="100%" fill="url(#gridPattern)" />
+
+                        <!-- Dynamic Group for Zoom/Pan and Drawn Elements -->
+                        <g id="viewportGroup">
+                            <!-- Walls & Architectural Outlines -->
+                            <g id="wallsGroup"></g>
+                            <!-- Dimension Indicators -->
+                            <g id="dimensionsGroup"></g>
+                            <!-- Kitchen Items (Appliances, Doors, Windows, Services) -->
+                            <g id="itemsGroup"></g>
+                        </g>
+                    </svg>
+
+                    <!-- Floating Selected Item Inspector Panel (If item selected) -->
+                    <div id="inspectorPanel" class="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-80 bg-[#fffdf9]/95 backdrop-blur-md border border-[#9a7650] rounded-xl p-4 shadow-xl hidden z-20">
+                        <div class="flex items-center justify-between mb-3 pb-2 border-b border-[#ddd3c6]">
+                            <span id="inspectorTitle" class="text-xs font-bold text-[#9a7650] uppercase tracking-wider">العنصر المحدد</span>
+                            <div class="flex items-center gap-2">
+                                <button onclick="deleteSelectedItem()" class="text-xs text-red-600 hover:text-red-800 font-semibold flex items-center gap-1 bg-red-50 hover:bg-red-100 px-2 py-1 rounded transition-colors">
+                                    🗑️ <span id="txtDelete">حذف</span>
+                                </button>
+                                <button onclick="closeInspector()" class="text-xs text-[#2b2722]/60 hover:text-[#2b2722] font-bold px-1.5 py-0.5 rounded">✕</button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <label class="block text-[#2b2722]/70 mb-1 font-medium" id="lblWidth">العرض (سم):</label>
+                                <input type="number" id="propWidth" onchange="updateSelectedItemProp('width', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded px-2.5 py-1.5 font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
+                            </div>
+                            <div>
+                                <label class="block text-[#2b2722]/70 mb-1 font-medium" id="lblHeight">الارتفاع/العمق (سم):</label>
+                                <input type="number" id="propHeight" onchange="updateSelectedItemProp('height', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded px-2.5 py-1.5 font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
+                            </div>
+                            <div>
+                                <label class="block text-[#2b2722]/70 mb-1 font-medium">الموضع X:</label>
+                                <input type="number" id="propX" onchange="updateSelectedItemProp('x', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded px-2.5 py-1.5 font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
+                            </div>
+                            <div>
+                                <label class="block text-[#2b2722]/70 mb-1 font-medium">الموضع Y:</label>
+                                <input type="number" id="propY" onchange="updateSelectedItemProp('y', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded px-2.5 py-1.5 font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Watermark preview badge on canvas -->
+                    <div class="absolute top-3 right-3 pointer-events-none bg-[#fffdf9]/80 backdrop-blur border border-[#ddd3c6]/60 px-3 py-1.5 rounded-lg text-[10px] text-[#2b2722]/70 flex flex-col items-end">
+                        <span class="font-bold brand-font text-[#9a7650]">Mohamed Abdelhady</span>
+                        <span>Preliminary Sketch</span>
+                    </div>
+
+                </div>
+
+                <!-- Bottom Canvas Actions (Save Image & Send WhatsApp) -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#fffdf9] border border-[#ddd3c6] rounded-xl p-4 shadow-sm">
+                    <div class="text-xs text-[#2b2722]/70 text-center sm:text-start" id="canvasHint">
+                        💡 اسحب العناصر بالماوس أو الإصبع لتغيير أماكنها داخل المطبخ.
+                    </div>
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <button onclick="saveAsImage()" class="flex-1 sm:flex-none px-4 py-2.5 bg-[#f4efe7] border border-[#ddd3c6] hover:border-[#9a7650] text-[#2b2722] text-xs font-bold rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                            📸 <span id="txtSaveImg">حفظ صورة PNG</span>
+                        </button>
+                        <button onclick="openSendModal()" class="flex-1 sm:flex-none px-5 py-2.5 bg-[#9a7650] hover:bg-[#836342] text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                            💬 <span id="txtSendWhatsapp">إرسال التصميم عبر WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#fffdf9] border-t border-[#ddd3c6] mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+            <div>
+                <p class="font-bold brand-font text-base text-[#2b2722]">Mohamed Abdelhady</p>
+                <p class="text-xs text-[#2b2722]/70 mt-0.5">Interior & Kitchen Designer — Riyadh, Saudi Arabia & Egypt</p>
+            </div>
+            <div>
+                <a href="https://mohamed-abdelhady.com/" target="_blank" class="text-xs font-semibold text-[#9a7650] hover:underline">
+                    https://mohamed-abdelhady.com/
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP SEND MODAL -->
+    <div id="sendModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-2xl max-w-md w-full p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeSendModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 font-bold text-lg">✕</button>
+            
+            <h3 id="modalTitle" class="text-lg font-bold text-[#2b2722] mb-1 brand-font">إرسال التصميم للمراجعة</h3>
+            <p id="modalSubtitle" class="text-xs text-[#2b2722]/70 mb-5">املأ بياناتك أدناه لإرسال تفاصيل المخطط مباشرة إلى المهندس محمد عبدالهادي عبر واتساب.</p>
+            
+            <div class="space-y-3.5 text-xs">
+                <div>
+                    <label class="block font-medium mb-1" id="lblClientName">الاسم الكريم:</label>
+                    <input type="text" id="clientName" placeholder="أدخل اسمك الكامل" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg p-2.5 focus:outline-none focus:border-[#9a7650]">
+                </div>
+                <div>
+                    <label class="block font-medium mb-1" id="lblClientPhone">رقم الواتساب:</label>
+                    <input type="tel" id="clientPhone" placeholder="مثال: 966500000000" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg p-2.5 focus:outline-none focus:border-[#9a7650]">
+                </div>
+                <div>
+                    <label class="block font-medium mb-1" id="lblClientCity">المدينة:</label>
+                    <input type="text" id="clientCity" placeholder="مثال: الرياض، جدة، القاهرة..." class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg p-2.5 focus:outline-none focus:border-[#9a7650]">
+                </div>
+                <div>
+                    <label class="block font-medium mb-1" id="lblClientNotes">ملاحظات إضافية أو خامات مفضلة:</label>
+                    <textarea id="clientNotes" rows="3" placeholder="اكتب أي تفاصيل إضافية عن مطبخك..." class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg p-2.5 focus:outline-none focus:border-[#9a7650] resize-none"></textarea>
+                </div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-end gap-3">
+                <button onclick="closeSendModal()" id="btnCancel" class="px-4 py-2 bg-[#f4efe7] border border-[#ddd3c6] rounded-lg font-medium text-xs hover:bg-[#ddd3c6] transition-all">إلغاء</button>
+                <button onclick="submitToWhatsApp()" id="btnSubmitWA" class="px-5 py-2.5 bg-[#9a7650] hover:bg-[#836342] text-white rounded-lg font-bold text-xs shadow-md transition-all flex items-center gap-2">
+                    <span>💬</span> فتح واتساب وإرسال
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TUTORIAL MODAL -->
+    <div id="tutorialModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-[#fffdf9] border border-[#ddd3c6] rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+            <button onclick="closeTutorialModal()" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 font-bold text-lg">✕</button>
+            
+            <h3 id="tutTitle" class="text-xl font-bold text-[#2b2722] mb-3 brand-font flex items-center gap-2">
+                <span>💡</span> دليل استخدام أداة المخطط
+            </h3>
+            
+            <div id="tutBody" class="space-y-3 text-xs sm:text-sm text-[#2b2722]/80 leading-relaxed mb-6">
+                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
+                    <span class="font-bold text-[#9a7650]">1.</span>
+                    <p><strong>اختر شكل المطبخ:</strong> (خطي، حرف L، حرف U، متوازي، أو مع جزيرة) لتحديد هيكل الحوائط الأساسي.</p>
+                </div>
+                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
+                    <span class="font-bold text-[#9a7650]">2.</span>
+                    <p><strong>أدخل مقاسات الحوائط:</strong> بالسنتيمتر حسب أطوال مطبخك الحقيقية.</p>
+                </div>
+                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
+                    <span class="font-bold text-[#9a7650]">3.</span>
+                    <p><strong>أضف العناصر والأجهزة:</strong> من الأزرار الجانبية (ثلاجة، حوض، فرن، أبواب، شبابيك، نقاط كهرباء).</p>
+                </div>
+                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
+                    <span class="font-bold text-[#9a7650]">4.</span>
+                    <p><strong>حرك وعدل:</strong> اسحب العناصر داخل المخطط، أو انقر على أي عنصر لتعديل أبعاده بدقة من اللوحة الجانبية.</p>
+                </div>
+                <div class="flex items-start gap-3 bg-[#f4efe7] p-3 rounded-xl border border-[#ddd3c6]">
+                    <span class="font-bold text-[#9a7650]">5.</span>
+                    <p><strong>احفظ وأرسل:</strong> احفظ صورة المخطط على جهازك ثم أرسلها مباشرة للمهندس عبر واتساب للمراجعة والبدء بالتصميم التفصيلي.</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <button onclick="closeTutorialModal()" id="tutBtnClose" class="px-5 py-2.5 bg-[#9a7650] text-white rounded-xl font-bold text-xs shadow-md">
+                    فهمت، ابدأ الآن
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CANVAS EXPORT HIDDEN CONTAINER -->
+    <div id="exportContainer" class="hidden"></div>
+
+    <!-- MAIN JAVASCRIPT APP -->
+    <script>
+        /* ==========================================
+           CONFIGURATION SECTION
+           ========================================== */
+        const CONFIG = {
+            WHATSAPP_NUMBER: "966500000000", // ضع رقم الواتساب الخاص بك هنا بصيغة الدول بدون علامة +
+            SITE_URL: "https://mohamed-abdelhady.com/",
+            BRAND_NAME: "Mohamed Abdelhady",
+            DEFAULT_WALL_LENGTH: 420,
+            DEFAULT_LANGUAGE: "ar"
+        };
+
+        // Translations Dictionary
+        const TRANSLATIONS = {
+            ar: {
+                navHome: "الرئيسية",
+                badgeText: "مخطط مبدئي — ليس رسم تنفيذ",
+                mainTitle: "ارسم مطبخك بنفسك",
+                mainSubtitle: "أنشئ مخططًا مبدئيًا لمطبخك، أضف المقاسات والفتحات والأجهزة، ثم أرسل التصميم للمراجعة.",
+                txtHowTo: "كيف تستخدم الأداة؟",
+                txtRestore: "استعادة المحفوظ",
+                txtNew: "مخطط جديد",
+                lblShapeTitle: "1. شكل المطبخ (Kitchen Shape)",
+                shapeI: "خطي",
+                shapeL: "حرف L",
+                shapeU: "حرف U",
+                shapeParallel: "متوازي",
+                shapeIsland: "مع جزيرة",
+                lblDimTitle: "2. مقاسات الحوائط (سم)",
+                lblAddTitle: "3. إضافة عناصر ومعدات",
+                catArch: "الفتحات الهندسية",
+                itemDoor: "باب",
+                itemWindow: "شباك",
+                catApp: "الأجهزة والوحدات",
+                itemFridge: "ثلاجة",
+                itemOven: "فرن",
+                itemHob: "بوتاجاز (سطح)",
+                itemSink: "حوض",
+                itemDishwasher: "غسالة أطباق",
+                itemWash: "غسالة ملابس",
+                itemTall: "وحدة طويلة",
+                catServ: "نقاط الخدمات",
+                itemElec: "كهرباء",
+                itemWater: "مياه",
+                itemDrain: "صرف",
+                txtUndo: "تراجع",
+                txtRedo: "إعادة",
+                txtResetZoom: "إعادة ضبط",
+                txtClear: "مسح العناصر",
+                inspectorTitle: "العنصر المحدد",
+                txtDelete: "حذف",
+                lblWidth: "العرض (سم):",
+                lblHeight: "الارتفاع/العمق (سم):",
+                canvasHint: "💡 اسحب العناصر بالماوس أو الإصبع لتغيير أماكنها داخل المطبخ.",
+                txtSaveImg: "حفظ صورة PNG",
+                txtSendWhatsapp: "إرسال التصميم عبر WhatsApp",
+                modalTitle: "إرسال التصميم للمراجعة",
+                modalSubtitle: "املأ بياناتك أدناه لإرسال تفاصيل المخطط مباشرة إلى المهندس محمد عبدالهادي عبر واتساب.",
+                lblClientName: "الاسم الكريم:",
+                lblClientPhone: "رقم الواتساب:",
+                lblClientCity: "المدينة:",
+                lblClientNotes: "ملاحظات إضافية أو خامات مفضلة:",
+                btnCancel: "إلغاء",
+                btnSubmitWA: "فتح واتساب وإرسال",
+                tutTitle: "💡 دليل استخدام أداة المخطط",
+                tutBtnClose: "فهمت، ابدأ الآن"
+            },
+            en: {
+                navHome: "Home",
+                badgeText: "Preliminary sketch — not for execution",
+                mainTitle: "Sketch Your Kitchen",
+                mainSubtitle: "Create a simple kitchen layout, add dimensions, openings and appliances, then send it for review.",
+                txtHowTo: "How to use?",
+                txtRestore: "Restore Saved",
+                txtNew: "New Sketch",
+                lblShapeTitle: "1. Kitchen Shape",
+                shapeI: "I Shape",
+                shapeL: "L Shape",
+                shapeU: "U Shape",
+                shapeParallel: "Parallel",
+                shapeIsland: "With Island",
+                lblDimTitle: "2. Wall Dimensions (cm)",
+                lblAddTitle: "3. Add Items & Appliances",
+                catArch: "Architectural Openings",
+                itemDoor: "Door",
+                itemWindow: "Window",
+                catApp: "Appliances & Units",
+                itemFridge: "Fridge",
+                itemOven: "Oven",
+                itemHob: "Hob",
+                itemSink: "Sink",
+                itemDishwasher: "Dishwasher",
+                itemWash: "Washing Machine",
+                itemTall: "Tall Unit",
+                catServ: "Services Points",
+                itemElec: "Electrical",
+                itemWater: "Water",
+                itemDrain: "Drain",
+                txtUndo: "Undo",
+                txtRedo: "Redo",
+                txtResetZoom: "Reset Zoom",
+                txtClear: "Clear All",
+                inspectorTitle: "Selected Item",
+                txtDelete: "Delete",
+                lblWidth: "Width (cm):",
+                lblHeight: "Height/Depth (cm):",
+                canvasHint: "💡 Drag items with mouse or touch to position them inside the kitchen.",
+                txtSaveImg: "Save PNG",
+                txtSendWhatsapp: "Send via WhatsApp",
+                modalTitle: "Send Design for Review",
+                modalSubtitle: "Fill in your details below to send layout summary directly to Eng. Mohamed Abdelhady via WhatsApp.",
+                lblClientName: "Your Name:",
+                lblClientPhone: "WhatsApp Number:",
+                lblClientCity: "City:",
+                lblClientNotes: "Additional Notes or Preferences:",
+                btnCancel: "Cancel",
+                btnSubmitWA: "Open WhatsApp & Send",
+                tutTitle: "💡 Kitchen Planner Guide",
+                tutBtnClose: "Got it, Let's Start"
+            }
+        };
+
+        // Default Item Dimensions & Defaults
+        const ITEM_SPECS = {
+            Door: { width: 90, height: 10, type: 'arch', labelAr: 'باب', labelEn: 'Door' },
+            Window: { width: 120, height: 10, type: 'arch', labelAr: 'شباك', labelEn: 'Window' },
+            Fridge: { width: 90, height: 70, type: 'app', labelAr: 'ثلاجة', labelEn: 'Fridge' },
+            Oven: { width: 60, height: 60, type: 'app', labelAr: 'فرن', labelEn: 'Oven' },
+            Hob: { width: 80, height: 60, type: 'app', labelAr: 'بوتاجاز', labelEn: 'Hob' },
+            Sink: { width: 80, height: 60, type: 'app', labelAr: 'حوض', labelEn: 'Sink' },
+            Dishwasher: { width: 60, height: 60, type: 'app', labelAr: 'غسالة أطباق', labelEn: 'Dishwasher' },
+            WashingMachine: { width: 60, height: 60, type: 'app', labelAr: 'غسالة ملابس', labelEn: 'Washing Machine' },
+            TallUnit: { width: 60, height: 60, type: 'app', labelAr: 'وحدة طويلة', labelEn: 'Tall Unit' },
+            ElectricalOutlet: { width: 25, height: 25, type: 'service', labelAr: 'كهرباء', labelEn: 'Electrical' },
+            WaterPoint: { width: 25, height: 25, type: 'service', labelAr: 'مياه', labelEn: 'Water' },
+            DrainPoint: { width: 25, height: 25, type: 'service', labelAr: 'صرف', labelEn: 'Drain' }
+        };
+
+        // Application State
+        let state = {
+            lang: 'ar',
+            shape: 'I',
+            dimensions: {
+                mainWall: 420,
+                sideWall: 280,
+                thirdWall: 280,
+                island: 180
+            },
+            items: [],
+            selectedItemId: null,
+            history: [],
+            historyIndex: -1,
+            panX: 50,
+            panY: 50,
+            zoom: 1
+        };
+
+        // Dragging & Interaction State
+        let isDraggingCanvas = false;
+        let isDraggingItem = false;
+        let activeDraggedItemId = null;
+        let startMouseX = 0;
+        let startMouseY = 0;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+
+        // Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            loadFromLocalStorage();
+            updateLanguageUI();
+            renderDimensionsInputs();
+            setupCanvasEvents();
+            redrawCanvas();
+            checkRestoreButton();
+        });
+
+        /* ==========================================
+           LANGUAGE & LOCALIZATION
+           ========================================== */
+        function toggleLanguage() {
+            state.lang = state.lang === 'ar' ? 'en' : 'ar';
+            document.documentElement.setAttribute('lang', state.lang);
+            document.documentElement.setAttribute('dir', state.lang === 'ar' ? 'rtl' : 'ltr');
+            updateLanguageUI();
+            redrawCanvas();
+        }
+
+        function updateLanguageUI() {
+            const t = TRANSLATIONS[state.lang];
+            for (let key in t) {
+                const el = document.getElementById(key);
+                if (el) el.innerText = t[key];
+            }
+            // Update shape button labels
+            document.querySelectorAll('.shape-btn').forEach(btn => {
+                const s = btn.getAttribute('data-shape');
+                const spanSub = btn.querySelector('span:last-child');
+                if (spanSub) {
+                    if (s === 'I') spanSub.innerText = t.shapeI;
+                    if (s === 'L') spanSub.innerText = t.shapeL;
+                    if (s === 'U') spanSub.innerText = t.shapeU;
+                    if (s === 'Parallel') spanSub.innerText = t.shapeParallel;
+                    if (s === 'Island') spanSub.innerText = t.shapeIsland;
+                }
+            });
+        }
+
+        /* ==========================================
+           KITCHEN SHAPES & DIMENSIONS
+           ========================================== */
+        function setKitchenShape(shape) {
+            state.shape = shape;
+            // Update active state on shape buttons
+            document.querySelectorAll('.shape-btn').forEach(btn => {
+                if (btn.getAttribute('data-shape') === shape) {
+                    btn.classList.add('border-[#9a7650]', 'bg-[#9a7650]/10');
+                    btn.classList.remove('border-[#ddd3c6]', 'bg-[#f4efe7]/50');
+                } else {
+                    btn.classList.remove('border-[#9a7650]', 'bg-[#9a7650]/10');
+                    btn.classList.add('border-[#ddd3c6]', 'bg-[#f4efe7]/50');
+                }
+            });
+            renderDimensionsInputs();
+            recordHistory();
+            redrawCanvas();
+        }
+
+        function renderDimensionsInputs() {
+            const container = document.getElementById('dimensionsInputsContainer');
+            container.innerHTML = '';
+            const t = TRANSLATIONS[state.lang];
+
+            let fields = [];
+            if (state.shape === 'I') {
+                fields = [{ key: 'mainWall', label: state.lang === 'ar' ? 'الحائط الرئيسي (Main Wall)' : 'Main Wall' }];
+            } else if (state.shape === 'L') {
+                fields = [
+                    { key: 'mainWall', label: state.lang === 'ar' ? 'الحائط الرئيسي (Main Wall)' : 'Main Wall' },
+                    { key: 'sideWall', label: state.lang === 'ar' ? 'الحائط الجانبي (Side Wall)' : 'Side Wall' }
+                ];
+            } else if (state.shape === 'U') {
+                fields = [
+                    { key: 'mainWall', label: state.lang === 'ar' ? 'الحائط الرئيسي (Main Wall)' : 'Main Wall' },
+                    { key: 'sideWall', label: state.lang === 'ar' ? 'الحائط الجانبي الأول' : 'Side Wall 1' },
+                    { key: 'thirdWall', label: state.lang === 'ar' ? 'الحائط الجانبي الثاني' : 'Side Wall 2' }
+                ];
+            } else if (state.shape === 'Parallel') {
+                fields = [
+                    { key: 'mainWall', label: state.lang === 'ar' ? 'طول الحائطين (Length)' : 'Walls Length' },
+                    { key: 'sideWall', label: state.lang === 'ar' ? 'المسافة بين الحائطين' : 'Distance Between' }
+                ];
+            } else if (state.shape === 'Island') {
+                fields = [
+                    { key: 'mainWall', label: state.lang === 'ar' ? 'الحائط الرئيسي (Main Wall)' : 'Main Wall' },
+                    { key: 'island', label: state.lang === 'ar' ? 'طول الجزيرة (Island Length)' : 'Island Length' }
+                ];
+            }
+
+            fields.forEach(f => {
+                const val = state.dimensions[f.key] || 400;
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <label class="block text-xs font-medium text-[#2b2722]/80 mb-1">${f.label}</label>
+                    <div class="flex items-center gap-2">
+                        <input type="number" min="150" max="800" step="10" value="${val}" onchange="updateDimension('${f.key}', this.value)" class="w-full bg-[#f4efe7] border border-[#ddd3c6] rounded-lg px-3 py-1.5 text-xs font-semibold text-[#2b2722] focus:outline-none focus:border-[#9a7650]">
+                        <span class="text-xs text-[#2b2722]/60 font-medium">سم</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateDimension(key, val) {
+            let num = parseInt(val) || 100;
+            if (num < 100) num = 100;
+            if (num > 1000) num = 1000;
+            state.dimensions[key] = num;
+            recordHistory();
+            redrawCanvas();
+        }
+
+        /* ==========================================
+           ITEMS MANAGEMENT & PLACEMENT
+           ========================================== */
+        function addItem(itemType) {
+            const spec = ITEM_SPECS[itemType];
+            if (!spec) return;
+
+            const newItem = {
+                id: 'item_' + Date.now(),
+                type: itemType,
+                subType: spec.type,
+                width: spec.width,
+                height: spec.height,
+                x: 100 + (state.items.length * 20) % 150,
+                y: 100 + (state.items.length * 20) % 150,
+                labelAr: spec.labelAr,
+                labelEn: spec.labelEn
+            };
+
+            state.items.push(newItem);
+            selectItem(newItem.id);
+            recordHistory();
+            redrawCanvas();
+        }
+
+        function selectItem(id) {
+            state.selectedItemId = id;
+            const item = state.items.find(i => i.id === id);
+            const panel = document.getElementById('inspectorPanel');
+            if (item) {
+                panel.classList.remove('hidden');
+                document.getElementById('propWidth').value = item.width;
+                document.getElementById('propHeight').value = item.height;
+                document.getElementById('propX').value = Math.round(item.x);
+                document.getElementById('propY').value = Math.round(item.y);
+            } else {
+                panel.classList.add('hidden');
+            }
+            redrawCanvas();
+        }
+
+        function closeInspector() {
+            state.selectedItemId = null;
+            document.getElementById('inspectorPanel').classList.add('hidden');
+            redrawCanvas();
+        }
+
+        function updateSelectedItemProp(prop, val) {
+            if (!state.selectedItemId) return;
+            const item = state.items.find(i => i.id === state.selectedItemId);
+            if (!item) return;
+
+            let num = parseFloat(val) || 10;
+            if (prop === 'width' || prop === 'height') {
+                if (num < 5) num = 5;
+                if (num > 300) num = 300;
+            }
+            item[prop] = num;
+            recordHistory();
+            redrawCanvas();
+        }
+
+        function deleteSelectedItem() {
+            if (!state.selectedItemId) return;
+            state.items = state.items.filter(i => i.id !== state.selectedItemId);
+            closeInspector();
+            recordHistory();
+            redrawCanvas();
+        }
+
+        function clearAllItems() {
+            if (confirm(state.lang === 'ar' ? 'هل أنت متأكد من مسح جميع العناصر؟' : 'Are you sure you want to clear all items?')) {
+                state.items = [];
+                closeInspector();
+                recordHistory();
+                redrawCanvas();
+            }
+        }
+
+        /* ==========================================
+           CANVAS RENDERING & SVG ENGINE
+           ========================================== */
+        function redrawCanvas() {
+            const wallsGroup = document.getElementById('wallsGroup');
+            const dimensionsGroup = document.getElementById('dimensionsGroup');
+            const itemsGroup = document.getElementById('itemsGroup');
+
+            wallsGroup.innerHTML = '';
+            dimensionsGroup.innerHTML = '';
+            itemsGroup.innerHTML = '';
+
+            // Scale factor to convert cm to svg units (approx 1 cm = 1.2 px or dynamic)
+            const scale = 0.9;
+            const mainW = (state.dimensions.mainWall || 400) * scale;
+            const sideW = (state.dimensions.sideWall || 280) * scale;
+            const thirdW = (state.dimensions.thirdWall || 280) * scale;
+            const islandW = (state.dimensions.island || 180) * scale;
+
+            // Center origin offset
+            const startX = 150 + state.panX;
+            const startY = 120 + state.panY;
+
+            // Render Walls based on Shape
+            let wallPath = '';
+            if (state.shape === 'I') {
+                // Horizontal Wall
+                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+                // Wall Dimension Label
+                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
+            } else if (state.shape === 'L') {
+                // Main Wall (Horizontal) + Side Wall (Vertical)
+                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX}" y2="${startY + sideW}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+                
+                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
+                dimensionsGroup.innerHTML += `<text x="${startX - 25}" y="${startY + sideW/2}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold" transform="rotate(-90 ${startX - 25} ${startY + sideW/2})">${state.dimensions.sideWall} cm</text>`;
+            } else if (state.shape === 'U') {
+                // Left Wall + Main Wall + Right Wall
+                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY + sideW}" x2="${startX}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+                wallsGroup.innerHTML += `<line x1="${startX + mainW}" y1="${startY}" x2="${startX + mainW}" y2="${startY + thirdW}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+
+                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
+                dimensionsGroup.innerHTML += `<text x="${startX - 25}" y="${startY + sideW/2}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold" transform="rotate(-90 ${startX - 25} ${startY + sideW/2})">${state.dimensions.sideWall} cm</text>`;
+                dimensionsGroup.innerHTML += `<text x="${startX + mainW + 30}" y="${startY + thirdW/2}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold" transform="rotate(90 ${startX + mainW + 30} ${startY + thirdW/2})">${state.dimensions.thirdWall} cm</text>`;
+            } else if (state.shape === 'Parallel') {
+                // Two parallel walls
+                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY + sideW}" x2="${startX + mainW}" y2="${startY + sideW}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+
+                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
+                dimensionsGroup.innerHTML += `<text x="${startX - 25}" y="${startY + sideW/2}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold" transform="rotate(-90 ${startX - 25} ${startY + sideW/2})">${state.dimensions.sideWall} cm (Distance)</text>`;
+            } else if (state.shape === 'Island') {
+                // Main wall + Island block indicator
+                wallsGroup.innerHTML += `<line x1="${startX}" y1="${startY}" x2="${startX + mainW}" y2="${startY}" stroke="#2b2722" stroke-width="8" stroke-linecap="round"/>`;
+                dimensionsGroup.innerHTML += `<text x="${startX + mainW/2}" y="${startY - 15}" text-anchor="middle" fill="#9a7650" font-size="12" font-weight="bold">${state.dimensions.mainWall} cm</text>`;
+                
+                // Island outline preview
+                const islandX = startX + (mainW - islandW*scale)/2;
+                const islandY = startY + 160;
+                wallsGroup.innerHTML += `<rect x="${islandX}" y="${islandY}" width="${islandW*scale}" height="90" rx="6" fill="#fffdf9" stroke="#9a7650" stroke-dasharray="4" stroke-width="2"/>`;
+                dimensionsGroup.innerHTML += `<text x="${islandX + (islandW*scale)/2}" y="${islandY + 45}" text-anchor="middle" fill="#9a7650" font-size="11" font-weight="bold">Island (${state.dimensions.island} cm)</text>`;
+            }
+
+            // Render Items
+            state.items.forEach(item => {
+                const itemW = item.width * scale;
+                const itemH = item.height * scale;
+                const isSelected = item.id === state.selectedItemId;
+                const label = state.lang === 'ar' ? item.labelAr : item.labelEn;
+
+                let fillCol = "#fffdf9";
+                let strokeCol = isSelected ? "#9a7650" : "#ddd3c6";
+                let strokeW = isSelected ? "2.5" : "1.5";
+
+                if (item.subType === 'arch') {
+                    fillCol = "#e8dfd3";
+                } else if (item.subType === 'service') {
+                    fillCol = "#9a7650";
+                }
+
+                let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                g.setAttribute("transform", `translate(${startX + item.x}, ${startY + item.y})`);
+                g.setAttribute("class", "cursor-pointer transition-transform");
+                g.setAttribute("onmousedown", `startDragItem(evt, '${item.id}')`);
+                g.setAttribute("ontouchstart", `startDragItem(evt, '${item.id}')`);
+                g.setAttribute("onclick", `selectItem('${item.id}')`);
+
+                // Shape graphics based on item type
+                let innerSvg = `<rect width="${itemW}" height="${itemH}" rx="6" fill="${fillCol}" stroke="${strokeCol}" stroke-width="${strokeW}" />`;
+
+                if (item.type === 'Fridge') {
+                    innerSvg += `<line x1="${itemW*0.2}" y1="5" x2="${itemW*0.2}" y2="${itemH-5}" stroke="#9a7650" stroke-width="1.5" stroke-dasharray="2"/>`;
+                    innerSvg += `<text x="${itemW/2}" y="${itemH/2 + 4}" text-anchor="middle" font-size="10" fill="#2b2722" font-weight="bold">🧊 ${label}</text>`;
+                } else if (item.type === 'Sink') {
+                    innerSvg += `<circle cx="${itemW/2}" cy="${itemH/2}" r="${Math.min(itemW, itemH)*0.3}" fill="none" stroke="#9a7650" stroke-width="2"/>`;
+                    innerSvg += `<text x="${itemW/2}" y="${itemH - 6}" text-anchor="middle" font-size="9" fill="#2b2722">${label}</text>`;
+                } else if (item.type === 'Hob' || item.type === 'Oven') {
+                    innerSvg += `<circle cx="${itemW*0.3}" cy="${itemH*0.4}" r="6" fill="none" stroke="#9a7650" stroke-width="1.5"/>`;
+                    innerSvg += `<circle cx="${itemW*0.7}" cy="${itemH*0.4}" r="6" fill="none" stroke="#9a7650" stroke-width="1.5"/>`;
+                    innerSvg += `<text x="${itemW/2}" y="${itemH - 6}" text-anchor="middle" font-size="9" fill="#2b2722">${label}</text>`;
+                } else if (item.subType === 'service') {
+                    innerSvg += `<text x="${itemW/2}" y="${itemH/2 + 4}" text-anchor="middle" font-size="10" fill="#ffffff" font-weight="bold">${label[0]}</text>`;
+                } else {
+                    innerSvg += `<text x="${itemW/2}" y="${itemH/2 + 4}" text-anchor="middle" font-size="10" fill="#2b2722" font-weight="600">${label}</text>`;
+                }
+
+                // Dimension tag below/inside item
+                innerSvg += `<text x="${itemW/2}" y="${itemH + 12}" text-anchor="middle" font-size="8" fill="#9a7650">${item.width}×${item.height}</text>`;
+
+                g.innerHTML = innerSvg;
+                itemsGroup.appendChild(g);
+            });
+        }
+
+        /* ==========================================
+           DRAG & DROP / MOUSE & TOUCH INTERACTION
+           ========================================== */
+        function setupCanvasEvents() {
+            const svg = document.getElementById('kitchenCanvas');
+
+            // Mouse & Touch Pan on Canvas Background
+            svg.addEventListener('mousedown', (e) => {
+                if (e.target === svg || e.target.tagName === 'rect' && e.target.getAttribute('fill')?.includes('url')) {
+                    isDraggingCanvas = true;
+                    startMouseX = e.clientX;
+                    startMouseY = e.clientY;
+                }
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (isDraggingCanvas) {
+                    state.panX += (e.clientX - startMouseX);
+                    state.panY += (e.clientY - startMouseY);
+                    startMouseX = e.clientX;
+                    startMouseY = e.clientY;
+                    redrawCanvas();
+                } else if (isDraggingItem && activeDraggedItemId) {
+                    const item = state.items.find(i => i.id === activeDraggedItemId);
+                    if (item) {
+                        item.x += (e.clientX - startMouseX);
+                        item.y += (e.clientY - startMouseY);
+                        startMouseX = e.clientX;
+                        startMouseY = e.clientY;
+                        
+                        // Update inspector if active
+                        if (state.selectedItemId === item.id) {
+                            document.getElementById('propX').value = Math.round(item.x);
+                            document.getElementById('propY').value = Math.round(item.y);
+                        }
+                        redrawCanvas();
+                    }
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                if (isDraggingCanvas || isDraggingItem) {
+                    if (isDraggingItem) recordHistory();
+                    isDraggingCanvas = false;
+                    isDraggingItem = false;
+                    activeDraggedItemId = null;
+                }
+            });
+
+            // Touch Support for Mobile Dragging
+            svg.addEventListener('touchstart', (e) => {
+                if (e.target === svg || e.target.tagName === 'rect') {
+                    if (e.touches.length === 1) {
+                        isDraggingCanvas = true;
+                        startMouseX = e.touches[0].clientX;
+                        startMouseY = e.touches[0].clientY;
+                    }
+                }
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                if (isDraggingCanvas && e.touches.length === 1) {
+                    state.panX += (e.touches[0].clientX - startMouseX);
+                    state.panY += (e.touches[0].clientY - startMouseY);
+                    startMouseX = e.touches[0].clientX;
+                    startMouseY = e.touches[0].clientY;
+                    redrawCanvas();
+                } else if (isDraggingItem && activeDraggedItemId && e.touches.length === 1) {
+                    const item = state.items.find(i => i.id === activeDraggedItemId);
+                    if (item) {
+                        item.x += (e.touches[0].clientX - startMouseX);
+                        item.y += (e.touches[0].clientY - startMouseY);
+                        startMouseX = e.touches[0].clientX;
+                        startMouseY = e.touches[0].clientY;
+                        redrawCanvas();
+                    }
+                }
+            });
+
+            window.addEventListener('touchend', () => {
+                if (isDraggingItem) recordHistory();
+                isDraggingCanvas = false;
+                isDraggingItem = false;
+                activeDraggedItemId = null;
+            });
+        }
+
+        function startDragItem(evt, id) {
+            evt.stopPropagation();
+            isDraggingItem = true;
+            activeDraggedItemId = id;
+            selectItem(id);
+            if (evt.clientX) {
+                startMouseX = evt.clientX;
+                startMouseY = evt.clientY;
+            } else if (evt.touches && evt.touches[0]) {
+                startMouseX = evt.touches[0].clientX;
+                startMouseY = evt.touches[0].clientY;
+            }
+        }
+
+        function resetZoom() {
+            state.panX = 50;
+            state.panY = 50;
+            state.zoom = 1;
+            redrawCanvas();
+        }
+
+        /* ==========================================
+           UNDO / REDO / HISTORY
+           ========================================== */
+        function recordHistory() {
+            // Remove future states if any
+            state.history = state.history.slice(0, state.historyIndex + 1);
+            // Push clone of items and dimensions
+            const snapshot = JSON.stringify({
+                items: state.items,
+                dimensions: state.dimensions,
+                shape: state.shape
+            });
+            state.history.push(snapshot);
+            state.historyIndex = state.history.length - 1;
+            saveToLocalStorage();
+        }
+
+        function undo() {
+            if (state.historyIndex > 0) {
+                state.historyIndex--;
+                const stateData = JSON.parse(state.history[state.historyIndex]);
+                state.items = stateData.items;
+                state.dimensions = stateData.dimensions;
+                state.shape = stateData.shape;
+                renderDimensionsInputs();
+                redrawCanvas();
+                saveToLocalStorage();
+            }
+        }
+
+        function redo() {
+            if (state.historyIndex < state.history.length - 1) {
+                state.historyIndex++;
+                const stateData = JSON.parse(state.history[state.historyIndex]);
+                state.items = stateData.items;
+                state.dimensions = stateData.dimensions;
+                state.shape = stateData.shape;
+                renderDimensionsInputs();
+                redrawCanvas();
+                saveToLocalStorage();
+            }
+        }
+
+        /* ==========================================
+           LOCAL STORAGE PERSISTENCE
+           ========================================== */
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem('kitchen_sketch_project', JSON.stringify({
+                    shape: state.shape,
+                    dimensions: state.dimensions,
+                    items: state.items
+                }));
+                checkRestoreButton();
+            } catch(e) {}
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const saved = localStorage.getItem('kitchen_sketch_project');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    state.shape = data.shape || 'I';
+                    state.dimensions = data.dimensions || state.dimensions;
+                    state.items = data.items || [];
+                    setKitchenShape(state.shape);
+                    recordHistory();
+                } else {
+                    recordHistory();
+                }
+            } catch(e) {
+                recordHistory();
+            }
+        }
+
+        function restoreProject() {
+            loadFromLocalStorage();
+        }
+
+        function checkRestoreButton() {
+            const btn = document.getElementById('btnRestore');
+            if (localStorage.getItem('kitchen_sketch_project')) {
+                btn.classList.remove('hidden');
+            } else {
+                btn.classList.add('hidden');
+            }
+        }
+
+        function confirmNewProject() {
+            if (confirm(state.lang === 'ar' ? 'هل تريد بدء مخطط جديد؟ سيتم حذف المخطط الحالي.' : 'Start new sketch? Current layout will be cleared.')) {
+                localStorage.removeItem('kitchen_sketch_project');
+                state.items = [];
+                state.shape = 'I';
+                state.dimensions = { mainWall: 420, sideWall: 280, thirdWall: 280, island: 180 };
+                setKitchenShape('I');
+                closeInspector();
+                recordHistory();
+                checkRestoreButton();
+            }
+        }
+
+        /* ==========================================
+           MODALS (TUTORIAL & WHATSAPP SUBMISSION)
+           ========================================== */
+        function openTutorialModal() {
+            document.getElementById('tutorialModal').classList.remove('hidden');
+        }
+
+        function closeTutorialModal() {
+            document.getElementById('tutorialModal').classList.add('hidden');
+        }
+
+        function openSendModal() {
+            document.getElementById('sendModal').classList.remove('hidden');
+        }
+
+        function closeSendModal() {
+            document.getElementById('sendModal').classList.add('hidden');
+        }
+
+        /* ==========================================
+           EXPORT IMAGE & WHATSAPP SUBMISSION
+           ========================================== */
+        function saveAsImage() {
+            // High fidelity SVG export to PNG via Canvas
+            const svgElement = document.getElementById('kitchenCanvas');
+            const svgString = new XMLSerializer().serializeToString(svgElement);
+            const svgBlob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+            const URL = window.URL || window.webkitURL || window;
+            const blobURL = URL.createObjectURL(svgBlob);
+
+            const image = new Image();
+            image.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = 1200;
+                canvas.height = 800;
+                const ctx = canvas.getContext('2d');
+
+                // Fill luxury background
+                ctx.fillStyle = '#fffdf9';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Draw SVG
+                ctx.drawImage(image, 50, 50, canvas.width - 100, canvas.height - 150);
+
+                // Draw Watermark / Footer on image
+                ctx.fillStyle = '#2b2722';
+                ctx.font = 'bold 20px Playfair Display, serif';
+                ctx.fillText('Mohamed Abdelhady | Interior & Kitchen Designer', 50, canvas.height - 60);
+
+                ctx.fillStyle = '#9a7650';
+                ctx.font = '14px Cairo, sans-serif';
+                ctx.fillText('Preliminary sketch — not for execution | https://mohamed-abdelhady.com/', 50, canvas.height - 35);
+
+                // Trigger Download
+                const pngURL = canvas.toDataURL('image/png');
+                const downloadLink = document.createElement('a');
+                downloadLink.href = pngURL;
+                downloadLink.download = 'Mohamed-Abdelhady-Kitchen-Sketch.png';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            };
+            image.src = blobURL;
+        }
+
+        function submitToWhatsApp() {
+            const name = document.getElementById('clientName').value.trim() || (state.lang === 'ar' ? 'عميل الكريم' : 'Valued Client');
+            const phone = document.getElementById('clientPhone').value.trim() || 'N/A';
+            const city = document.getElementById('clientCity').value.trim() || (state.lang === 'ar' ? 'غير مدخلة' : 'Not specified');
+            const notes = document.getElementById('clientNotes').value.trim() || (state.lang === 'ar' ? 'لا توجد ملاحظات' : 'None');
+
+            // List items summary
+            const itemsSummary = state.items.map(i => state.lang === 'ar' ? i.labelAr : i.labelEn).join(', ') || (state.lang === 'ar' ? 'لا توجد عناصر مضافة' : 'No items added');
+
+            const message = `مرحبًا م. محمد عبدالهادي،\nأرغب في تصميم مطبخي.\n\n` +
+                `الاسم: ${name}\n` +
+                `رقم الهاتف: ${phone}\n` +
+                `المدينة: ${city}\n` +
+                `شكل المطبخ: ${state.shape} Shape\n` +
+                `المقاس الرئيسي: ${state.dimensions.mainWall} سم\n` +
+                `المقاس الجانبي: ${state.dimensions.sideWall || '-'} سم\n` +
+                `العناصر الموجودة: ${itemsSummary}\n` +
+                `ملاحظات: ${notes}\n\n` +
+                `تم إنشاء المخطط من Kitchen Sketch على موقع Mohamed Abdelhady.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const waNumber = CONFIG.WHATSAPP_NUMBER;
+            const waURL = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+
+            // Save image automatically before opening whatsapp
+            saveAsImage();
+
+            // Open WhatsApp
+            window.open(waURL, '_blank');
+            closeSendModal();
+
+            alert(state.lang === 'ar' ? 
+                'تم تجهيز الرسالة وحفظ صورة المخطط على جهازك.\nيرجى إرفاق صورة المخطط المحفوظة في محادثة الواتساب قبل الإرسال للمهندس محمد عبدالهادي.' :
+                'Message prepared and sketch image saved to your device.\nPlease attach the saved sketch image in the WhatsApp chat before sending to Eng. Mohamed Abdelhady.');
+        }
+    </script>
+</body>
+</html>
